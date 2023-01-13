@@ -1,6 +1,45 @@
-import { lato, gilroy, rubik } from 'src/fonts/fonts';
+import 'styled-components';
+import { DefaultTheme } from 'styled-components';
+import { lato, gilroy, rubik } from 'fonts';
 
-export const theme = {
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    space: number[];
+    fonts: {
+      body: string;
+      heading: string;
+      banner: string;
+    };
+    fontSizes: number[];
+    fontWeights: {
+      body: number;
+      heading: number;
+      medium: number;
+      semiBold: number;
+      bold: number;
+    };
+    lineHeights: {
+      body: number;
+      heading: number;
+    };
+    colors: {
+      primary: string;
+      secondary: string;
+      text:string;
+      white: string;
+      black: string;
+      mainBackground: string;
+      lightBackground: string;
+      darkBackground: string;
+      darkBorder: string;
+      lightBorder: string;
+      lightestBorder: string;
+    };
+    radii: number[];
+  }
+}
+
+export const theme: DefaultTheme = {
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {
     body: `${lato.style.fontFamily}, sans-serif`,

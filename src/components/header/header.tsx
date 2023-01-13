@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import { Box, Field } from '../common';
-import search from 'public/svg/search.svg';
+import { Box, Field } from 'components/common';
+import search from '../../../public/svg/search.svg';
 
 const Header = () => {
   const onClickSearchBtn = (
