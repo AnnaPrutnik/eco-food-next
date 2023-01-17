@@ -36,7 +36,7 @@ export const Section = styled.h2`
   font-size: ${(p) => p.theme.fontSizes[2]}px; //16
 
   @media screen and (min-width: 1200px) {
-    font-size: ${(p) => p.theme.fontSizes[5]}px; //40
+    font-size: ${(p) => p.theme.fontSizes[4]}px; //24
   }
 `;
 
