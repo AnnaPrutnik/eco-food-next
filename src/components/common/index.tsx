@@ -1,5 +1,5 @@
 import Box from './box';
 import Layout from './layout';
-import Field from './field';
+import { Input, Select } from './fields';
 
-export { Box, Layout, Field };
+export { Box, Layout, Input, Select };

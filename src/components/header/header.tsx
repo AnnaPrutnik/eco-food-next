@@ -1,28 +1,44 @@
 import React from 'react';
-import Image from 'next/image';
-import { Box, Field } from 'components/common';
-import search from '../../../public/svg/search.svg';
+import {
+  Formik,
+  FormikHelpers,
+  FormikProps,
+  Form,
+  Field,
+  FieldProps,
+} from 'formik';
+
+import { Box, Input } from 'components/common';
+import Search from 'components/svg/search';
+
+export interface FilterProps {
+  filter: string;
+}
 
 const Header = () => {
-  const onClickSearchBtn = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    console.log(e.target);
-  };
+  const initialValues: FilterProps = { filter: '' };
 
   return (
     <Box as='header' height='88px' px='48px' py='22px'>
-      <Box width='350px'>
-        <Field
-          width='270px'
-          border='none'
-          type='input'
-          hasIcon={true}
-          onClickIcon={onClickSearchBtn}
-        >
-          <Image src={search} alt='search btn' width={18} height={18} />
-        </Field>
-      </Box>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values, actions) => {
+          //ToDo: add searching logic
+          console.log(values);
+          actions.resetForm();
+        }}
+      >
+        <Form>
+          <Input
+            width='270px'
+            border='none'
+            icon={<Search />}
+            placeholder='Name of brand'
+            btnType='submit'
+            name='filter'
+          />
+        </Form>
+      </Formik>
     </Box>
   );
 };

@@ -1,16 +1,24 @@
 import styled, { css } from 'styled-components';
+import { Field } from 'formik';
 
 interface InputProps {
-  width?: string;
-  bg?: 'transparent' | 'light';
+  bg: 'transparent' | 'light';
   border: 'none' | 'light' | 'dark';
-  icon: boolean;
+  icon?: React.ReactNode | undefined;
 }
 
+//ToDo: change font styled from theme
 export const base = css<InputProps>`
   position: relative;
-  width: ${({ width }) => width};
-  height: 40px;
+  width: 100%;
+  height: 44px;
+  font-family: inherit;
+
+  /* font styling*/
+  font-size: 15px;
+  line-height: 20px;
+  /* font styling*/
+
   padding: 12px ${({ icon }) => (icon ? '40' : '16')}px 12px 16px;
   outline: none;
   border-radius: 10px;
@@ -28,14 +36,21 @@ export const base = css<InputProps>`
     }
   }};
 
-  &:placeholder {
+  &::placeholder {
     opacity: 0.5;
   }
 `;
 
-export const StyledLabel = styled.p`
+//ToDo: change text setting
+export const StyledLabel = styled.label`
+  display: block;
   margin-bottom: 8px;
   opacity: 0.8;
+
+  /* font styling*/
+  font-size: 13px;
+  line-height: 16px;
+  /* font styling*/
 `;
 
 export const StyledInput = styled.input`
@@ -43,7 +58,15 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledSelect = styled.select`
-  ${base}
+  ${base};
+
+  &::-ms-expand {
+    display: none;
+  }
+`;
+
+export const StyledOption = styled.option`
+  padding: 10px 15px;
 `;
 
 export const StyledButton = styled.button`
@@ -59,4 +82,10 @@ export const StyledButton = styled.button`
   border: none;
   outline: none;
   display: flex;
+  cursor: pointer;
+  stroke: ${({ theme }) => theme.colors.text};
+
+  &:hover {
+    stroke: ${({ theme }) => theme.colors.primary};
+  }
 `;
