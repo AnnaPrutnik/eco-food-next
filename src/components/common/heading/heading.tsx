@@ -6,7 +6,7 @@ interface IHeading {
   text: string;
 }
 
-const Heading: FC<IHeading> = ({ type, text }) => {
+export const Heading: FC<IHeading> = ({ type, text }) => {
   switch (type) {
     case "categorie":
       return <Categorie>{text}</Categorie>;
@@ -25,4 +25,4 @@ const Heading: FC<IHeading> = ({ type, text }) => {
   }
 };
 
-export default Heading;
+

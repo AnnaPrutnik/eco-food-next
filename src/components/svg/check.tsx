@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconProps } from './types';
+import { IconProps } from 'types';
 
 export const Check: React.FC<IconProps> = ({ width = 16, height = 13 }) => {
   return (
