@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { useField } from 'formik';
 import { CheckoutSelect, SelectLabel, FilterSelect } from './fields.styled';
 import { Box } from '../';
-import { IOption } from 'pages';
+import { IOption } from 'types';
 
 interface SelectProps {
   type: 'checkout' | 'filter';
