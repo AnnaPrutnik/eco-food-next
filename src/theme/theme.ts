@@ -8,7 +8,7 @@ export const theme = {
     heading: `${gilroy.style.fontFamily}, sans-serif`,
     banner: `${rubik.style.fontFamily}, sans-serif`,
   },
-  fontSizes: [12, 14, 16, 18, 24, 40, 68],
+  fontSizes: [12, 14, 16, 18, 24, 40, 56],
   fontWeights: {
     body: 400,
     heading: 700,
@@ -21,10 +21,15 @@ export const theme = {
     heading: 1.2,
     input: 1.25,
   },
+  letterSpacings: {
+    body: 'normal',
+    heading: "0.02em"
+  },
   colors: {
     primary: '#4C7C7D',
     secondary: '#E45959',
     text: '#383634',
+    heading: '#383634',
     white: '#fff',
     black: '#000',
     mainBackground:
