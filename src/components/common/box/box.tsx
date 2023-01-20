@@ -31,7 +31,7 @@ interface BoxProps
     GridProps,
     PositionProps {}
 
-const Box = styled.div<BoxProps>(
+export const Box = styled.div<BoxProps>(
   typography,
   color,
   space,
@@ -40,7 +40,5 @@ const Box = styled.div<BoxProps>(
   grid,
   position,
   border,
-  shadow,
+  shadow
 );
-
-export default Box;

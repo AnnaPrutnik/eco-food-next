@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: ${({ theme }) => theme.fonts.body};
+    height: 100vh;
   }
   
   a {
@@ -33,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     height: auto;
   }
+
 
   * {
     box-sizing: border-box;

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Heading } from "components/common";
 
+
 export default function Home() {
   return (
     <>
