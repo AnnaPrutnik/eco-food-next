@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: ${({ theme }) => theme.fonts.body};
+    height: 100vh;
   }
   
   a {

@@ -1,10 +1,7 @@
 import React from 'react';
+import { IconProps } from './types';
 
-interface IconProps {
-  width?: number;
-  height?: number;
-}
-const Search = ({ width = 18, height = 18 }: IconProps) => {
+export const Search: React.FC<IconProps> = ({ width = 18, height = 18 }) => {
   return (
     <svg
       width={`${width}`}
@@ -29,5 +26,3 @@ const Search = ({ width = 18, height = 18 }: IconProps) => {
     </svg>
   );
 };
-
-export default Search;

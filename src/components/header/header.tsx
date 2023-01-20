@@ -9,13 +9,13 @@ import {
 } from 'formik';
 
 import { Box, Input } from 'components/common';
-import Search from 'components/svg/search';
+import { Search } from 'components/svg/search';
 
 export interface FilterProps {
   filter: string;
 }
 
-const Header = () => {
+export const Header = () => {
   const initialValues: FilterProps = { filter: '' };
 
   return (
@@ -29,18 +29,9 @@ const Header = () => {
         }}
       >
         <Form>
-          <Input
-            width='270px'
-            border='none'
-            icon={<Search />}
-            placeholder='Name of brand'
-            btnType='submit'
-            name='filter'
-          />
+          <Input type='search' name='filter' />
         </Form>
       </Formik>
     </Box>
   );
 };
-
-export default Header;

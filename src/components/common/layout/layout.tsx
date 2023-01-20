@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from 'components/header';
+import { Header } from 'components/';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Header />
@@ -13,5 +13,3 @@ const Layout = ({ children }: LayoutProps) => {
     </>
   );
 };
-
-export default Layout;

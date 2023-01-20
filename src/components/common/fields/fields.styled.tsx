@@ -1,30 +1,28 @@
 import styled, { css } from 'styled-components';
-import { Field } from 'formik';
+import Select from 'react-select';
+import { space, SpaceProps } from 'styled-system';
 
 interface InputProps {
   bg: 'transparent' | 'light';
   border: 'none' | 'light' | 'dark';
-  icon?: React.ReactNode | undefined;
+  icon?: boolean | undefined;
 }
 
-//ToDo: change font styled from theme
 export const base = css<InputProps>`
   position: relative;
   width: 100%;
-  height: 44px;
+  height: 100%;
   font-family: inherit;
-
-  /* font styling*/
-  font-size: 15px;
-  line-height: 20px;
-  /* font styling*/
-
-  padding: 12px ${({ icon }) => (icon ? '40' : '16')}px 12px 16px;
-  outline: none;
-  border-radius: 10px;
+  font-size: ${({ theme }) => theme.fontSizes[2]};
+  line-height: ${({ theme }) => theme.lineHeights.input};
+  padding-right: ${({ theme, icon }) =>
+    icon ? theme.space[11] : theme.space[5]}px;
+  padding-left: ${({ theme }) => theme.space[5]}px;
+  border-radius: ${({ theme }) => theme.radii[0]}px;
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ bg, theme }) =>
     bg === 'light' ? theme.colors.white : 'transparent'};
+  outline: none;
   border: ${({ border, theme }) => {
     switch (border) {
       case 'dark':
@@ -32,60 +30,160 @@ export const base = css<InputProps>`
       case 'light':
         return `1px solid ${theme.colors.lightBorder}`;
       default:
-        return 'none';
+        return '1px solid transparent';
     }
   }};
 
   &::placeholder {
     opacity: 0.5;
   }
+
+  &:focus,
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.primary};
+
+    & ~ button {
+      stroke: ${({ theme }) => theme.colors.primary};
+    }
+  }
 `;
 
-//ToDo: change text setting
-export const StyledLabel = styled.label`
+export const baseLabel = css<SpaceProps>`
+  ${space}
   display: block;
-  margin-bottom: 8px;
   opacity: 0.8;
-
-  /* font styling*/
-  font-size: 13px;
-  line-height: 16px;
-  /* font styling*/
 `;
 
+export const InputLabel = styled.label`
+  ${baseLabel}
+  font-size: ${({ theme }) => theme.fontSizes[0]}px;
+  line-height: ${({ theme }) => theme.lineHeights.input};
+`;
+
+export const SelectLabel = styled.label`
+  ${baseLabel}
+  font-size: ${({ theme }) => theme.fontSizes[0]}px;
+  line-height: ${({ theme }) => theme.lineHeights.input};
+`;
 export const StyledInput = styled.input`
   ${base}
 `;
 
-export const StyledSelect = styled.select`
-  ${base};
+const selectBase = css`
+  .custom-select {
+    &__indicator-separator {
+      display: none;
+    }
 
-  &::-ms-expand {
-    display: none;
+    &__control {
+      border: 1px solid;
+      border-color: ${({ theme }) => theme.colors.lightBorder};
+      border-radius: ${({ theme }) => theme.radii[0]}px;
+      box-shadow: none;
+      font-size: ${({ theme }) => theme.fontSizes[1]}px !important;
+      line-height: ${({ theme }) => theme.lineHeights.heading} !important;
+
+      &:hover {
+        border-color: ${({ theme }) => theme.colors.primary} !important;
+
+        & .custom-select__indicator {
+          color: ${({ theme }) => theme.colors.primary} !important;
+        }
+      }
+
+      &--menu-is-open {
+        border-color: ${({ theme }) => theme.colors.primary} !important;
+
+        & .custom-select__indicator {
+          transform: rotate(180deg);
+          color: ${({ theme }) => theme.colors.primary} !important;
+        }
+      }
+    }
+
+    &__input-container {
+      color: ${({ theme }) => theme.colors.text} !important;
+    }
+
+    &__indicator {
+      cursor: pointer;
+      color: ${({ theme }) => theme.colors.text} !important;
+    }
+
+    &__menu {
+      border-radius: ${({ theme }) => theme.radii[0]}px;
+    }
+
+    &__option {
+      cursor: pointer;
+      font-size: ${({ theme }) => theme.fontSizes[1]}px !important;
+      line-height: ${({ theme }) => theme.lineHeights.heading} !important;
+
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.darkBackground};
+      }
+
+      &--is-selected,
+      &--is-selected:hover {
+        background-color: ${({ theme }) => theme.colors.primary};
+      }
+    }
   }
 `;
 
-export const StyledOption = styled.option`
-  padding: 10px 15px;
+export const FilterSelect = styled(Select)`
+  ${selectBase};
+  .custom-select {
+    &__control {
+      min-height: 40px;
+      width: 148px;
+      background-color: transparent;
+      border-color: ${({ theme }) => theme.colors.darkBorder};
+    }
+  }
 `;
 
-export const StyledButton = styled.button`
+export const CheckoutSelect = styled(Select)`
+  ${selectBase};
+
+  .custom-select__control {
+    min-height: 44px;
+  }
+`;
+
+export const btnBase = css`
   position: absolute;
-  right: 16px;
-  top: 50%;
   padding: 0;
   margin: 0;
-  display: block;
+  border: none;
+  outline: none;
+  cursor: pointer;
+`;
+
+export const SearchButton = styled.button`
+  ${btnBase};
+  right: 16px;
+  top: 50%;
   background-color: transparent;
   transform: translateY(-50%);
   color: ${({ theme }) => theme.colors.text};
-  border: none;
-  outline: none;
   display: flex;
-  cursor: pointer;
   stroke: ${({ theme }) => theme.colors.text};
 
   &:hover {
     stroke: ${({ theme }) => theme.colors.primary};
   }
+`;
+
+export const SendButton = styled.button`
+  ${btnBase};
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background-color: ${({ theme }) => theme.colors.text};
+  border-top-right-radius: ${({ theme }) => theme.radii[0]}px;
+  border-bottom-right-radius: ${({ theme }) => theme.radii[0]}px;
+
+  stroke: ${({ theme }) => theme.colors.white};
 `;
