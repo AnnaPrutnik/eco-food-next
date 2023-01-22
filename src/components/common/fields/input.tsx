@@ -5,15 +5,18 @@ import {
   SearchButton,
   SendButton,
   InputLabel,
+  PriceInput,
+  PriceLabel,
+  SearchInput,
 } from './fields.styled';
 import { Box, Search, Check } from 'components';
 
 interface InputProps {
-  type: 'search' | 'filter' | 'checkout' | 'email';
+  type: 'search' | 'filter' | 'checkout' | 'email' | 'price';
   name: string;
   label?: string;
   inputType?: 'text' | 'email' | 'phone';
-  onClickAction?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onChangeInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input = ({
@@ -21,19 +24,19 @@ export const Input = ({
   name,
   label,
   inputType = 'text',
-  onClickAction,
+  onChangeInput,
 }: InputProps) => {
   if (type === 'search') {
     return (
       <Box maxWidth='270px' height='44px' position='relative'>
         <Field name={name}>
           {({ field }: { field: FieldInputProps<any> }) => (
-            <StyledInput
+            <SearchInput
               border='none'
               bg='light'
               icon={true}
               placeholder='Search'
-              type={inputType}
+              type='text'
               {...field}
               autoComplete='off'
             />
@@ -49,22 +52,38 @@ export const Input = ({
   if (type === 'filter') {
     return (
       <Box width='100%' height='40px' position='relative'>
+        <StyledInput
+          border='dark'
+          bg='transparent'
+          icon={true}
+          placeholder='Name of brand'
+          type='text'
+          name={name}
+          onChange={onChangeInput}
+          autoComplete='off'
+        />
+        <SearchButton type='button'>
+          <Search />
+        </SearchButton>
+      </Box>
+    );
+  }
+
+  if (type === 'price') {
+    return (
+      <Box width='68px' height='40px' position='relative'>
         <Field name={name}>
           {({ field }: { field: FieldInputProps<any> }) => (
-            <StyledInput
+            <PriceInput
               border='dark'
               bg='transparent'
-              icon={true}
-              placeholder='Name of brand'
-              type='text'
+              type='number'
               {...field}
               autoComplete='off'
             />
           )}
         </Field>
-        <SearchButton type='button' onClick={onClickAction}>
-          <Search />
-        </SearchButton>
+        <PriceLabel>{label}</PriceLabel>
       </Box>
     );
   }

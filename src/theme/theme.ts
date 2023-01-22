@@ -23,7 +23,7 @@ export const theme = {
   },
   letterSpacings: {
     body: 'normal',
-    heading: "0.02em"
+    heading: '0.02em',
   },
   colors: {
     primary: '#4C7C7D',
@@ -41,4 +41,5 @@ export const theme = {
     lightestBorder: 'rgba(56, 54, 52, 0.1)',
   },
   radii: [10, 20, 24],
+  transition: '0.5s ease-out',
 };
