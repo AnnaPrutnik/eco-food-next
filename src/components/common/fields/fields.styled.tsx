@@ -13,7 +13,7 @@ export const base = css<InputProps>`
   width: 100%;
   height: 100%;
   font-family: inherit;
-  font-size: ${({ theme }) => theme.fontSizes[2]};
+  font-size: ${({ theme }) => theme.fontSizes[1]}px;
   line-height: ${({ theme }) => theme.lineHeights.input};
   padding-right: ${({ theme, icon }) =>
     icon ? theme.space[11] : theme.space[5]}px;
@@ -33,6 +33,7 @@ export const base = css<InputProps>`
         return '1px solid transparent';
     }
   }};
+  transition: ${({ theme }) => `all ${theme.transition}`};
 
   &::placeholder {
     opacity: 0.5;
@@ -45,6 +46,10 @@ export const base = css<InputProps>`
     & ~ button {
       stroke: ${({ theme }) => theme.colors.primary};
     }
+  }
+
+  &: focus {
+    box-shadow: ${({ theme }) => `0px 4px 6px -5px ${theme.colors.primary}`};
   }
 `;
 
@@ -69,6 +74,22 @@ export const StyledInput = styled.input`
   ${base}
 `;
 
+export const PriceInput = styled.input`
+  ${base};
+  padding-left: 25px;
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+`;
+
+export const SearchInput = styled.input`
+  ${base};
+  font-size: ${({ theme }) => theme.fontSizes[2]}px;
+`;
+
 const selectBase = css`
   .custom-select {
     &__indicator-separator {
@@ -82,6 +103,7 @@ const selectBase = css`
       box-shadow: none;
       font-size: ${({ theme }) => theme.fontSizes[1]}px !important;
       line-height: ${({ theme }) => theme.lineHeights.heading} !important;
+      transition: ${({ theme }) => `all ${theme.transition}`};
 
       &:hover {
         border-color: ${({ theme }) => theme.colors.primary} !important;
@@ -93,6 +115,8 @@ const selectBase = css`
 
       &--menu-is-open {
         border-color: ${({ theme }) => theme.colors.primary} !important;
+        box-shadow: ${({ theme }) =>
+          `0px 4px 6px -5px ${theme.colors.primary}`};
 
         & .custom-select__indicator {
           transform: rotate(180deg);
@@ -186,4 +210,11 @@ export const SendButton = styled.button`
   border-bottom-right-radius: ${({ theme }) => theme.radii[0]}px;
 
   stroke: ${({ theme }) => theme.colors.white};
+`;
+
+export const PriceLabel = styled.p`
+  position: absolute;
+  top: 18px;
+  transform: translateY(-50%);
+  left: 12px;
 `;
