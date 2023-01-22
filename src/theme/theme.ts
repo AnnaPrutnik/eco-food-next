@@ -1,5 +1,5 @@
-import 'styled-components';
-import { lato, gilroy, rubik } from 'fonts';
+import "styled-components";
+import { lato, gilroy, rubik } from "fonts";
 
 export const theme = {
   space: [0, 2, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 64, 128, 256],
@@ -22,23 +22,30 @@ export const theme = {
     input: 1.25,
   },
   letterSpacings: {
-    body: 'normal',
-    heading: "0.02em"
+    body: "normal",
+    heading: "0.02em",
   },
   colors: {
-    primary: '#4C7C7D',
-    secondary: '#E45959',
-    text: '#383634',
-    heading: '#383634',
-    white: '#fff',
-    black: '#000',
+    primary: "#4C7C7D",
+    secondary: "#E45959",
+    text: "#383634",
+    heading: "#383634",
+    white: "#fff",
+    black: "#000",
     mainBackground:
-      'linear-gradient(325.65deg, rgba(237, 234, 231, 0.5) 0%, rgba(252, 250, 249, 0.5) 100%), #F5F3F1;',
-    lightBackground: '#F5F3F1',
-    darkBackground: '#EDEAE7',
-    darkBorder: 'rgba(56, 54, 52, 0.3)',
-    lightBorder: '#EDEAE7',
-    lightestBorder: 'rgba(56, 54, 52, 0.1)',
+      "linear-gradient(325.65deg, rgba(237, 234, 231, 0.5) 0%, rgba(252, 250, 249, 0.5) 100%), #F5F3F1;",
+    lightBackground: "#F5F3F1",
+    darkBackground: "#EDEAE7",
+    darkBorder: "rgba(56, 54, 52, 0.3)",
+    lightBorder: "#EDEAE7",
+    lightestBorder: "rgba(56, 54, 52, 0.1)",
   },
   radii: [10, 20, 24],
+  breakpoints: {
+    xs: "0px",
+    sm: "375px",
+    md: "768px",
+    lg: "1200px",
+    xl: "1440px",
+  },
 };
