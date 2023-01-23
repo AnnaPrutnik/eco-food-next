@@ -6,8 +6,8 @@ export const RemoveIcon = () => {
       <path
         d='M13 6L1 6'
         stroke='inherit'
-        stroke-width='1.5'
-        stroke-linecap='round'
+        strokeWidth='1.5'
+        strokeLinecap='round'
       />
     </svg>
   );

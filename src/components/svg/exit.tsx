@@ -6,8 +6,8 @@ export const ExitIcon = () => {
       <path
         d='M1 1L6 6M6 6L11 1M6 6L1 11M6 6L11 11'
         stroke='inherit'
-        stroke-width='1.5'
-        stroke-linecap='round'
+        strokeWidth='1.5'
+        strokeLinecap='round'
       />
     </svg>
   );

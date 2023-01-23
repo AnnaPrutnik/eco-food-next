@@ -6,8 +6,8 @@ export const ArrowIcon = () => {
       <path
         d='M6.5 1L1.5 6L6.5 11'
         stroke='inherit'
-        stroke-width='1.5'
-        stroke-linecap='round'
+        strokeWidth='1.5'
+        strokeLinecap='round'
       />
     </svg>
   );
