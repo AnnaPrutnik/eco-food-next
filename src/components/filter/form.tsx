@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
-import { Formik, Field } from 'formik';
-import { Box, CheckboxGroup, Heading, Input, Select } from 'components';
+import { Formik } from 'formik';
+import {
+  Box,
+  CheckboxGroup,
+  Heading,
+  Input,
+  Select,
+  Slider,
+  LoadMoreIcon,
+} from 'components';
 import { brands as defaultBrands, country, filterProducts } from './db';
 import { ICheckBox } from 'types';
 import { StyledForm } from './form.styled';
@@ -24,6 +32,10 @@ export const FormTest: React.FC<FormTestProps> = () => {
     <Box width='30%' ml={4}>
       <Heading text='Form Test' type='product' />
       <Heading text='inputs' type='card' />
+      <div style={{ stroke: '#363636' }}>
+        <LoadMoreIcon />
+      </div>
+
       <Formik
         initialValues={{
           firstName: '',
@@ -31,7 +43,7 @@ export const FormTest: React.FC<FormTestProps> = () => {
           filtering: filterProducts[0].value,
           brands: [],
           priceFrom: 0,
-          priceTo: 20,
+          priceTo: 150,
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -40,15 +52,16 @@ export const FormTest: React.FC<FormTestProps> = () => {
         <StyledForm>
           <Input type='checkout' name='firstName' label='First name' />
           <Input type='email' name='sendEmail' />
-          <Box
-            display='flex'
-            justifyContent='space-between'
-            alignItems='center'
-          >
-            <p>From: </p>
-            <Input type='price' name='priceFrom' label='$' />
-            <p>To</p>
-            <Input type='price' name='priceTo' label='$' />
+          <Slider start='priceFrom' end='priceTo' max={500} />
+          <Box display='flex' alignItems='center'>
+            <Box mr={5} display='flex' alignItems='center'>
+              <p style={{ opacity: 0.5, marginRight: '12px' }}>From: </p>
+              <Input type='price' name='priceFrom' label='$' />
+            </Box>
+            <Box display='flex' alignItems='center'>
+              <p style={{ opacity: 0.5, marginRight: '12px' }}>To</p>
+              <Input type='price' name='priceTo' label='$' />
+            </Box>
           </Box>
 
           <Select

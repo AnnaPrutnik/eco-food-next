@@ -18,6 +18,7 @@ Components:
    - filter - search input in filter (part with brands);
    - checkout - inputs in checkout;
    - email - input in footer;
+   - price - input in filter for price ranging
      //ToDo: for registration form
    - date => birthday;
    - password

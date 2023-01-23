@@ -53,23 +53,6 @@ export const base = css<InputProps>`
   }
 `;
 
-export const baseLabel = css<SpaceProps>`
-  ${space}
-  display: block;
-  opacity: 0.8;
-`;
-
-export const InputLabel = styled.label`
-  ${baseLabel}
-  font-size: ${({ theme }) => theme.fontSizes[0]}px;
-  line-height: ${({ theme }) => theme.lineHeights.input};
-`;
-
-export const SelectLabel = styled.label`
-  ${baseLabel}
-  font-size: ${({ theme }) => theme.fontSizes[0]}px;
-  line-height: ${({ theme }) => theme.lineHeights.input};
-`;
 export const StyledInput = styled.input`
   ${base}
 `;
@@ -88,6 +71,24 @@ export const PriceInput = styled.input`
 export const SearchInput = styled.input`
   ${base};
   font-size: ${({ theme }) => theme.fontSizes[2]}px;
+`;
+
+export const baseLabel = css<SpaceProps>`
+  ${space}
+  display: block;
+  opacity: 0.8;
+`;
+
+export const InputLabel = styled.label`
+  ${baseLabel}
+  font-size: ${({ theme }) => theme.fontSizes[0]}px;
+  line-height: ${({ theme }) => theme.lineHeights.input};
+`;
+
+export const SelectLabel = styled.label`
+  ${baseLabel}
+  font-size: ${({ theme }) => theme.fontSizes[0]}px;
+  line-height: ${({ theme }) => theme.lineHeights.input};
 `;
 
 const selectBase = css`
