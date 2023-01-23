@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <div>
         <Heading type='filter' text='drieD frUiTs' />
-        <Rating score={3.3}/>
+        <Rating type='full' score={3.3}/>
         <FormTest />
       </div>
     </>
