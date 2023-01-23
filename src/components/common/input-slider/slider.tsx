@@ -10,15 +10,15 @@ interface SliderProps {
 }
 
 export const Slider: React.FC<SliderProps> = ({ start, end, max }) => {
-  const startField = useField(start);
-  const endField = useField(end);
+  const [startField] = useField(start);
+  const [endField] = useField(end);
 
   const leftPosition = useMemo(() => {
-    return Math.ceil((startField[0].value / max) * 100 + 0.1);
+    return Math.ceil((startField.value / max) * 100 + 0.1);
   }, [startField, max]);
 
   const rightPosition = useMemo(() => {
-    return Math.ceil(100 - (endField[0].value / max) * 100 - 0.1);
+    return Math.ceil(100 - (endField.value / max) * 100 - 0.1);
   }, [endField, max]);
 
   return (
@@ -42,16 +42,16 @@ export const Slider: React.FC<SliderProps> = ({ start, end, max }) => {
             type='range'
             min={0}
             max={max}
-            value={startField[0].value}
-            onChange={startField[0].onChange}
+            value={startField.value}
+            onChange={startField.onChange}
           />
           <SliderThumb
             name={end}
             type='range'
             min={0}
             max={max}
-            value={endField[0].value}
-            onChange={endField[0].onChange}
+            value={endField.value}
+            onChange={endField.onChange}
           />
         </Box>
       </Box>

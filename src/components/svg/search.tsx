@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Search = () => {
+export const SearchIcon = () => {
   return (
     <svg width='18' height='18' viewBox='0 0 18 18' fill='none'>
       <path

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Check = () => {
+export const CheckIcon = () => {
   return (
     <svg width='16' height='13' viewBox='0 0 16 13' fill='none'>
       <path

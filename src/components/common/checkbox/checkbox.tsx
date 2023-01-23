@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { StyledCheckbox, StyledSpan, StyledLabel } from './checkbox.styled';
-import { Check } from 'components';
+import { CheckIcon } from 'components';
 import { useField } from 'formik';
 
 interface CheckboxProps {
@@ -25,7 +25,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({ id, value, name }) => {
         value={id}
       />
       <StyledSpan isChecked={isChecked} aria-hidden='true'>
-        <Check />
+        <CheckIcon />
       </StyledSpan>
       {value}
     </StyledLabel>

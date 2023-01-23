@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
-import { Formik, Field } from 'formik';
-import { Box, CheckboxGroup, Heading, Input, Select, Slider } from 'components';
+import { Formik } from 'formik';
+import {
+  Box,
+  CheckboxGroup,
+  Heading,
+  Input,
+  Select,
+  Slider,
+  LoadMoreIcon,
+} from 'components';
 import { brands as defaultBrands, country, filterProducts } from './db';
 import { ICheckBox } from 'types';
 import { StyledForm } from './form.styled';
@@ -24,6 +32,10 @@ export const FormTest: React.FC<FormTestProps> = () => {
     <Box width='30%' ml={4}>
       <Heading text='Form Test' type='product' />
       <Heading text='inputs' type='card' />
+      <div style={{ stroke: '#363636' }}>
+        <LoadMoreIcon />
+      </div>
+
       <Formik
         initialValues={{
           firstName: '',

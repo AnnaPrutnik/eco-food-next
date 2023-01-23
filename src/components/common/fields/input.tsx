@@ -9,7 +9,7 @@ import {
   PriceLabel,
   SearchInput,
 } from './fields.styled';
-import { Box, Search, Check } from 'components';
+import { Box, SearchIcon, CheckIcon } from 'components';
 
 interface InputProps {
   type: 'search' | 'filter' | 'checkout' | 'email' | 'price';
@@ -43,7 +43,7 @@ export const Input = ({
           )}
         </Field>
         <SearchButton type='submit'>
-          <Search />
+          <SearchIcon />
         </SearchButton>
       </Box>
     );
@@ -63,7 +63,7 @@ export const Input = ({
           autoComplete='off'
         />
         <SearchButton type='button'>
-          <Search />
+          <SearchIcon />
         </SearchButton>
       </Box>
     );
@@ -129,7 +129,7 @@ export const Input = ({
       </Field>
 
       <SendButton type='submit'>
-        <Check />
+        <CheckIcon />
       </SendButton>
     </Box>
   );
