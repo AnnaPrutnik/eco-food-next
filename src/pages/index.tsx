@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { Heading } from 'components';
-import { FormTest } from 'components';
+import { Heading, FormTest, Rating } from 'components';
 
 export default function Home() {
   return (
@@ -12,7 +11,8 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div>
-        <Heading type='categorie' text='drieD frUiTs' />
+        <Heading type='filter' text='drieD frUiTs' />
+        <Rating score={3.3}/>
         <FormTest />
       </div>
     </>
