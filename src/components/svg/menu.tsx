@@ -6,8 +6,8 @@ export const MenuIcon = () => {
       <path
         d='M1 1H23M1 9H23M1 17H23'
         stroke='inherit'
-        stroke-width='2'
-        stroke-linecap='round'
+        strokeWidth='2'
+        strokeLinecap='round'
       />
     </svg>
   );
