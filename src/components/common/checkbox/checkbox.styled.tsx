@@ -12,23 +12,20 @@ export const CheckboxList = styled.ul`
   }
 
   &::-webkit-scrollbar-track {
-    background: #${({ theme }) => theme.colors.lightBackground};
+    background: ${({ theme }) => theme.colors.lightBackground};
   }
 
   &::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.text};
     border-radius: 1.5px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    cursor: pointer;
   }
 `;
 
 export const StyledLabel = styled.label`
   display: flex;
-  font-size: 15px;
-  line-height: 1.2;
+  font-size: ${({ theme }) => theme.fontSizes[1]}px;
+  line-height: ${({ theme }) => theme.lineHeights.heading};
   align-items: center;
 
   & svg {

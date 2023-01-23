@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const CheckIcon = () => {
+export const AddIcon = () => {
   return (
-    <svg width='16' height='13' viewBox='0 0 16 13' fill='none'>
+    <svg width='14' height='14' viewBox='0 0 14 14' fill='none'>
       <path
-        d='M1.33301 5.85L6.66634 11.05L14.6663 1.95'
+        d='M7 1V13M1 7H13'
         stroke='inherit'
         strokeWidth='1.5'
         strokeLinecap='round'

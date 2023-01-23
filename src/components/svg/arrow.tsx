@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const CheckIcon = () => {
+export const ArrowIcon = () => {
   return (
-    <svg width='16' height='13' viewBox='0 0 16 13' fill='none'>
+    <svg width='8' height='12' viewBox='0 0 8 12' fill='none'>
       <path
-        d='M1.33301 5.85L6.66634 11.05L14.6663 1.95'
+        d='M6.5 1L1.5 6L6.5 11'
         stroke='inherit'
         strokeWidth='1.5'
         strokeLinecap='round'

@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const CheckIcon = () => {
+export const RemoveIcon = () => {
   return (
-    <svg width='16' height='13' viewBox='0 0 16 13' fill='none'>
+    <svg width='14' height='12' viewBox='0 0 14 12' fill='none'>
       <path
-        d='M1.33301 5.85L6.66634 11.05L14.6663 1.95'
+        d='M13 6L1 6'
         stroke='inherit'
         strokeWidth='1.5'
         strokeLinecap='round'
