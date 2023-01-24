@@ -1,5 +1,7 @@
 export * from './search';
 export * from './check';
+export * from './star'
+export * from './smallStar'
 export * from './categories';
 export * from './add';
 export * from './cart';
