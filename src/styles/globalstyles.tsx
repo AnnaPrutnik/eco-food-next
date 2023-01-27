@@ -30,6 +30,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  ul,
+  ol {
+    list-style: none;
+  }
+
   img {
     display: block;
     max-width: 100%;
