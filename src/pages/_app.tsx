@@ -3,9 +3,10 @@ import { AppProps } from 'next/app';
 import { Layout } from 'components';
 import { NextUIProvider } from '@nextui-org/react';
 import { theme } from 'styles/theme';
-import 'styles/global-styled.css';
+import { globalStyles } from 'styles/global-styles';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
+  globalStyles();
   return (
     <NextUIProvider theme={theme} disableBaseline>
       <Layout>

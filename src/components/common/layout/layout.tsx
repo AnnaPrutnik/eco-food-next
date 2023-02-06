@@ -7,7 +7,9 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <Box css={{ background: '$mainBackground' }}>
+    <Box
+      css={{ background: '$mainBackground', maxW: '100%', minHeight: '100vh' }}
+    >
       <Header />
       <main>{children}</main>
     </Box>

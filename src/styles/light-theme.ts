@@ -75,11 +75,12 @@ export const lightTheme = {
   transition: {
     default: '0.5s ease-out',
   },
-  breakpoints: {
-    xs: '0px',
-    sm: '375px',
-    md: '768px',
-    lg: '1200px',
-    xl: '1440px',
+  defaultTokens: {
+    breakpoints: {
+      mobile: '375px',
+      tablet: '768px',
+      small: '1200px',
+      large: '1440px',
+    },
   },
 };
