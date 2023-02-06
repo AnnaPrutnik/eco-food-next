@@ -2,7 +2,7 @@ import 'styled-components';
 import { lato, gilroy, rubik } from 'fonts';
 
 export const theme = {
-  space: [0, 2, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 64, 128, 256],
+  space: [0, 2, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 48, 64, 128, 256],
   fonts: {
     body: `${lato.style.fontFamily}, sans-serif`,
     heading: `${gilroy.style.fontFamily}, sans-serif`,
@@ -20,6 +20,7 @@ export const theme = {
     body: 1.555,
     heading: 1.2,
     input: 1.25,
+    buttons: 1.125,
   },
   letterSpacings: {
     body: 'normal',

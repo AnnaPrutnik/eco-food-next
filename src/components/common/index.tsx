@@ -4,3 +4,4 @@ export * from './fields';
 export * from './heading';
 export * from './checkbox';
 export * from './input-slider';
+export * from './buttons';

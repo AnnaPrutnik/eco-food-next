@@ -40,6 +40,7 @@ export const SliderThumb = styled.input`
   background: none;
   pointer-events: none;
   -webkit-appearance: none;
+  cursor: pointer;
 
   &::-webkit-slider-thumb {
     width: 16px;

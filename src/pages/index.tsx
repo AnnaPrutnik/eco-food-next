@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { Heading } from 'components';
-import { FormTest } from 'components';
+import { FilterForm } from 'components';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <div>
         <Heading type='categorie' text='drieD frUiTs' />
-        <FormTest />
+        {/* <FilterForm /> */}
       </div>
     </>
   );

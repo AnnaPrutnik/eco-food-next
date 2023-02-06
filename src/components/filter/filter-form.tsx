@@ -7,18 +7,22 @@ import {
   Input,
   Select,
   Slider,
-  LoadMoreIcon,
+  CategoriesBtn,
 } from 'components';
 import { brands as defaultBrands, country, filterProducts } from './db';
 import { ICheckBox } from 'types';
 import { StyledForm } from './form.styled';
 
-interface FormTestProps {
+interface FilterFormProps {
   brands?: ICheckBox[];
 }
 
-export const FormTest: React.FC<FormTestProps> = () => {
+export const FilterForm: React.FC<FilterFormProps> = () => {
   const [brands, setBrands] = useState(defaultBrands);
+
+  const onClickBtn = () => {
+    console.log('onClickBtn');
+  };
 
   const onChangeFilterBrandInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const normalizeValue = e.target.value.toLowerCase();
@@ -32,9 +36,6 @@ export const FormTest: React.FC<FormTestProps> = () => {
     <Box width='30%' ml={4}>
       <Heading text='Form Test' type='product' />
       <Heading text='inputs' type='card' />
-      <div style={{ stroke: '#363636' }}>
-        <LoadMoreIcon />
-      </div>
 
       <Formik
         initialValues={{
@@ -55,11 +56,11 @@ export const FormTest: React.FC<FormTestProps> = () => {
           <Slider start='priceFrom' end='priceTo' max={500} />
           <Box display='flex' alignItems='center'>
             <Box mr={5} display='flex' alignItems='center'>
-              <p style={{ opacity: 0.5, marginRight: '12px' }}>From: </p>
+              <span style={{ opacity: 0.5, marginRight: '12px' }}>From: </span>
               <Input type='price' name='priceFrom' label='$' />
             </Box>
             <Box display='flex' alignItems='center'>
-              <p style={{ opacity: 0.5, marginRight: '12px' }}>To</p>
+              <span style={{ opacity: 0.5, marginRight: '12px' }}>To: </span>
               <Input type='price' name='priceTo' label='$' />
             </Box>
           </Box>
