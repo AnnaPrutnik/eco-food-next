@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from 'components/';
+import { Header, Box } from 'components';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,9 +7,9 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
+    <Box css={{ background: '$mainBackground' }}>
       <Header />
       <main>{children}</main>
-    </>
+    </Box>
   );
 };
