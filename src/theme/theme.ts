@@ -76,4 +76,14 @@ export const theme = {
     lg: '1200px',
     xl: '1440px',
   },
+  media: {
+    smMin: '@media screen and (min-width: 375px)',
+    mdMin: '@media screen and(min-width: 768px)',
+    lgMin: '@media screen and (min-width: 1200px)',
+    xlMin: '@media screen and (min-width: 1440px)',
+    smMax: '@media screen and (max-width: 374.8px)',
+    mdMax: '@media screen and(max-width: 767.8px)',
+    lgMax: '@media screen and (max-width: 1199.8px)',
+    xlMax: '@media screen and (max-width: 1439.8px)',
+  },
 };
