@@ -3,7 +3,6 @@ import localFont from '@next/font/local';
 
 export const rubik = Rubik({
   weight: ['500', '700'],
-  fallback: ['Rubik', 'sans-serif'],
   subsets: ['latin'],
 });
 

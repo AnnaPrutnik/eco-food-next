@@ -1,14 +1,60 @@
 import 'styled-components';
 import { lato, gilroy, rubik } from 'fonts';
+interface BreakpointsType {
+  sm?: string;
+  md?: string;
+  lg?: string;
+  xl?: string;
+}
+
+class Breakpoints {
+  sm?: string;
+  md?: string;
+  lg?: string;
+  xl?: string;
+
+  constructor(breakpoints: BreakpointsType) {
+    Object.assign(this, breakpoints);
+  }
+
+  map(fn: (value: any) => any) {
+    return Object.values(this).map(fn);
+  }
+}
 
 export const theme = {
-  space: [0, 2, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 64, 128, 256],
-  fonts: {
-    body: `${lato.style.fontFamily}, sans-serif`,
-    heading: `${gilroy.style.fontFamily}, sans-serif`,
-    banner: `${rubik.style.fontFamily}, sans-serif`,
+  space: {
+    sp0: '0px',
+    sp4: '4px',
+    sp8: '8px',
+    sp12: '12px',
+    sp16: '16px',
+    sp20: '20px',
+    sp24: '24px',
+    sp28: '28px',
+    sp32: '32px',
+    sp36: '36px',
+    sp40: '40px',
+    sp44: '44px',
+    sp48: '48px',
+    sp64: '64px',
+    sp128: '128px',
+    sp256: '256px',
   },
-  fontSizes: [12, 14, 16, 18, 24, 40, 56],
+  fonts: {
+    lato: `${lato.style.fontFamily}, sans-serif`,
+    gilroy: `${gilroy.style.fontFamily}, sans-serif`,
+    rubik: `${rubik.style.fontFamily}, sans-serif`,
+  },
+  fontSizes: {
+    f12: '12px',
+    f14: '14px',
+    f16: '16px',
+    f18: '18px',
+    f24: '24px',
+    f40: '40px',
+    f56: '56px',
+  },
   fontWeights: {
     body: 400,
     heading: 700,
@@ -20,6 +66,7 @@ export const theme = {
     body: 1.555,
     heading: 1.2,
     input: 1.25,
+    buttons: 1.125,
   },
   letterSpacings: {
     body: 'normal',
@@ -40,13 +87,23 @@ export const theme = {
     lightBorder: '#EDEAE7',
     lightestBorder: 'rgba(56, 54, 52, 0.1)',
   },
-  radii: [10, 20, 24],
-  transition: '0.5s ease-out',
-  breakpoints: {
-    xs: '0px',
+  radii: { r10: '10px', r20: '20px', r24: '24px', rounded: '50%' },
+
+  transition: { default: '0.5s ease-out' },
+  breakpoints: new Breakpoints({
     sm: '375px',
     md: '768px',
     lg: '1200px',
     xl: '1440px',
+  }),
+  media: {
+    smMin: '@media screen and (min-width: 375px)',
+    mdMin: '@media screen and (min-width: 768px)',
+    lgMin: '@media screen and (min-width: 1200px)',
+    xlMin: '@media screen and (min-width: 1440px)',
+    smMax: '@media screen and (max-width: 374.8px)',
+    mdMax: '@media screen and (max-width: 767.8px)',
+    lgMax: '@media screen and (max-width: 1199.8px)',
+    xlMax: '@media screen and (max-width: 1439.8px)',
   },
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+  background,
   typography,
   color,
   space,
@@ -18,6 +19,7 @@ import {
   BorderProps,
   ShadowProps,
   PositionProps,
+  BackgroundProps,
 } from 'styled-system';
 
 interface BoxProps
@@ -29,7 +31,8 @@ interface BoxProps
     BorderProps,
     FlexboxProps,
     GridProps,
-    PositionProps {}
+    PositionProps,
+    BackgroundProps {}
 
 export const Box = styled.div<BoxProps>(
   typography,
@@ -40,5 +43,6 @@ export const Box = styled.div<BoxProps>(
   grid,
   position,
   border,
-  shadow
+  shadow,
+  background
 );
