@@ -1,27 +1,5 @@
 import styled, { css } from 'styled-components';
 
-const btnWithIconStroke = css`
-  & svg {
-    stroke: ${({ theme }) => theme.colors.text};
-  }
-
-  &:hover svg,
-  &:focus svg {
-    stroke: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const btnWithIconFill = css`
-  & svg {
-    fill: ${({ theme }) => theme.colors.text};
-  }
-
-  &:hover svg,
-  &:focus svg {
-    fill: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
 const btnBaseMobile = css`
   outline: none;
   border: 1px solid;
@@ -77,19 +55,13 @@ const tabletSettingsWithIcons = css`
 export const CategoryButton = styled.button`
   ${btnBaseMobile};
   ${mobileSettingWithIcons};
-  ${btnWithIconFill};
   border: none;
   gap: 16px;
-
-  span {
-    display: inline;
-  }
 `;
 
 export const CartButton = styled.button`
   ${btnBaseMobile};
   ${mobileSettingWithIcons};
-  ${btnWithIconStroke};
   border: none;
 
   ${({ theme }) => theme.media.mdMin} {
