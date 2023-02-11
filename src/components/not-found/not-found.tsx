@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Box, NotFoundButtons } from 'components';
 
-import { Title, StyledImage } from './not-found.styled';
+import { Title } from './not-found.styled';
 
 export const NotFound = () => {
   return (
