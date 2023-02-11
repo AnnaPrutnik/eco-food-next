@@ -52,6 +52,7 @@ export const theme = {
     f16: '16px',
     f18: '18px',
     f24: '24px',
+    f32: '32px',
     f40: '40px',
     f56: '56px',
   },
