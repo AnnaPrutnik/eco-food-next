@@ -14,14 +14,10 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   options,
 }) => {
   return (
-    <Box role="group">
-      <CheckboxList>
-        {options.map((item) => (
-          <li key={item.id}>
-            <Checkbox name={name} id={item.id} value={item.name} />
-          </li>
-        ))}
-      </CheckboxList>
-    </Box>
+    <CheckboxList role="group">
+      {options.map((item) => (
+        <Checkbox name={name} value={item.name} key={item.id} />
+      ))}
+    </CheckboxList>
   );
 };

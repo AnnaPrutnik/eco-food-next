@@ -1,4 +1,4 @@
 export interface ICheckBox {
-  id: string;
+  id: number;
   name: string;
 }

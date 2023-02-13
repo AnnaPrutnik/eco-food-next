@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Field } from 'formik';
 
-export const CheckboxList = styled.ul`
+export const CheckboxList = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.space.sp8};
@@ -25,13 +26,14 @@ export const StyledLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSizes.f14};
   line-height: ${({ theme }) => theme.lineHeights.heading};
   align-items: center;
+  cursor: pointer;
 
   & svg {
     transform: scale(0.8);
   }
 `;
 
-export const StyledCheckbox = styled.input`
+export const StyledCheckbox = styled(Field)`
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -42,7 +44,7 @@ export const StyledCheckbox = styled.input`
 `;
 
 interface StyledSpanProps {
-  isChecked: boolean | undefined;
+  isChecked: boolean;
 }
 
 export const StyledSpan = styled.span<StyledSpanProps>`
@@ -62,6 +64,7 @@ export const StyledSpan = styled.span<StyledSpanProps>`
       ? '0px 5px 10px -5px rgba(56, 54, 52, 0.1)'
       : '0px 4px 6px -5px rgba(56, 54, 52, 0.1)'};
   border-radius: 5px;
-  stroke: #fff;
+  color: ${({ theme }) => theme.colors.white};
   transition: ${({ theme }) => `all ${theme.transition}`};
+  transform: rotate(-90deg);
 `;

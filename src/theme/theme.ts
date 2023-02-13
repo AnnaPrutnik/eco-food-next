@@ -1,26 +1,5 @@
 import 'styled-components';
 import { lato, gilroy, rubik } from 'fonts';
-interface BreakpointsType {
-  sm?: string;
-  md?: string;
-  lg?: string;
-  xl?: string;
-}
-
-class Breakpoints {
-  sm?: string;
-  md?: string;
-  lg?: string;
-  xl?: string;
-
-  constructor(breakpoints: BreakpointsType) {
-    Object.assign(this, breakpoints);
-  }
-
-  map(fn: (value: any) => any) {
-    return Object.values(this).map(fn);
-  }
-}
 
 export const theme = {
   space: {
@@ -39,6 +18,7 @@ export const theme = {
     sp48: '48px',
     sp64: '64px',
     sp128: '128px',
+    sp135: '135px',
     sp256: '256px',
   },
   fonts: {
@@ -91,12 +71,13 @@ export const theme = {
   radii: { r10: '10px', r20: '20px', r24: '24px', rounded: '50%' },
 
   transition: { default: '0.5s ease-out' },
-  breakpoints: new Breakpoints({
+  breakpoints: {
+    xs: '0px',
     sm: '375px',
     md: '768px',
     lg: '1200px',
     xl: '1440px',
-  }),
+  },
   media: {
     smMin: '@media screen and (min-width: 375px)',
     mdMin: '@media screen and (min-width: 768px)',

@@ -1,5 +1,6 @@
-import { Box, Filter, SearchForm } from 'components';
+import { Box } from 'components';
 import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Home() {
   const onClick = () => {
@@ -13,20 +14,55 @@ export default function Home() {
         <meta name="description" content="Pets project/internet store" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box as="main" padding="sp64">
-        <div
-          style={{
-            fontWeight: 400,
-            fontSize: 'f14',
-            lineHeight: 1.143,
-            opacity: 0.5,
-          }}
+      <Box padding="sp8" display="flex" gridGap="sp8">
+        <Box
+          padding="0 16px 0 128px"
+          backgroundColor="darkBackground"
+          borderRadius="24px"
+          flexGrow={1}
+          display="flex"
         >
-          Homepage / Dried fruits
-        </div>
-        <h1>Dried fruits</h1>
-        <SearchForm />
-        <Filter />
+          <Box
+            display="flex"
+            flexDirection="column"
+            gridGap="48px"
+            padding="80px 0 74px"
+            flexGrow={1}
+          >
+            <h1
+              style={{
+                fontFamily: 'gilroy',
+                fontWeight: 700,
+                fontSize: '56px',
+                lineHeight: '68px',
+              }}
+            >
+              Organic bar
+            </h1>
+            <p
+              style={{
+                fontWeight: 600,
+                fontSize: '20px',
+                lineHeight: '28px',
+              }}
+            >
+              Especially suitable for athletes, but also ideal for preventing
+              fatigue and loss of productivity.
+            </p>
+            <button style={{ width: '135px', height: '52px' }}>Shop now</button>
+          </Box>
+          <Box position="relative" height="100%" minWidth="50%">
+            <Image src="/banner.png" alt="Banner" fill sizes="100vw" />
+          </Box>
+        </Box>
+        <Box width="480px" height="454px" position="relative">
+          <Image
+            src="/banner-small.jpg"
+            alt="advertise banner"
+            fill
+            sizes="100vw"
+          />
+        </Box>
       </Box>
     </>
   );

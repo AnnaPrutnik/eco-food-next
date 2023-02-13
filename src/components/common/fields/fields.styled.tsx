@@ -34,16 +34,20 @@ export const base = css<InputProps>`
     }
   }};
   transition: ${({ theme }) => `all ${theme.transition.default}`};
+
   &::placeholder {
     opacity: 0.5;
   }
+
   &:focus,
   &:hover {
     border-color: ${({ theme }) => theme.colors.primary};
+
     & ~ button {
-      stroke: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.primary};
     }
   }
+
   &: focus {
     box-shadow: ${({ theme }) => `0px 4px 6px -5px ${theme.colors.primary}`};
   }
@@ -177,9 +181,9 @@ export const SearchButton = styled.button`
   transform: translateY(-50%);
   color: ${({ theme }) => theme.colors.text};
   display: flex;
-  stroke: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
   &:hover {
-    stroke: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
@@ -192,12 +196,18 @@ export const SendButton = styled.button`
   background-color: ${({ theme }) => theme.colors.text};
   border-top-right-radius: ${({ theme }) => theme.radii.r10};
   border-bottom-right-radius: ${({ theme }) => theme.radii.r10};
-  stroke: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
-export const PriceLabel = styled.p`
+export const CurrencyLabel = styled.p`
   position: absolute;
-  top: 18px;
+  top: 19px;
   transform: translateY(-50%);
   left: 12px;
+`;
+
+export const PriceLabel = styled.label`
+  opacity: 0.5;
+  margin-right: ${({ theme }) => theme.space.sp12};
+  text-transform: capitalize;
 `;
