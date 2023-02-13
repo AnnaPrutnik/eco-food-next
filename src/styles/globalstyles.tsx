@@ -12,9 +12,9 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
   }
 
-  h1, h2.h3,h4,h5,h6 {
+  h1, h2,h3,h4,h5,h6, p {
     padding: 0;
-    margin: 0
+    margin: 0;
   }
 
   a {
@@ -24,6 +24,12 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
+  }
+
+  ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 `;
 
