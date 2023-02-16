@@ -1,15 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import axios from 'axios';
-
-type Data = {
-  name: string;
-};
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse,
 ) {
-  const response = await axios(`/categories`);
+  const response = await fetch(`${process.env.API_HOST}/categories`);
   const data = await response.json();
   res.status(200).json(data);
 }
