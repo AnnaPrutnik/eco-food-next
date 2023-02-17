@@ -73,31 +73,31 @@ export const forms: ICollectionValue[] = [
 export const country = [
   {
     value: 'UK',
-    label: 'United Kingdom(UK)',
+    label: 'United Kingdom',
   },
   {
     value: 'TR ',
-    label: 'Turkey(TR)',
+    label: 'Turkey',
   },
   {
     value: 'CN',
-    label: 'China(CN)',
+    label: 'China',
   },
   {
     value: 'CU',
-    label: 'Cuba(CU)',
+    label: 'Cuba',
   },
   {
     value: 'US',
-    label: 'United States(US)',
+    label: 'United States',
   },
   {
     value: 'UA',
-    label: 'Ukraine(UA)',
+    label: 'Ukraine',
   },
   {
     value: 'PL',
-    label: 'Poland(PL)',
+    label: 'Poland',
   },
 ];
 

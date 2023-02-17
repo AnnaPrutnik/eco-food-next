@@ -6,35 +6,38 @@ import { useField } from 'formik';
 interface CheckboxProps {
   value: string;
   name: string;
+  trigger: string;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ value, name }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({ value, name, trigger }) => {
   const [field] = useField(name);
+  const [triggerField, triggerMeta, helpers] = useField(trigger);
+
+  const normalizedValue = useMemo(() => {
+    return value.toLowerCase();
+  }, [value]);
 
   const isChecked = useMemo(() => {
     if (field.value.length === 0) {
       return false;
     }
-
     if (typeof field.value === 'boolean') {
       return field.value;
     }
-
-    return !!field.value.find((item: string) => item === value);
-  }, [field, value]);
+    return !!field.value.find((item: string) => item === normalizedValue);
+  }, [field, normalizedValue]);
 
   const checkboxProps =
     typeof field.value === 'boolean'
       ? { name, type: 'checkbox' }
-      : { name, type: 'checkbox', value };
-
+      : { name, type: 'checkbox', value: normalizedValue };
   return (
     <StyledLabel>
       <StyledCheckbox {...checkboxProps} />
       <StyledSpan isChecked={isChecked} aria-hidden="true">
         <CheckIcon />
       </StyledSpan>
-      {value}
+      <span>{normalizedValue}</span>
     </StyledLabel>
   );
 };

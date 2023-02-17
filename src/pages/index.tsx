@@ -1,19 +1,9 @@
-import { Box } from 'components';
-import Head from 'next/head';
+import { Box, Layout } from 'components';
 import Image from 'next/image';
 
 export default function Home() {
-  const onClick = () => {
-    console.log('onClick');
-  };
-
   return (
-    <>
-      <Head>
-        <title>Eco food</title>
-        <meta name="description" content="Pets project/internet store" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout>
       <Box padding="sp8" display="flex" gridGap="sp8">
         <Box
           padding="0 16px 0 128px"
@@ -64,6 +54,6 @@ export default function Home() {
           />
         </Box>
       </Box>
-    </>
+    </Layout>
   );
 }

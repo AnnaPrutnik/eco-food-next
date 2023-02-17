@@ -11,6 +11,7 @@ export const CheckboxList = styled.div`
   &::-webkit-scrollbar {
     width: 4px;
   }
+
   &::-webkit-scrollbar-track {
     background: ${({ theme }) => theme.colors.lightBackground};
   }
@@ -28,8 +29,8 @@ export const StyledLabel = styled.label`
   align-items: center;
   cursor: pointer;
 
-  & svg {
-    transform: scale(0.8);
+  & span::first-letter {
+    text-transform: capitalize;
   }
 `;
 
@@ -66,5 +67,4 @@ export const StyledSpan = styled.span<StyledSpanProps>`
   border-radius: 5px;
   color: ${({ theme }) => theme.colors.white};
   transition: ${({ theme }) => `all ${theme.transition}`};
-  transform: rotate(-90deg);
 `;
