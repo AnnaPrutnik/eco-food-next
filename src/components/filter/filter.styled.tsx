@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Form } from 'formik';
 
 export const Divider = styled.div`
   width: 100%;

@@ -8,13 +8,7 @@ interface PageProps {
 export const Page: React.FC<PageProps> = ({ children }) => {
   return (
     <Box
-      width={{
-        xs: '100%',
-        sm: '375px',
-        md: '768px',
-        lg: '1200px',
-        xl: '1440px',
-      }}
+      width={['100%', '375px', '768px', '1200px', '1440px']}
       padding={{
         xs: 'sp16',
         md: 'sp24',

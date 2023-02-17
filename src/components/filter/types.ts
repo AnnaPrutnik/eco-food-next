@@ -6,4 +6,6 @@ export interface FormValues {
   sale: boolean;
   country: string[];
   availability: string[];
+  changingPrice: false;
+  changingValue: string | null;
 }

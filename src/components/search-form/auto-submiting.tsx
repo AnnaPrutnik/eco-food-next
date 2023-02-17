@@ -9,6 +9,6 @@ export const AutoSubmit = () => {
       console.log(values);
       //ToDo: add logic for searching
     }
-  }, [values, submitForm]);
+  }, [values]);
   return null;
 };

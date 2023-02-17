@@ -1,8 +1,10 @@
 import React from 'react';
-import { NotFound } from 'components';
+import { NotFound, Layout } from 'components';
 
-const Error = () => {
-  return <NotFound />;
-};
-
-export default Error;
+export default function Error() {
+  return (
+    <Layout title="Not found">
+      <NotFound />
+    </Layout>
+  );
+}

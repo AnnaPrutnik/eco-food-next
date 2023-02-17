@@ -1,26 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  StyledDetail,
-  StyledDetailsChildren,
-  StyledSummary,
+  Container,
+  Header,
+  Title,
+  Content,
+  ArrowContainer,
+  StyledInput,
 } from './accordion.styled';
 import { ArrowIcon, Box } from 'components';
 
-interface AccordionProps {
+export interface AccordionProps {
   title: string;
   children: React.ReactNode;
 }
 
 export const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClickAccordion = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
-    <StyledDetail>
-      <StyledSummary>
-        {title}
-        <Box width={20} height={20} textAlign="center">
+    <Container isOpen={isOpen}>
+      <Header htmlFor={title}>
+        <Title>{title}</Title>
+        <ArrowContainer isOpen={isOpen}>
           <ArrowIcon />
+        </ArrowContainer>
+      </Header>
+      <StyledInput
+        type="checkbox"
+        id={title}
+        hidden
+        onChange={onClickAccordion}
+        checked={isOpen}
+      />
+      <Content className="content">
+        <Box display="flex" flexDirection="column" gridGap="sp16">
+          {children}
         </Box>
-      </StyledSummary>
-      <StyledDetailsChildren>{children}</StyledDetailsChildren>
-    </StyledDetail>
+      </Content>
+    </Container>
   );
 };

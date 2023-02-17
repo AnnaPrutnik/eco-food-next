@@ -54,7 +54,8 @@ export const base = css<InputProps>`
 `;
 
 export const StyledInput = styled.input`
-  ${base}
+  ${base};
+  min-height: 40px;
 `;
 
 export const Price = styled.input`

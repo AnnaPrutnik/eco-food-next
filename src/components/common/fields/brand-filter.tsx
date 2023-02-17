@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, SearchIcon } from 'components';
 import { StyledInput, SearchButton } from './fields.styled';
-import { InputProps } from './types';
+import { InputProps } from 'types';
 
 export const BrandFilter: React.FC<InputProps> = ({ name, onChangeInput }) => {
   const [filter, setFilter] = useState('');
@@ -12,7 +12,7 @@ export const BrandFilter: React.FC<InputProps> = ({ name, onChangeInput }) => {
   };
 
   return (
-    <Box width="100%" height="40px" position="relative">
+    <Box width="100%" minHeight="40px" position="relative">
       <StyledInput
         border="dark"
         bg="transparent"
