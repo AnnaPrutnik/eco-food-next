@@ -87,7 +87,7 @@ export const Indicator = styled(NavigationMenu.Indicator)`
   height: 22px;
   overflow: hidden;
 
-  animation: ${fadeIn} 300ms ease ;
+  animation: ${fadeIn} 300ms ease;
 `;
 
 export const Arrow = styled.div`
@@ -119,6 +119,7 @@ export const ContentLink = styled.a`
   padding: 0 24px;
 
   :hover {
-    background-color: ${(p) => p.theme.colors.darkBackground};
+    background-color: ${(p) => p.theme.colors.primary};
+    color: ${(p) => p.theme.colors.white};
   }
 `;
