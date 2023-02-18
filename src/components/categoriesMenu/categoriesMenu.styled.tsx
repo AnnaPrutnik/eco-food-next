@@ -111,14 +111,17 @@ export const ContentInem = styled.li`
   }
 `;
 
-export const ContentLink = styled.a`
+export const ContentLink = styled(NavigationMenu.Link)`
   display: flex;
   align-items: center;
   width: 100%;
   height: 100%;
   padding: 0 24px;
 
-  :hover {
+  outline: none;
+
+  :hover,
+  :focus {
     background-color: ${(p) => p.theme.colors.primary};
     color: ${(p) => p.theme.colors.white};
   }
