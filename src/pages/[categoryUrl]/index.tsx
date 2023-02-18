@@ -1,14 +1,29 @@
-import { Filter, Page, Box, CategoryTitle, Breadcrumbs } from 'components';
-import Head from 'next/head';
+import React, { useMemo } from 'react';
+import {
+  Filter,
+  Page,
+  Box,
+  CategoryTitle,
+  Breadcrumbs,
+  Layout,
+  ProductList,
+} from 'components';
+import { useRouter } from 'next/router';
+import { getAsString } from 'helpers';
 
 export default function CategoryDetails() {
+  const router = useRouter();
+
+  const title = useMemo(() => {
+    const categoryUrl = getAsString(router.query.categoryUrl);
+    if (categoryUrl) {
+      const title = categoryUrl.split('-').join(' ').toLowerCase();
+      return title.charAt(0).toUpperCase() + title.slice(1);
+    }
+  }, [router]);
+
   return (
-    <>
-      <Head>
-        <title>Eco food</title>
-        <meta name="description" content="Pets project/internet store" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout title="Category details">
       <Page>
         <Box
           display="grid"
@@ -18,13 +33,13 @@ export default function CategoryDetails() {
           <Box></Box>
           <Box display="flex" flexDirection="column" gridGap="sp16">
             <Breadcrumbs />
-            <CategoryTitle text="Dried fruits" />
+            <CategoryTitle text={title} />
           </Box>
 
           <Filter />
-          <Box> List with products</Box>
+          <ProductList />
         </Box>
       </Page>
-    </>
+    </Layout>
   );
 }

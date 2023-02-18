@@ -9,3 +9,4 @@ export * from './visually-hidden';
 export * from './price-slider';
 export * from './heading';
 export * from './breadcrumbs';
+export * from './picture';

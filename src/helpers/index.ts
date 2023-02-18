@@ -1,1 +1,2 @@
-export * from './fetcher';
+export * from './getAsString';
+export * from './transformStringQuery';

@@ -5,7 +5,9 @@ const main = css`
   font-weight: ${(p) => p.theme.fontWeights.heading};
   line-height: ${(p) => p.theme.lineHeights.heading};
   color: ${(p) => p.theme.colors.heading};
+
   text-transform: lowercase;
+
   ::first-letter {
     text-transform: uppercase;
   }

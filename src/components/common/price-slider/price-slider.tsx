@@ -12,11 +12,13 @@ interface SliderProps {
   start: string;
   end: string;
   max: number;
+  trigger: string;
 }
 
-export const Slider: React.FC<SliderProps> = ({ start, end, max }) => {
+export const Slider: React.FC<SliderProps> = ({ start, end, max, trigger }) => {
   const [startField] = useField(start);
   const [endField] = useField(end);
+  const [field, meta, triggerFn] = useField(trigger);
 
   const leftPosition = useMemo(() => {
     return Math.ceil((startField.value / max) * 100 + 0.1);
@@ -25,6 +27,10 @@ export const Slider: React.FC<SliderProps> = ({ start, end, max }) => {
   const rightPosition = useMemo(() => {
     return Math.ceil(100 - (endField.value / max) * 100 - 0.1);
   }, [endField, max]);
+
+  const onChangePriceValue = () => {
+    triggerFn.setValue(true);
+  };
 
   return (
     <Box width="100%">
@@ -49,6 +55,7 @@ export const Slider: React.FC<SliderProps> = ({ start, end, max }) => {
             max={max}
             value={startField.value}
             onChange={startField.onChange}
+            onMouseUp={onChangePriceValue}
           />
           <SliderThumb
             name={end}
@@ -57,6 +64,7 @@ export const Slider: React.FC<SliderProps> = ({ start, end, max }) => {
             max={max}
             value={endField.value}
             onChange={endField.onChange}
+            onMouseUp={onChangePriceValue}
           />
         </Box>
       </Box>
