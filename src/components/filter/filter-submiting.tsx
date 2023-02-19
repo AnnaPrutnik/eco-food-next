@@ -12,7 +12,6 @@ export const FilterSubmiting = () => {
 
   useEffect(() => {
     if (values.changingPrice) {
-      console.log('changePrice');
       query.priceFrom = values.priceFrom.toString();
       query.priceTo = values.priceTo.toString();
       setIsChanging(true);

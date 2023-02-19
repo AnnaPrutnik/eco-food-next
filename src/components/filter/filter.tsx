@@ -80,7 +80,7 @@ export const Filter = () => {
   }
 
   return (
-    <Box width={{ md: '270px' }}>
+    <Box width={['100%', '100%', '230px', '250px', '270px']}>
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
