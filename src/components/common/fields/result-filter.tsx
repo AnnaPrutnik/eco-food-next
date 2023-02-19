@@ -9,10 +9,7 @@ export const ResultFilterInput: React.FC<SelectProps> = ({
   name,
   options,
 }) => {
-  const { vaslue, onBlurSelect, onChangeSelect } = useSelectProps(
-    name,
-    options
-  );
+  const { value, onBlurSelect, onChangeSelect } = useSelectProps(name, options);
 
   return (
     <Box display="flex" alignItems="center">
