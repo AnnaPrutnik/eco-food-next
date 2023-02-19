@@ -24,6 +24,7 @@ import { getAsString, transformStringQuery } from 'helpers';
 export const Filter = () => {
   const router = useRouter();
   const { query } = router;
+  const { categoryUrl } = query;
   const [brands, setBrands] = useState(defaultBrands);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -50,6 +51,10 @@ export const Filter = () => {
       );
     }
   }, [isLoading, query, router]);
+
+  useEffect(() => {
+    setIsLoading(true);
+  }, [categoryUrl]);
 
   const onClickBrandSearch = (value: string) => {
     const normalizeValue = value.toLowerCase();
@@ -89,7 +94,7 @@ export const Filter = () => {
       >
         <Form>
           <Title>Filter</Title>
-          <Accordion title="price">
+          <Accordion title="price" defaultOpen={true}>
             <Slider
               start="priceFrom"
               end="priceTo"
@@ -106,7 +111,7 @@ export const Filter = () => {
             </Box>
           </Accordion>
           <Divider />
-          <Accordion title="brand">
+          <Accordion title="brand" defaultOpen={true}>
             <BrandFilter
               name="brandFilter"
               onChangeInput={onClickBrandSearch}

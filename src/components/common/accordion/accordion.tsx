@@ -12,10 +12,15 @@ import { ArrowIcon, Box } from 'components';
 export interface AccordionProps {
   title: string;
   children: React.ReactNode;
+  defaultOpen?: boolean;
 }
 
-export const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Accordion: React.FC<AccordionProps> = ({
+  title,
+  defaultOpen = false,
+  children,
+}) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
 
   const onClickAccordion = () => {
     setIsOpen((prev) => !prev);
