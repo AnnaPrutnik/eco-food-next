@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const CategoriesIcon = () => {
+export const CategoriesIcon = ({size = 24, color = "currentColor"}) => {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
       <circle cx="3" cy="3" r="3" />
       <circle cx="12" cy="3" r="3" />
       <circle cx="21" cy="3" r="3" />
