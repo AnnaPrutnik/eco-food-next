@@ -39,8 +39,9 @@ export const SliderThumb = styled.input`
   outline: none;
   background: none;
   pointer-events: none;
-  -webkit-appearance: none;
   cursor: pointer;
+  -webkit-appearance: none;
+
   &::-webkit-slider-thumb {
     width: 16px;
     height: 20px;

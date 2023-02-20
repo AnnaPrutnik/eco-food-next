@@ -26,17 +26,19 @@ export default function CategoryDetails() {
     <Layout title="Category details">
       <Page>
         <Box
-          display="grid"
+          display={['grid']}
           gridGap="32px 64px"
-          gridTemplateColumns="270px auto"
+          gridTemplateColumns={['auto', 'auto', '270px auto']}
         >
-          <Box></Box>
+          <Box display={['none', 'none', 'block']}></Box>
           <Box display="flex" flexDirection="column" gridGap="sp16">
             <Breadcrumbs />
             <CategoryTitle text={title} />
           </Box>
+          <Box display={['none', 'none', 'block']}>
+            <Filter />
+          </Box>
 
-          <Filter />
           <ProductList />
         </Box>
       </Page>

@@ -1,14 +1,14 @@
-import React from "react";
-import Link from "next/link";
-import { Box, SearchForm, CategoriesMenu } from "components";
-import { Logo } from "components/svg";
+import React from 'react';
+import Link from 'next/link';
+import { Box, SearchForm, CategoriesMenu } from 'components';
+import { Logo } from 'components/svg';
 
 export const Header = () => {
   return (
     <Box
       as="header"
-      height={{ _: "64px", lg: "88px" }}
-      px={{ _: "16px", lg: "48px" }}
+      height={['64px', '64px', '64px', '88px']}
+      px={['16px', '16px', '16px', '48px']}
       display="flex"
       alignItems="center"
     >

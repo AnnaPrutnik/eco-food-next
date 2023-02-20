@@ -27,6 +27,7 @@ export const PriceInput: React.FC<PriceInputProps> = ({
     if (value !== field.value) {
       setValue(field.value);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [field.value]);
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {

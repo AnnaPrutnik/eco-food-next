@@ -95,13 +95,7 @@ export const theme = {
   radii: { r10: '10px', r20: '20px', r24: '24px', rounded: '50%' },
 
   transition: { default: '300ms cubic-bezier(0.87, 0, 0.13, 1)' },
-  breakpoints: new Breakpoints({
-    xs: '0px',
-    sm: '375px',
-    md: '768px',
-    lg: '1200px',
-    xl: '1440px',
-  }),
+  breakpoints: ['375px', '768px', '1200px', '1440px'],
   media: {
     smMin: '@media screen and (min-width: 375px)',
     mdMin: '@media screen and (min-width: 768px)',

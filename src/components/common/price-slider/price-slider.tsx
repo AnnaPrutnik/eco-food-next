@@ -25,7 +25,7 @@ export const Slider: React.FC<SliderProps> = ({ start, end, max, trigger }) => {
   }, [startField, max]);
 
   const rightPosition = useMemo(() => {
-    return Math.ceil(100 - (endField.value / max) * 100 - 0.1);
+    return Math.ceil(100 - (endField.value / max) * 100);
   }, [endField, max]);
 
   const onChangePriceValue = () => {
@@ -34,7 +34,7 @@ export const Slider: React.FC<SliderProps> = ({ start, end, max, trigger }) => {
 
   return (
     <Box width="100%">
-      <Box display="flex" justifyContent="space-between" mb={1}>
+      <Box display="flex" justifyContent="space-between" mb="sp4">
         <Text>0</Text>
         <Text>{max}</Text>
       </Box>
@@ -43,6 +43,7 @@ export const Slider: React.FC<SliderProps> = ({ start, end, max, trigger }) => {
         display="flex"
         flexDirection="column"
         justifyContent="center"
+        padding="0 2px"
       >
         <SliderBase>
           <SliderProgress left={leftPosition} right={rightPosition} />
