@@ -77,7 +77,6 @@ export const Filter = () => {
     sale: Boolean(getAsString(query.sale)) || false,
     availability: transformStringQuery(query.availability) || [],
     country: transformStringQuery(query.country) || [],
-    changingValue: null,
   };
 
   if (isLoading) {
@@ -116,39 +115,23 @@ export const Filter = () => {
               name="brandFilter"
               onChangeInput={onClickBrandSearch}
             />
-            <CheckboxGroup
-              options={brands}
-              name="brands"
-              trigger="changingValue"
-            />
+            <CheckboxGroup options={brands} name="brands" />
           </Accordion>
           <Divider />
           <Accordion title="form">
-            <CheckboxGroup
-              options={forms}
-              name="form"
-              trigger="changingValue"
-            />
+            <CheckboxGroup options={forms} name="form" />
           </Accordion>
           <Divider />
           <Accordion title="sale">
-            <Checkbox name="sale" value="on Sale" trigger="changingValue" />
+            <Checkbox name="sale" value="on Sale" />
           </Accordion>
           <Divider />
           <Accordion title="availability">
-            <CheckboxGroup
-              options={availability}
-              name="availability"
-              trigger="changingValue"
-            />
+            <CheckboxGroup options={availability} name="availability" />
           </Accordion>
           <Divider />
           <Accordion title="country">
-            <CheckboxGroup
-              options={normalizedCountry}
-              name="country"
-              trigger="changingValue"
-            />
+            <CheckboxGroup options={normalizedCountry} name="country" />
           </Accordion>
           <FilterSubmiting />
         </Form>

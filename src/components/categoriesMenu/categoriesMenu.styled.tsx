@@ -1,5 +1,5 @@
-import styled, { css, keyframes } from "styled-components";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import styled, { css, keyframes } from 'styled-components';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 const scaleIn = keyframes`
   from {
@@ -102,7 +102,7 @@ export const Arrow = styled.div`
 
 export const ContentList = styled.ul``;
 
-export const ContentInem = styled.li`
+export const ContentItem = styled.li`
   width: 250px;
   height: 38px;
 

@@ -7,5 +7,4 @@ export interface FormValues {
   country: string[];
   availability: string[];
   changingPrice: false;
-  changingValue: string | null;
 }

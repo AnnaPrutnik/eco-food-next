@@ -47,6 +47,7 @@ export const FilterSubmiting = () => {
       }
       setIsChanging(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
   useEffect(() => {
@@ -64,6 +65,7 @@ export const FilterSubmiting = () => {
       setPrevState(values);
       submitForm();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChanging]);
 
   const transformStringToQuery = (state: string[], property: string) => {

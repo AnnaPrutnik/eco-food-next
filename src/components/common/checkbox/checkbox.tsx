@@ -6,12 +6,10 @@ import { useField } from 'formik';
 interface CheckboxProps {
   value: string;
   name: string;
-  trigger: string;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ value, name, trigger }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({ value, name }) => {
   const [field] = useField(name);
-  const [triggerField, triggerMeta, helpers] = useField(trigger);
 
   const normalizedValue = useMemo(() => {
     return value.toLowerCase();
