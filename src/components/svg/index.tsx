@@ -11,3 +11,4 @@ export * from "./arrow";
 export * from "./remove";
 export * from "./exit";
 export * from "./logo";
+export * from "./bonus";
