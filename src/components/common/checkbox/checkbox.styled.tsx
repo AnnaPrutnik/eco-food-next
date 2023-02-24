@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Field } from 'formik';
 
 export const CheckboxList = styled.div`
   display: flex;
@@ -34,7 +33,7 @@ export const StyledLabel = styled.label`
   }
 `;
 
-export const StyledCheckbox = styled(Field)`
+export const StyledCheckbox = styled.input`
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;

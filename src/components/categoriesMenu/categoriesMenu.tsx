@@ -19,7 +19,6 @@ import { fetcher } from 'helpers';
 
 export const CategoriesMenu: FC = () => {
   const { data, isLoading } = useSWR<ICategory[]>('/api/category', fetcher);
-
   return (
     <Root>
       <NavigationMenu.List>
@@ -31,13 +30,14 @@ export const CategoriesMenu: FC = () => {
           <Content>
             {!isLoading && (
               <ContentList>
-                {data.map((c: ICategory) => (
-                  <ContentItem key={c.id}>
-                    <Link href={`/${c.url}`} passHref legacyBehavior>
-                      <ContentLink>{c.title}</ContentLink>
-                    </Link>
-                  </ContentItem>
-                ))}
+                {data &&
+                  data.map((c: ICategory) => (
+                    <ContentItem key={c.id}>
+                      <Link href={`/${c.url}`} passHref legacyBehavior>
+                        <ContentLink>{c.title}</ContentLink>
+                      </Link>
+                    </ContentItem>
+                  ))}
               </ContentList>
             )}
           </Content>

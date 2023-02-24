@@ -1,6 +1,7 @@
 export interface InputProps {
   name: string;
   label?: string;
+  value?: string;
   onChangeInput?: (value: string) => void;
 }
 

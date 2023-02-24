@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import {
   Filter,
   Page,
@@ -6,28 +6,29 @@ import {
   CategoryTitle,
   Breadcrumbs,
   Layout,
-  ProductList,
+  ProductCatalog,
 } from 'components';
 import { useRouter } from 'next/router';
 import { getAsString } from 'helpers';
 
 export default function CategoryDetails() {
   const router = useRouter();
+  const { query } = router;
 
   const title = useMemo(() => {
-    const categoryUrl = getAsString(router.query.categoryUrl);
+    const categoryUrl = getAsString(query.categoryUrl);
     if (categoryUrl) {
       const title = categoryUrl.split('-').join(' ').toLowerCase();
       return title.charAt(0).toUpperCase() + title.slice(1);
     }
-  }, [router]);
+  }, [query.categoryUrl]);
 
   return (
     <Layout title="Category details">
       <Page>
         <Box
           display={['grid']}
-          gridGap="32px 64px"
+          gridGap={['sp16', 'sp16', '32px 64px']}
           gridTemplateColumns={['auto', 'auto', '270px auto']}
         >
           <Box display={['none', 'none', 'block']}></Box>
@@ -38,8 +39,7 @@ export default function CategoryDetails() {
           <Box display={['none', 'none', 'block']}>
             <Filter />
           </Box>
-
-          <ProductList />
+          <ProductCatalog />
         </Box>
       </Page>
     </Layout>

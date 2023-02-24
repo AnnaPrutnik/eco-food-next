@@ -3,7 +3,10 @@ import { Box, SearchIcon } from 'components';
 import { StyledInput, SearchButton } from './fields.styled';
 import { InputProps } from 'types';
 
-export const BrandFilter: React.FC<InputProps> = ({ name, onChangeInput }) => {
+export const BrandFilterInput: React.FC<InputProps> = ({
+  name,
+  onChangeInput,
+}) => {
   const [filter, setFilter] = useState('');
 
   const onChangeFilter = (e: React.ChangeEvent<HTMLInputElement>) => {

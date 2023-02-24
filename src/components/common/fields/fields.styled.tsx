@@ -78,6 +78,11 @@ export const baseLabel = css<SpaceProps>`
   ${space}
   display: block;
   opacity: 0.8;
+  text-transform: lowercase;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const InputLabel = styled.label`
@@ -88,8 +93,8 @@ export const InputLabel = styled.label`
 
 export const SelectLabel = styled.label`
   ${baseLabel}
-  font-size: ${({ theme }) => theme.fontSizes.f12};
-  line-height: ${({ theme }) => theme.lineHeights.input};
+  font-size: ${({ theme }) => theme.fontSizes.f16};
+  line-height: ${({ theme }) => theme.lineHeights.heading};
 `;
 
 const selectBase = css`
@@ -148,10 +153,10 @@ const selectBase = css`
 
 export const FilterSelect = styled(Select)`
   ${selectBase};
+
   .custom-select {
     &__control {
       min-height: 40px;
-      width: 148px;
       background-color: transparent;
       border-color: ${({ theme }) => theme.colors.darkBorder};
     }
@@ -211,4 +216,12 @@ export const PriceLabel = styled.label`
   opacity: 0.5;
   margin-right: ${({ theme }) => theme.space.sp12};
   text-transform: capitalize;
+
+  ${({ theme }) => theme.media.mdMin} {
+    margin-right: ${({ theme }) => theme.space.sp8};
+  }
+
+  ${({ theme }) => theme.media.lgMin} {
+    margin-right: ${({ theme }) => theme.space.sp12};
+  }
 `;
