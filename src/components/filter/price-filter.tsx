@@ -3,12 +3,22 @@ import { useRouter } from 'next/router';
 import { Slider, Box, PriceInput, Accordion } from 'components';
 import { useQueryParams } from 'hooks';
 
-export const PriceFilter = () => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(500);
+interface PriceFilterProps {
+  data: {
+    min: number;
+    max: number;
+  };
+}
+
+export const PriceFilter: React.FC<PriceFilterProps> = ({ data }) => {
+  const [minPrice, setMinPrice] = useState(data.min);
+  const [maxPrice, setMaxPrice] = useState(data.max);
   const [priceQuery, setPriceQuery] = useState(false);
   const { query } = useRouter();
   const { updateQueryParams, getArrayValueFromQuery } = useQueryParams();
+
+  const min = data.min;
+  const max = data.max;
 
   useEffect(() => {
     if (priceQuery) {
@@ -27,26 +37,30 @@ export const PriceFilter = () => {
   useEffect(() => {
     if (query.price) {
       const value = getArrayValueFromQuery('price');
-      const min = isNaN(Number(value[0])) ? minPrice : Number(value[0]);
-      const max = isNaN(Number(value[1])) ? maxPrice : Number(value[1]);
+      const minFromQuery = isNaN(Number(value[0]))
+        ? minPrice
+        : Number(value[0]);
+      const maxFromQuery = isNaN(Number(value[1]))
+        ? maxPrice
+        : Number(value[1]);
 
-      if (min !== minPrice) {
-        setMinPrice(min);
+      if (minFromQuery !== minPrice) {
+        setMinPrice(minFromQuery);
       }
 
-      if (max !== maxPrice) {
-        setMaxPrice(max);
+      if (maxFromQuery !== maxPrice) {
+        setMaxPrice(maxFromQuery);
       }
 
       if (isNaN(Number(value[0])) || isNaN(Number(value[1]))) {
         setPriceInQuery();
       }
     } else {
-      if (minPrice !== 0) {
-        setMinPrice(0);
+      if (minPrice !== min) {
+        setMinPrice(min);
       }
-      if (maxPrice !== 500) {
-        setMaxPrice(500);
+      if (maxPrice !== max) {
+        setMaxPrice(max);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -78,6 +92,8 @@ export const PriceFilter = () => {
         maxPrice={maxPrice}
         onChangePrice={onChangePrice}
         onSetPrice={onSetPriceOnQuery}
+        min={min}
+        max={max}
       />
       <Box display="flex" alignItems="center" gridGap="sp16">
         <PriceInput

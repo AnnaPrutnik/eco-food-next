@@ -12,6 +12,8 @@ interface SliderProps {
   maxPrice: number;
   onChangePrice: (value: number, type: string) => void;
   onSetPrice: () => void;
+  min: number;
+  max: number;
 }
 
 export const Slider: React.FC<SliderProps> = ({
@@ -19,17 +21,16 @@ export const Slider: React.FC<SliderProps> = ({
   maxPrice,
   onChangePrice,
   onSetPrice,
+  min,
+  max,
 }) => {
-  const min = 0;
-  const max = 500;
-
   const leftPosition = useMemo(() => {
     return Math.ceil((minPrice / (max - min)) * 100 + 0.1);
-  }, [minPrice]);
+  }, [max, min, minPrice]);
 
   const rightPosition = useMemo(() => {
     return Math.ceil(100 - (maxPrice / (max - min)) * 100 - 0.1);
-  }, [maxPrice]);
+  }, [max, maxPrice, min]);
 
   const onChangePriceValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);

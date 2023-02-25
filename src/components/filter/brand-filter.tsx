@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
-import { brands as defaultBrands } from './temp-db';
-
 import { Accordion, BrandFilterInput, CheckboxGroup } from 'components';
 
-export const BrandFilter = () => {
+interface BrandFilterProps {
+  data: {
+    id: number;
+    name: string;
+  }[];
+}
+
+export const BrandFilter: React.FC<BrandFilterProps> = ({
+  data: defaultBrands,
+}) => {
   const [brands, setBrands] = useState(defaultBrands);
 
   const onClickBrandSearch = (value: string) => {

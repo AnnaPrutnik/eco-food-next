@@ -1,4 +1,5 @@
 import React from 'react';
+import useSWR from 'swr';
 import {
   Box,
   PriceFilter,
@@ -8,25 +9,31 @@ import {
   SaleFilter,
   CountryFilter,
 } from 'components';
+import { fetcher } from 'helpers';
 
 import { Divider, Title } from './filter.styled';
 
 export const Filter = () => {
+  const { data, isLoading } = useSWR('/api/filters', fetcher);
+
+  if (isLoading) {
+    return <div>isLoading</div>;
+  }
   return (
     <Box width={['100%', '100%', '230px', '250px', '270px']}>
       <form>
         <Title>Filter</Title>
-        <PriceFilter />
+        <PriceFilter data={data.price} />
         <Divider />
-        <BrandFilter />
+        <BrandFilter data={data.brands} />
         <Divider />
-        <FormFilter />
+        <FormFilter data={data.forms} />
         <Divider />
         <SaleFilter />
         <Divider />
-        <AvailabilityFilter />
+        <AvailabilityFilter data={data.availability} />
         <Divider />
-        <CountryFilter />
+        <CountryFilter data={data.country} />
       </form>
     </Box>
   );

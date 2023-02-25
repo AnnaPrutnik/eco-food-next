@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useSWR from 'swr';
 import { Box, SortByForm } from 'components';
 import { useQueryParams } from 'hooks';
 import { useRouter } from 'next/router';
@@ -10,7 +11,8 @@ import {
   ClearAllBtn,
 } from './applied-filters.styled';
 import { FilterElement } from './filter-element';
-import { filterProducts } from '../filter/temp-db';
+import { fetcher } from 'helpers';
+import { IOption } from 'types';
 
 export type Value = [string, string[]];
 type FilterState = Value[];
@@ -20,6 +22,10 @@ export const AppliedFilters = () => {
   const [filterValues, setFilterValues] = useState<FilterState>([]);
   const router = useRouter();
   const { query } = router;
+  const { data: sortByData, isLoading } = useSWR<IOption[]>(
+    '/api/sort',
+    fetcher
+  );
 
   useEffect(() => {
     const properties = getPropertiesFormQuery();
@@ -51,6 +57,11 @@ export const AppliedFilters = () => {
   };
 
   const totalProduct = 84;
+
+  if (isLoading) {
+    return <div>isLoading</div>;
+  }
+
   return (
     <Box display="grid" gridGap={[24, 24, 32]} mb="sp48">
       <MobileFilter>
@@ -61,7 +72,7 @@ export const AppliedFilters = () => {
         <Box display={['none', 'none', 'block']}>
           <FiltersCount>Showed {totalProduct} goods</FiltersCount>
         </Box>
-        <SortByForm options={filterProducts} />
+        <SortByForm options={sortByData} />
       </Box>
       {filterValues.length > 0 && (
         <FilterActive>
