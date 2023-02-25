@@ -1,3 +1,3 @@
 export * from './getAsString';
-export * from './transformStringQuery';
+export * from './transformValuesFromString';
 export * from './fetcher';

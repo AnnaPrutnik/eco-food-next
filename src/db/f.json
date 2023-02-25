@@ -1,0 +1,18 @@
+[
+  {
+    "value": "relevancy",
+    "label": "Relevancy"
+  },
+  {
+    "value": "price-down",
+    "label": "Price: High to Low"
+  },
+  {
+    "value": "price-up",
+    "label": "Price: Low to High"
+  },
+  {
+    "value": "customer",
+    "label": "Avg. Customer"
+  }
+]
