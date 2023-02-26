@@ -11,3 +11,6 @@ export * from "./userBonus";
 export * from "./shoppingCart";
 export * from "./mobileMenu";
 export * from "./searchBtn";
+export * from './product-catalog';
+export * from './applied-filters';
+export * from './sort-by-form';

@@ -1,38 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from 'components';
-import { Field, FieldInputProps, useField } from 'formik';
 import { useDebouncedCallback } from 'use-debounce';
 import { PriceLabel, Price, CurrencyLabel } from './fields.styled';
-import { InputProps } from 'types';
 
-interface PriceInputProps extends InputProps {
-  trigger: string;
+interface InputProps {
+  name: string;
+  label: string;
+  value: number;
+  onChangeInput: (value: number, type: string) => void;
 }
 
-export const PriceInput: React.FC<PriceInputProps> = ({
+export const PriceInput: React.FC<InputProps> = ({
   name,
   label,
-  trigger,
+  value,
+  onChangeInput,
 }) => {
-  const [field, meta, helpers] = useField<string>(name);
-  const [trigField, trigMeta, trigHelpers] = useField<boolean>(trigger);
-  const [value, setValue] = useState(() => field.value);
+  const [price, setPrice] = useState(() => value);
 
-  const debounced = useDebouncedCallback((value: string) => {
-    helpers.setValue(value);
-    trigHelpers.setValue(true);
+  const debounced = useDebouncedCallback((value: number) => {
+    onChangeInput(value, name);
   }, 700);
 
   useEffect(() => {
-    if (value !== field.value) {
-      setValue(field.value);
+    if (price !== value) {
+      setPrice(value);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [field.value]);
+  }, [value]);
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setValue(value);
+  const onChangePriceInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    setPrice(value);
     debounced(value);
   };
 
@@ -43,13 +42,12 @@ export const PriceInput: React.FC<PriceInputProps> = ({
         <Price
           border="dark"
           bg="transparent"
-          type="text"
+          type="number"
           autoComplete="off"
           id={name}
           name={name}
-          onBlur={field.onBlur}
-          onChange={onChangeInput}
-          value={value}
+          onChange={onChangePriceInput}
+          value={price}
         />
 
         <CurrencyLabel>$</CurrencyLabel>

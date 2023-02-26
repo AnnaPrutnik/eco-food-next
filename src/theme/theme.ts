@@ -1,30 +1,6 @@
 import 'styled-components';
 import { lato, gilroy, rubik } from 'fonts';
 
-interface BreakpointsType {
-  xs?: string;
-  sm?: string;
-  md?: string;
-  lg?: string;
-  xl?: string;
-}
-
-class Breakpoints {
-  xs?: string;
-  sm?: string;
-  md?: string;
-  lg?: string;
-  xl?: string;
-
-  constructor(breakpoints: BreakpointsType) {
-    Object.assign(this, breakpoints);
-  }
-
-  map(fn: (value: any) => any) {
-    return Object.values(this).map(fn);
-  }
-}
-
 export const theme = {
   space: {
     sp0: '0px',

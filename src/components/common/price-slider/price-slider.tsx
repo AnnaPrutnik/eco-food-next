@@ -6,36 +6,42 @@ import {
   SliderThumb,
 } from './price-slider.styled';
 import { Box } from 'components';
-import { useField } from 'formik';
 
 interface SliderProps {
-  start: string;
-  end: string;
+  minPrice: number;
+  maxPrice: number;
+  onChangePrice: (value: number, type: string) => void;
+  onSetPrice: () => void;
+  min: number;
   max: number;
-  trigger: string;
 }
 
-export const Slider: React.FC<SliderProps> = ({ start, end, max, trigger }) => {
-  const [startField] = useField(start);
-  const [endField] = useField(end);
-  const [field, meta, triggerFn] = useField(trigger);
-
+export const Slider: React.FC<SliderProps> = ({
+  minPrice,
+  maxPrice,
+  onChangePrice,
+  onSetPrice,
+  min,
+  max,
+}) => {
   const leftPosition = useMemo(() => {
-    return Math.ceil((startField.value / max) * 100 + 0.1);
-  }, [startField, max]);
+    return Math.ceil((minPrice / (max - min)) * 100 + 0.1);
+  }, [max, min, minPrice]);
 
   const rightPosition = useMemo(() => {
-    return Math.ceil(100 - (endField.value / max) * 100);
-  }, [endField, max]);
+    return Math.ceil(100 - (maxPrice / (max - min)) * 100 - 0.1);
+  }, [max, maxPrice, min]);
 
-  const onChangePriceValue = () => {
-    triggerFn.setValue(true);
+  const onChangePriceValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    const type = e.target.name;
+    onChangePrice(value, type);
   };
 
   return (
     <Box width="100%">
       <Box display="flex" justifyContent="space-between" mb="sp4">
-        <Text>0</Text>
+        <Text>{min}</Text>
         <Text>{max}</Text>
       </Box>
       <Box
@@ -50,22 +56,22 @@ export const Slider: React.FC<SliderProps> = ({ start, end, max, trigger }) => {
         </SliderBase>
         <Box position="relative">
           <SliderThumb
-            name={start}
+            name="minPrice"
             type="range"
-            min={0}
+            min={min}
             max={max}
-            value={startField.value}
-            onChange={startField.onChange}
-            onMouseUp={onChangePriceValue}
+            value={minPrice}
+            onChange={onChangePriceValue}
+            onMouseUp={onSetPrice}
           />
           <SliderThumb
-            name={end}
+            name="maxPrice"
             type="range"
-            min={0}
+            min={min}
             max={max}
-            value={endField.value}
-            onChange={endField.onChange}
-            onMouseUp={onChangePriceValue}
+            value={maxPrice}
+            onChange={onChangePriceValue}
+            onMouseUp={onSetPrice}
           />
         </Box>
       </Box>
