@@ -11,6 +11,7 @@ import {
   ClearAllBtn,
 } from './applied-filters.styled';
 import { FilterElement } from './filter-element';
+import * as Dialog from '@radix-ui/react-dialog';
 import { fetcher } from 'helpers';
 import { IOption } from 'types';
 

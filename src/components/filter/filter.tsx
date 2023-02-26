@@ -19,6 +19,7 @@ export const Filter = () => {
   if (isLoading) {
     return <div>isLoading</div>;
   }
+
   return (
     <Box width={['100%', '100%', '230px', '250px', '270px']}>
       <form>
