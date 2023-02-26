@@ -1,24 +1,20 @@
-import { FC } from 'react';
-import Link from 'next/link';
-import useSWR from 'swr';
+import Link from "next/link";
+import useSWR from "swr";
 import {
   Root,
   Trigger,
   Content,
-  Indicator,
-  Arrow,
-  ContentList,
   ContentItem,
   ContentLink,
   Viewport,
-} from './categoriesMenu.styled';
-import { CategoriesIcon } from 'components/svg';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { ICategory } from 'types';
-import { fetcher } from 'helpers';
+} from "./categoriesMenu.styled";
+import { CategoriesIcon } from "components/svg";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import { ICategory } from "types";
+import { fetcher } from "helpers";
 
-export const CategoriesMenu: FC = () => {
-  const { data, isLoading } = useSWR<ICategory[]>('/api/category', fetcher);
+export const CategoriesMenu: React.FC = () => {
+  const { data, isLoading } = useSWR<ICategory[]>("/api/category", fetcher);
 
   return (
     <Root>
@@ -30,7 +26,7 @@ export const CategoriesMenu: FC = () => {
           </Trigger>
           <Content>
             {!isLoading && (
-              <ContentList>
+              <ul>
                 {data.map((c: ICategory) => (
                   <ContentItem key={c.id}>
                     <Link href={`/${c.url}`} passHref legacyBehavior>
@@ -38,14 +34,10 @@ export const CategoriesMenu: FC = () => {
                     </Link>
                   </ContentItem>
                 ))}
-              </ContentList>
+              </ul>
             )}
           </Content>
         </NavigationMenu.Item>
-
-        <Indicator>
-          <Arrow />
-        </Indicator>
       </NavigationMenu.List>
 
       <Viewport />
