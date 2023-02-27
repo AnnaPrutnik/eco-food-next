@@ -1,5 +1,5 @@
-import styled, { css, keyframes } from 'styled-components';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import styled, { css, keyframes } from "styled-components";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 
 const scaleIn = keyframes`
   from {
@@ -9,15 +9,6 @@ const scaleIn = keyframes`
   to {
     opacity: 1;
     transform: rotateX(0deg) scale(1);
-  }
-`;
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 `;
 
@@ -33,6 +24,11 @@ const Typography = css`
 export const Root = styled(NavigationMenu.Root)`
   ${Typography}
   position: relative;
+  display: none;
+
+  ${(p) => p.theme.media.xmMin} {
+    display: block;
+  }
 `;
 
 export const Trigger = styled(NavigationMenu.Trigger)`
@@ -40,11 +36,15 @@ export const Trigger = styled(NavigationMenu.Trigger)`
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 0;
-
+  padding: 7px 0;
   border: none;
 
   background-color: transparent;
+
+  transition: color 275ms ease;
+  :hover {
+    color: ${(p) => p.theme.colors.primary};
+  }
 `;
 
 export const Viewport = styled(NavigationMenu.Viewport)`
@@ -52,59 +52,55 @@ export const Viewport = styled(NavigationMenu.Viewport)`
   top: 100%;
   padding-top: 22px;
 
-  z-index: 2;
+  z-index: 1;
 
   animation: ${scaleIn} 200ms ease;
 `;
 
 export const Content = styled(NavigationMenu.Content)`
   position: relative;
-  overflow: hidden;
 
-  /* border: 1px solid ${(p) => p.theme.colors.lightBorder}; */
+  border: 1px solid ${(p) => p.theme.colors.lightBorder};
   border-radius: ${(p) => p.theme.radii.r24};
   box-shadow: 0px 24px 48px rgba(56, 54, 52, 0.08);
 
   background-color: ${(p) => p.theme.colors.white};
 
-  /* ::before {
+  ::before {
     content: "";
     position: absolute;
     bottom: 98%;
-    left: 35%;
+    left: 28%;
     width: 13px;
     height: 13px;
 
-    border-top: 1px solid ${(p) => p.theme.colors.lightBorder};
-    border-left: 1px solid ${(p) => p.theme.colors.lightBorder};
+    border: inherit;
+    border-right: none;
+    border-bottom: none;
+
     background-color: ${(p) => p.theme.colors.white};
 
     transform: rotate(45deg);
-  } */
+  }
 `;
-
-export const Indicator = styled(NavigationMenu.Indicator)`
-  height: 22px;
-  overflow: hidden;
-
-  animation: ${fadeIn} 300ms ease;
-`;
-
-export const Arrow = styled.div`
-  position: relative;
-  top: 66%;
-  left: 60%;
-  width: 14px;
-  height: 14px;
-  background-color: white;
-  transform: rotate(45deg);
-`;
-
-export const ContentList = styled.ul``;
 
 export const ContentItem = styled.li`
   width: 250px;
   height: 38px;
+
+  :first-child {
+    position: relative;
+    border-top-right-radius: ${(p) => p.theme.radii.r24};
+    border-top-left-radius: ${(p) => p.theme.radii.r24};
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  :last-child {
+    border-bottom-right-radius: ${(p) => p.theme.radii.r24};
+    border-bottom-left-radius: ${(p) => p.theme.radii.r24};
+    overflow: hidden;
+  }
 
   :not(:last-child) {
     border-bottom: 1px solid ${(p) => p.theme.colors.lightBorder};
