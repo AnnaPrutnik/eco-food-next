@@ -1,10 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import sort from 'db/sort-by.json';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const response = await fetch(`${process.env.API_HOST}/sort-by`);
-  const data = await response.json();
-  res.status(200).json(data);
+  res.status(200).json(sort);
 }

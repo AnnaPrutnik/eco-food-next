@@ -1,0 +1,58 @@
+[
+  {
+    "createdAt": "2023-01-25T13:03:13.563Z",
+    "title": "Dried fruits",
+    "url": "dried-fruits",
+    "description": "description 1",
+    "id": "1"
+  },
+  {
+    "createdAt": "2023-01-25T13:55:34.118Z",
+    "title": "Nuts",
+    "url": "nuts",
+    "description": "description 2",
+    "id": "2"
+  },
+  {
+    "createdAt": "2023-01-25T16:44:08.742Z",
+    "title": "Snacks",
+    "url": "snacks",
+    "description": "description 3",
+    "id": "3"
+  },
+  {
+    "createdAt": "2023-01-25T15:19:55.274Z",
+    "title": "Chocolate",
+    "url": "chocolate",
+    "description": "description 4",
+    "id": "4"
+  },
+  {
+    "createdAt": "2023-01-25T20:59:43.435Z",
+    "title": "Confectionery",
+    "url": "confectionery",
+    "description": "description 5",
+    "id": "5"
+  },
+  {
+    "createdAt": "2023-01-25T22:19:42.476Z",
+    "title": "Seeds",
+    "url": "seeds",
+    "description": "description 6",
+    "id": "6"
+  },
+  {
+    "createdAt": "2023-01-25T13:50:13.453Z",
+    "title": "Mixes",
+    "url": "mixes",
+    "description": "description 7",
+    "id": "7"
+  },
+  {
+    "createdAt": "2023-01-26T01:35:53.266Z",
+    "title": "Organics",
+    "url": "organics",
+    "description": "description 8",
+    "id": "8"
+  }
+]
