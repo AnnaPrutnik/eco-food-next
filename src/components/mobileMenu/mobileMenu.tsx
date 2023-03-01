@@ -6,7 +6,7 @@ export const MobileMenu: React.FC = () => {
   return (
     <Box
       as="button"
-      display={["flex", "flex", "block", "none"]}
+      display={["flex", "flex", "flex", "none"]}
       alignItems="center"
       p="7px 0"
       border="none"

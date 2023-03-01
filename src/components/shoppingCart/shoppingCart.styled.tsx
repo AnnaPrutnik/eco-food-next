@@ -51,7 +51,7 @@ export const Content = styled(Dialog.Content)`
   ::before {
     content: "";
     position: absolute;
-    bottom: calc(98% + 2px);
+    top: -8px;
     right: 16%;
     width: 13px;
     height: 13px;
@@ -81,6 +81,10 @@ export const Content = styled(Dialog.Content)`
     ::before {
       right: 29%;
     }
+
+    @media screen and (max-height: 484px) {
+      height: calc(100vh - 84px);
+    }
   }
 
   ${(p) => p.theme.media.xmMin} {
@@ -89,6 +93,10 @@ export const Content = styled(Dialog.Content)`
     ::before {
       right: 16%;
     }
+
+    @media screen and (max-height: 498px) {
+      height: calc(100vh - 98px);
+    }
   }
 
   ${(p) => p.theme.media.lgMin} {
@@ -96,10 +104,10 @@ export const Content = styled(Dialog.Content)`
     top: 88px;
   }
 `;
+
 export const Title = styled(Dialog.Title)`
   font-family: ${(p) => p.theme.fonts.lato};
   font-size: ${(p) => p.theme.fontSizes.f16};
   font-weight: ${(p) => p.theme.fontWeights.semiBold};
   line-height: ${(p) => p.theme.lineHeights.heading};
 `;
-export const Close = styled(Dialog.Close)``;

@@ -1,5 +1,4 @@
-import { theme } from "theme";
-export const BonusIcon = ({ size = 24, color = theme.colors.text }) => (
+export const BonusIcon = ({ size = 24, color = "currentColor" }) => (
   <svg
     width={size}
     height={size}

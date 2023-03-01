@@ -5,7 +5,7 @@ import { SearchButton, Search } from './fields.styled';
 
 export const SearchInput = () => {
   return (
-    <Box maxWidth="270px" height="44px" position="relative">
+    <Box height="44px" position="relative">
       <Field name="filter">
         {({ field }: { field: FieldInputProps<string> }) => (
           <Search
