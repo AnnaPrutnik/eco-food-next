@@ -12,6 +12,12 @@ import {
 } from "components";
 import { Logo } from "components/svg";
 
+const user = {
+  name: "Julia",
+  lastName: "Roberts",
+  eMail: "julia.roberts@gmail.com",
+};
+
 export const Header = () => {
   return (
     <Box
@@ -39,7 +45,7 @@ export const Header = () => {
       >
         <SearchBtn />
         <UserBonus bonus={15} />
-        <User name="Julia" />
+        <User user={user} />
         <ShoppingCart total={6} />
         <MobileMenu />
       </Box>

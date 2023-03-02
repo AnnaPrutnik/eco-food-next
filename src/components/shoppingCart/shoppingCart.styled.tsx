@@ -43,7 +43,7 @@ export const Content = styled(Dialog.Content)`
   width: 329px;
   height: 400px;
   padding: 24px;
-  border: 1px solid #edeae7;
+  border: 1px solid ${p => p.theme.colors.lightBorder};
   border-radius: ${(p) => p.theme.radii.r24};
   background-color: ${(p) => p.theme.colors.white};
   box-shadow: 0px 15px 16px -12px rgba(56, 54, 52, 0.08);
