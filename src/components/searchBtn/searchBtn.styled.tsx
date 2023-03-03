@@ -6,8 +6,7 @@ export const Root = styled(Popover.Root)``;
 export const Trigger = styled(Popover.Trigger)`
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 7px 0;
+  padding: 5px 0;
   cursor: pointer;
   border: none;
   color: ${(p) => p.theme.colors.text};
@@ -25,4 +24,3 @@ export const Content = styled(Popover.Content)`
   margin-top: 16px;
   padding: 0 16px;
 `;
-export const Arrow = styled(Popover.Arrow)``;

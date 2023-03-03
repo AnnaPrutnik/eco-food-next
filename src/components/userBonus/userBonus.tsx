@@ -19,7 +19,7 @@ export const UserBonus: React.FC<IBonus> = ({ bonus }) => {
       color={theme.colors.text}
     >
       <BonusIcon />
-      <span>{`Bonus: ${bonus}`}</span>
+      <span>{`Bonus: ${bonus}%`}</span>
     </Box>
   );
 };
