@@ -80,7 +80,7 @@ export const FullName = styled.p`
   font-size: ${(p) => p.theme.fontSizes.f16};
   font-weight: ${(p) => p.theme.fontWeights.medium};
   line-height: ${(p) => p.theme.lineHeights.heading};
-`
+`;
 
 export const Name = styled(FullName)`
   ${Responsive}
@@ -104,9 +104,16 @@ export const StyledLink = styled.a`
   gap: 15px;
   padding: 5px;
   border-radius: 10px;
+
   :hover,
   :focus {
-    background-color: ${p => p.theme.colors.darkBackground};
+    color: ${(p) => p.theme.colors.black};
+    background-color: ${(p) => p.theme.colors.darkBackground};
+
+    & svg {
+      color: ${(p) => p.theme.colors.primary};
+      fill: ${(p) => p.theme.colors.white};
+    }
   }
 `;
 
