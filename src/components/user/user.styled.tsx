@@ -1,5 +1,6 @@
 import * as Popover from "@radix-ui/react-popover";
 import styled, { css } from "styled-components";
+import { scaleIn, scaleOut } from "styles/animation";
 
 const Responsive = css`
   display: none;
@@ -39,6 +40,14 @@ export const Content = styled(Popover.Content)`
   border-radius: ${(p) => p.theme.radii.r24};
   background-color: ${(p) => p.theme.colors.white};
   box-shadow: 0px 15px 16px -12px rgba(56, 54, 52, 0.08);
+
+  &[data-state="open"] {
+    animation: ${scaleIn} 200ms ease;
+  }
+
+  &[data-state="closed"] {
+    animation: ${scaleOut} 200ms ease;
+  }
 
   ::before {
     content: "";
