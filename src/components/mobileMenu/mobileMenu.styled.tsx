@@ -40,7 +40,6 @@ export const Content = styled(Dialog.Content)`
   top: 0;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
 
   background-color: ${(p) => p.theme.colors.white};
 
