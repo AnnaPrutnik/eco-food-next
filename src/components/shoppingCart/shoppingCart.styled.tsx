@@ -1,5 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import styled from "styled-components";
+import { scaleIn, scaleOut, showOerlay, hideOerlay } from "styles/animation";
 
 export const Root = styled(Dialog.Root)``;
 
@@ -35,7 +36,16 @@ export const Overlay = styled(Dialog.Overlay)`
   background-color: ${(p) => p.theme.colors.backdrop};
   position: fixed;
   inset: 0;
+
+  &[data-state="open"] {
+    animation: ${showOerlay} 200ms ease;
+  }
+
+  &[data-state="closed"] {
+    animation: ${hideOerlay} 200ms ease;
+  }
 `;
+
 export const Content = styled(Dialog.Content)`
   position: absolute;
   right: 23px;
@@ -47,6 +57,14 @@ export const Content = styled(Dialog.Content)`
   border-radius: ${(p) => p.theme.radii.r24};
   background-color: ${(p) => p.theme.colors.white};
   box-shadow: 0px 15px 16px -12px rgba(56, 54, 52, 0.08);
+
+  &[data-state="open"] {
+    animation: ${scaleIn} 200ms ease;
+  }
+
+  &[data-state="closed"] {
+    animation: ${scaleOut} 200ms ease;
+  }
 
   ::before {
     content: "";

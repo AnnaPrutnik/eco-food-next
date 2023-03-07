@@ -1,16 +1,6 @@
-import styled, { css, keyframes } from "styled-components";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-
-const scaleIn = keyframes`
-  from {
-    opacity: 0;
-    transform: rotateX(-30deg) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: rotateX(0deg) scale(1);
-  }
-`;
+import styled, { css } from "styled-components";
+import { scaleIn, scaleOut } from "styles/animation";
 
 const Typography = css`
   font-family: ${(p) => p.theme.fonts.lato};
@@ -54,7 +44,13 @@ export const Viewport = styled(NavigationMenu.Viewport)`
 
   z-index: 1;
 
-  animation: ${scaleIn} 200ms ease;
+  &[data-state="open"] {
+    animation: ${scaleIn} 200ms ease;
+  }
+
+  &[data-state="closed"] {
+    animation: ${scaleOut} 200ms ease;
+  }
 `;
 
 export const Content = styled(NavigationMenu.Content)`
