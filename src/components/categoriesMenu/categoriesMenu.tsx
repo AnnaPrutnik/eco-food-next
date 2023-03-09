@@ -27,14 +27,13 @@ export const CategoriesMenu: React.FC = () => {
 					<Content>
 						{!isLoading && (
 							<ul>
-								{data &&
-									data.map((c: ICategory) => (
-										<ContentItem key={c.id}>
-											<Link href={`/${c.url}`} passHref legacyBehavior>
-												<ContentLink>{c.title}</ContentLink>
-											</Link>
-										</ContentItem>
-									))}
+								{data.map((c: ICategory) => (
+									<ContentItem key={c.id}>
+										<Link href={`/${c.url}`} passHref legacyBehavior>
+											<ContentLink>{c.title}</ContentLink>
+										</Link>
+									</ContentItem>
+								))}
 							</ul>
 						)}
 					</Content>

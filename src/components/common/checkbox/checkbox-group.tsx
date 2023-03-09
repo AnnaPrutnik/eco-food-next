@@ -54,7 +54,7 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
 				<Checkbox
 					name={name}
 					value={item.name}
-					key={item._id}
+					key={item.id}
 					onChange={onChangedCheckboxGroup}
 					isChecked={checkedValues.includes(item.name.toLowerCase())}
 				/>
