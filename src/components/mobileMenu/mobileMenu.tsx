@@ -1,19 +1,66 @@
+import { useState } from "react";
+import Link from "next/link";
+import useSWR from "swr";
+import { fetcher } from "helpers";
 import { Box } from "components";
-import { MenuIcon } from "components/svg";
+import { MenuIcon, ExitIcon, Logo } from "components/svg";
+import { ICategory } from "types";
+import {
+  Root,
+  Trigger,
+  Portal,
+  Overlay,
+  Content,
+  Close,
+  List,
+  Item,
+  CategoryLink,
+} from "./mobileMenu.styled";
 import { theme } from "theme";
 
 export const MobileMenu: React.FC = () => {
+  const [isOpen, setOpen] = useState(false);
+  const { data, isLoading } = useSWR<ICategory[]>("/api/category", fetcher);
+
   return (
-    <Box
-      as="button"
-      display={["flex", "flex", "flex", "none"]}
-      alignItems="center"
-      p="7px 0"
-      border="none"
-      color={theme.colors.text}
-      backgroundColor="transparent"
-    >
-      <MenuIcon />
-    </Box>
+    <Root open={isOpen} onOpenChange={() => setOpen(!isOpen)}>
+      <Trigger>
+        <MenuIcon />
+      </Trigger>
+      <Portal>
+        <Overlay>
+          <Content>
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              px="7px"
+              py="5px"
+              backgroundColor={theme.colors.lightBackground}
+            >
+              <Link href="/">
+                <Logo />
+              </Link>
+              <Close>
+                <ExitIcon />
+              </Close>
+            </Box>
+            {!isLoading && (
+              <List>
+                {data.map((c: ICategory) => (
+                  <Item key={c.id}>
+                    <Link href={`/${c.url}`} passHref legacyBehavior>
+                      <CategoryLink onClick={() => setOpen(!isOpen)}>
+                        {c.title}
+                      </CategoryLink>
+                    </Link>
+                  </Item>
+                ))}
+              </List>
+            )}
+          </Content>
+        </Overlay>
+      </Portal>
+    </Root>
   );
 };

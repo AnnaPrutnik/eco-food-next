@@ -1,9 +1,13 @@
-export const BonusIcon = ({ size = 24, color = "currentColor" }) => (
+export const BonusIcon = ({
+  size = 24,
+  color = "currentColor",
+  bg = "none",
+}) => (
   <svg
     width={size}
     height={size}
     viewBox="0 0 24 24"
-    fill="none"
+    fill={bg}
     xmlns="http://www.w3.org/2000/svg"
   >
     <circle
