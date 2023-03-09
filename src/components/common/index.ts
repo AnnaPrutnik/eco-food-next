@@ -10,3 +10,4 @@ export * from './heading';
 export * from './breadcrumbs';
 export * from './picture';
 export * from './section';
+export * from './loader';

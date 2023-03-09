@@ -1,24 +1,17 @@
 import React from 'react';
 import { Accordion, CheckboxGroup } from 'components';
+import { ICollectionItem } from 'types';
 
 interface CountryFilterProps {
-  data: {
-    value: string;
-    label: string;
-  }[];
+	data: ICollectionItem[];
 }
 
 export const CountryFilter: React.FC<CountryFilterProps> = ({
-  data: country,
+	data: country,
 }) => {
-  const normalizedCountry = country.map((item, index) => ({
-    id: index + 1,
-    name: item.label,
-  }));
-
-  return (
-    <Accordion title="country">
-      <CheckboxGroup options={normalizedCountry} name="country" />
-    </Accordion>
-  );
+	return (
+		<Accordion title='country'>
+			<CheckboxGroup options={country} name='country' />
+		</Accordion>
+	);
 };
