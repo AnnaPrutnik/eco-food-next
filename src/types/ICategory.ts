@@ -1,7 +1,3 @@
-export interface ICategory {
-  id: number;
-  url: string;
-  title: string;
-  description: string;
-  image: string;
-}
+import { IDbCategory, IObjectId } from './MongoTypes';
+
+export interface ICategory extends IDbCategory, IObjectId {}
