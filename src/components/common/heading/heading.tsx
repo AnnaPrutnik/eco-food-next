@@ -1,22 +1,22 @@
-import React from 'react';
+import { FC } from 'react';
 import { Category, Product, Section, Card } from './heading.styled';
 
 interface IHeading {
-  text: string;
+	text: string;
 }
 
-export const CategoryTitle: React.FC<IHeading> = ({ text }) => {
-  return <Category>{text}</Category>;
+export const CategoryTitle: FC<IHeading> = ({ text }) => {
+	return <Category>{text}</Category>;
 };
 
-export const ProductTitle: React.FC<IHeading> = ({ text }) => {
-  return <Product>{text}</Product>;
+export const ProductTitle: FC<IHeading> = ({ text }) => {
+	return <Product>{text}</Product>;
 };
 
-export const CardTitle: React.FC<IHeading> = ({ text }) => {
-  return <Card>{text}</Card>;
+export const CardTitle: FC<IHeading> = ({ text }) => {
+	return <Card>{text}</Card>;
 };
 
-export const SectionTitle: React.FC<IHeading> = ({ text }) => {
-  return <Section>{text}</Section>;
+export const SectionTitle: FC<IHeading> = ({ text }) => {
+	return <Section>{text}</Section>;
 };
