@@ -30,6 +30,7 @@ export const SortBySelect: React.FC<SelectProps> = ({
 					onChange={onChangeSelect}
 					onBlur={onBlurSelect}
 					options={options}
+					isSearchable={false}
 				/>
 			</Box>
 		</Box>

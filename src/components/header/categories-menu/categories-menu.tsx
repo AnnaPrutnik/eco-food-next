@@ -28,7 +28,7 @@ export const CategoriesMenu: React.FC = () => {
 						{!isLoading && (
 							<ul>
 								{data.map((c: ICategory) => (
-									<ContentItem key={c.id}>
+									<ContentItem key={c.url}>
 										<Link href={`/${c.url}`} passHref legacyBehavior>
 											<ContentLink>{c.title}</ContentLink>
 										</Link>

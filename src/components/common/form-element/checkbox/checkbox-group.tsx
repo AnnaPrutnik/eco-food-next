@@ -51,7 +51,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({ name, options }) => {
 				<Checkbox
 					name={name}
 					value={item.name}
-					key={item.id}
+					key={item.name}
 					onChange={onChangedCheckboxGroup}
 					isChecked={checkedValues.includes(item.name.toLowerCase())}
 				/>

@@ -12,7 +12,6 @@ import {
 import { SortByForm } from './sort-by-form';
 import { FilterElement } from './filter-element';
 import { ISelectItem } from 'types';
-import * as Dialog from '@radix-ui/react-dialog';
 
 export type Value = [string, string[]];
 type FilterState = Value[];
@@ -30,6 +29,7 @@ export const AppliedFilters: FC<AppliedFiltersProps> = ({ sort }) => {
 	useEffect(() => {
 		const properties = getPropertiesFormQuery();
 		setFilterValues(properties);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [query]);
 
 	const filterCount = filterValues.length;

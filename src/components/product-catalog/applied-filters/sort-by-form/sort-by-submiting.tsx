@@ -3,11 +3,12 @@ import { useFormikContext } from 'formik';
 import { SortFormValues } from './types';
 
 export const SortSubmit = () => {
-  const { values, submitForm, status } = useFormikContext<SortFormValues>();
+	const { values, submitForm, status } = useFormikContext<SortFormValues>();
 
-  useEffect(() => {
-    submitForm();
-  }, [values]);
+	useEffect(() => {
+		submitForm();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [values]);
 
-  return null;
+	return null;
 };

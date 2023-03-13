@@ -7,12 +7,17 @@ export interface InputProps {
 	onChangeInput?: (value: string) => void;
 }
 
-export interface ICollectionItem extends IDbCatalogItem, IObjectId {}
+export type ICollectionItem = IDbCatalogItem & IObjectId;
 
-export interface ISelectItem extends IDbSortItem, IObjectId {}
+export type ISelectItem = IDbSortItem & IObjectId;
 
 export interface SelectProps {
 	name: string;
 	label: string;
-	options: ICollectionItem[];
+	options: ISelectItem[];
+}
+
+export interface IPriceProps {
+	min: number;
+	max: number;
 }

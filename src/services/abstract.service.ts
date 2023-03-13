@@ -21,7 +21,8 @@ export class AbstractService<T> {
 	}
 
 	async getSerializedAll() {
-		const result = await this.model.find({});
+		const result = await this.model.find({}).lean();
+
 		return result.map(doc => serializeObject(doc));
 	}
 }

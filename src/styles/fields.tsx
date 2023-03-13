@@ -15,7 +15,7 @@ export const inputBase = css<InputProps>`
 	font-size: ${({ theme }) => theme.fontSizes.f14};
 	line-height: ${({ theme }) => theme.lineHeights.input};
 	padding-right: ${({ theme, icon }) =>
-		icon ? theme.space[11] : theme.space.sp16};
+		icon ? theme.space.sp36 : theme.space.sp16};
 	padding-left: ${({ theme }) => theme.space.sp16};
 	border-radius: ${({ theme }) => theme.radii.r10};
 	color: ${({ theme }) => theme.colors.text};

@@ -6,7 +6,8 @@ export const AutoSubmit = () => {
 	const { values, submitForm } = useFormikContext<SearchFormValues>();
 	useEffect(() => {
 		if (values.filter.length > 3) {
-			submitForm();
+			console.log(values);
+			// submitForm();
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [values]);

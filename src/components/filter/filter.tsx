@@ -11,7 +11,7 @@ import { Box } from 'components';
 import { Divider, Title } from './filter.styled';
 import { ICollectionItem } from 'types';
 
-interface FilterData {
+interface FilterProps {
 	brands: ICollectionItem[];
 	form: ICollectionItem[];
 	country: ICollectionItem[];
@@ -19,13 +19,13 @@ interface FilterData {
 	price: { min: number; max: number };
 }
 
-interface FilterProps {
-	filterData: FilterData;
-}
-
-export const Filter: FC<FilterProps> = ({ filterData }) => {
-	const { availability, brands, country, form, price } = filterData;
-
+export const Filter: FC<FilterProps> = ({
+	availability,
+	brands,
+	country,
+	form,
+	price,
+}) => {
 	return (
 		<Box width={['100%', '100%', '230px', '250px', '270px']}>
 			<form>

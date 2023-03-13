@@ -48,7 +48,7 @@ export const MobileMenu: React.FC = () => {
 						{!isLoading && (
 							<List>
 								{data.map((c: ICategory) => (
-									<Item key={c.id}>
+									<Item key={c.url}>
 										<Link href={`/${c.url}`} passHref legacyBehavior>
 											<CategoryLink onClick={() => setOpen(!isOpen)}>
 												{c.title}
