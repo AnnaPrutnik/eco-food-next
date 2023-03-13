@@ -1,5 +1,5 @@
 import { Model } from 'mongoose';
-import { transformMongoResult } from 'helpers';
+import { serializeObject } from 'helpers';
 
 export class AbstractService<T> {
 	model: Model<T>;
@@ -21,7 +21,8 @@ export class AbstractService<T> {
 	}
 
 	async getSerializedAll() {
-		const result = await this.model.find({});
-		return result.map(doc => transformMongoResult(doc));
+		const result = await this.model.find({}).lean();
+
+		return result.map(doc => serializeObject(doc));
 	}
 }

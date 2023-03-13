@@ -1,3 +1,5 @@
+import { Types } from 'mongoose';
+
 export interface IDbCatalogItem {
 	name: string;
 }
@@ -14,5 +16,5 @@ export interface IDbSortItem {
 }
 
 export interface IObjectId {
-	id: string;
+	_id: Types.ObjectId;
 }

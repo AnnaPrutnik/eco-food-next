@@ -1,20 +1,17 @@
 import { FC } from 'react';
-import useSWR from 'swr';
 import {
-	Box,
-	PriceFilter,
-	BrandFilter,
-	FormFilter,
 	AvailabilityFilter,
-	SaleFilter,
+	BrandFilter,
 	CountryFilter,
-} from 'components';
-import { fetcher } from 'helpers';
-
+	FormFilter,
+	PriceFilter,
+	SaleFilter,
+} from './filter-items';
+import { Box } from 'components';
 import { Divider, Title } from './filter.styled';
-import { ICollectionItem, ISelectItem } from 'types';
+import { ICollectionItem } from 'types';
 
-interface FilterData {
+interface FilterProps {
 	brands: ICollectionItem[];
 	form: ICollectionItem[];
 	country: ICollectionItem[];
@@ -22,17 +19,13 @@ interface FilterData {
 	price: { min: number; max: number };
 }
 
-interface FilterProps {
-	filterData: FilterData;
-}
-
-export const Filter: FC<FilterProps> = ({ filterData }) => {
-	// const { data, isLoading } = useSWR('/api/filters', fetcher);
-const {availability, brands, country, form, price} = filterData
-	// if (isLoading) {
-	// 	return <div>isLoading</div>;
-	// }
-
+export const Filter: FC<FilterProps> = ({
+	availability,
+	brands,
+	country,
+	form,
+	price,
+}) => {
 	return (
 		<Box width={['100%', '100%', '230px', '250px', '270px']}>
 			<form>
