@@ -1,9 +1,9 @@
 import { useState, useEffect, FC } from 'react';
-import { ICollectionItem } from 'types';
+import { useRouter } from 'next/router';
 import { Checkbox } from './checkbox';
 import { CheckboxList } from './checkbox.styled';
 import { useQueryParams } from 'hooks';
-import { useRouter } from 'next/router';
+import { ICollectionItem } from 'types';
 
 interface CheckboxGroupProps {
 	name: string;
