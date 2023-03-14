@@ -8,7 +8,7 @@ import {
 	SaleFilter,
 } from './filter-items';
 
-import { Box, AccordionRoot } from 'components';
+import { Box } from 'components';
 import { Divider, Title } from './filter.styled';
 import { ICollectionItem } from 'types';
 
