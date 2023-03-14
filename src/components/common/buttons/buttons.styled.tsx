@@ -1,15 +1,22 @@
 import styled from 'styled-components';
-import { iconBtnBase } from 'styles/buttons';
 
 export const SearchButton = styled.button`
-	${iconBtnBase};
+	position: absolute;
 	right: 16px;
 	top: 50%;
-	background-color: transparent;
 	transform: translateY(-50%);
+
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+
+	cursor: pointer;
+
+	background-color: transparent;
+
 	color: ${({ theme }) => theme.colors.text};
-	display: flex;
-	color: ${({ theme }) => theme.colors.text};
+
 	&:hover {
 		color: ${({ theme }) => theme.colors.primary};
 	}

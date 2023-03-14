@@ -15,6 +15,7 @@ export const BrandFilterInput: React.FC<InputProps> = ({
 
 	return (
 		<Box width='100%' minHeight='40px' position='relative'>
+			<SearchInputBtn />
 			<StyledInput
 				border='dark'
 				bg='transparent'
@@ -26,7 +27,6 @@ export const BrandFilterInput: React.FC<InputProps> = ({
 				autoComplete='off'
 				value={filter}
 			/>
-			<SearchInputBtn />
 		</Box>
 	);
 };

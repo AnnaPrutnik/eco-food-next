@@ -51,12 +51,3 @@ export const tabletSettingsWithIcons = css`
 		display: inline;
 	}
 `;
-
-export const iconBtnBase = css`
-	position: absolute;
-	padding: 0;
-	margin: 0;
-	border: none;
-	outline: none;
-	cursor: pointer;
-`;

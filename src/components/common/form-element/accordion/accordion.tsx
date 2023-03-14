@@ -1,50 +1,48 @@
-import { useState, FC, PropsWithChildren } from 'react';
+import { PropsWithChildren, FC } from 'react';
+import { ArrowIcon } from 'components/svg';
 import {
-	Container,
+	Item,
+	Trigger,
 	Header,
-	Title,
 	Content,
 	ArrowContainer,
-	StyledInput,
+	ContentWrapper,
+	Title,
 } from './accordion.styled';
-import { ArrowIcon, Box } from 'components';
+import * as RadixAccordion from '@radix-ui/react-accordion';
 
 export interface AccordionProps {
 	title: string;
 	defaultOpen?: boolean;
+	titleSize?: number;
 }
 
 export const Accordion: FC<PropsWithChildren<AccordionProps>> = ({
+	children,
 	title,
 	defaultOpen = false,
-	children,
+	titleSize = 18,
 }) => {
-	const [isOpen, setIsOpen] = useState(defaultOpen);
-
-	const onClickAccordion = () => {
-		setIsOpen(prev => !prev);
-	};
-
 	return (
-		<Container isOpen={isOpen}>
-			<Header htmlFor={title}>
-				<Title>{title}</Title>
-				<ArrowContainer isOpen={isOpen}>
-					<ArrowIcon />
-				</ArrowContainer>
-			</Header>
-			<StyledInput
-				type='checkbox'
-				id={title}
-				hidden
-				onChange={onClickAccordion}
-				checked={isOpen}
-			/>
-			<Content className='content'>
-				<Box display='flex' flexDirection='column' gridGap='sp16'>
-					{children}
-				</Box>
-			</Content>
-		</Container>
+		<RadixAccordion.Root
+			type='single'
+			collapsible
+			defaultValue={defaultOpen ? title : ''}
+		>
+			<Item value={title}>
+				<Header>
+					<Trigger>
+						<Title fontSize={titleSize}>{title}</Title>
+
+						<ArrowContainer aria-hidden>
+							<ArrowIcon />
+						</ArrowContainer>
+					</Trigger>
+				</Header>
+				<Content>
+					<ContentWrapper>{children}</ContentWrapper>
+				</Content>
+			</Item>
+		</RadixAccordion.Root>
 	);
 };

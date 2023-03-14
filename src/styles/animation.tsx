@@ -1,4 +1,4 @@
-import { keyframes } from "styled-components";
+import { keyframes } from 'styled-components';
 
 export const scaleIn = keyframes`
   from {
@@ -49,5 +49,23 @@ export const showOerlay = keyframes`
   }
   to {
     opacity: 1;
+  }
+`;
+
+export const slideDown = keyframes`
+  from {
+    height: 0;
+  }
+     to {
+    height: var(--radix-accordion-content-height);
+  }
+`;
+
+export const slideUp = keyframes`
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
   }
 `;
