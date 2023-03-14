@@ -1,5 +1,4 @@
 import dbConnect from 'utils/db';
-
 import { InferGetServerSidePropsType } from 'next';
 import { Layout } from 'components';
 import { CategoryScreen } from 'screen';

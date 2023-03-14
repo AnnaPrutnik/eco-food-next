@@ -7,6 +7,7 @@ import {
 	PriceFilter,
 	SaleFilter,
 } from './filter-items';
+
 import { Box } from 'components';
 import { Divider, Title } from './filter.styled';
 import { ICollectionItem } from 'types';

@@ -11,6 +11,15 @@ export const FilterSelect = styled(Select)`
 			background-color: transparent;
 			border-color: ${({ theme }) => theme.colors.darkBorder};
 		}
+
+		&__menu {
+			overflow: hidden;
+		}
+
+		&__menu-list {
+			padding-bottom: 0;
+			padding-top: 0;
+		}
 	}
 `;
 

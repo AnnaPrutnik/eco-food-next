@@ -1,15 +1,11 @@
 import React from 'react';
-import { Page, Box, CategoryTitle, Breadcrumbs, Layout } from 'components';
+import { Layout } from 'components';
+import { ProductScreen } from 'screen';
 
 export default function ProductDetails() {
-  return (
-    <Layout>
-      <Page>
-        <Box display="flex" flexDirection="column" gridGap="sp16">
-          <Breadcrumbs />
-          <CategoryTitle text="Product Details" />
-        </Box>
-      </Page>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<ProductScreen />
+		</Layout>
+	);
 }
