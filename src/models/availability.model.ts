@@ -3,7 +3,7 @@ import { IDbCatalogItem } from 'types';
 
 const AvailabilitySchema = new Schema<IDbCatalogItem>(
 	{
-		name: {
+		title: {
 			type: String,
 			required: true,
 		},

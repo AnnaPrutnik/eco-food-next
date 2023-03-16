@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Accordion, CheckboxGroup } from 'components';
+import { Accordion } from 'components';
+import { OptionGroup } from '../options-group';
 import { ICollectionItem } from 'types';
 
 interface CountryFilterProps {
@@ -9,7 +10,7 @@ interface CountryFilterProps {
 export const CountryFilter: FC<CountryFilterProps> = ({ data: country }) => {
 	return (
 		<Accordion title='country'>
-			<CheckboxGroup options={country} name='country' />
+			<OptionGroup options={country} name='country' />
 		</Accordion>
 	);
 };

@@ -1,30 +1,26 @@
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect, FC, useMemo } from 'react';
 import { Box } from 'components';
 import { useQueryParams } from 'hooks';
 import { useRouter } from 'next/router';
 import {
-	MobileFilter,
-	CommonFilter,
 	FiltersCount,
 	FilterActive,
 	ClearAllBtn,
 } from './applied-filters.styled';
 import { SortByForm } from './sort-by-form';
 import { FilterElement } from './filter-element';
-import { ISelectItem } from 'types';
+import { MobileFilter } from './mobile-filter';
+import { useInitialDataContext } from 'context';
 
 export type Value = [string, string[]];
 type FilterState = Value[];
 
-interface AppliedFiltersProps {
-	sort: ISelectItem[];
-}
-
-export const AppliedFilters: FC<AppliedFiltersProps> = ({ sort }) => {
+export const AppliedFilters = () => {
 	const { getPropertiesFormQuery } = useQueryParams();
 	const [filterValues, setFilterValues] = useState<FilterState>([]);
 	const router = useRouter();
 	const { query } = router;
+	const { sort } = useInitialDataContext();
 
 	useEffect(() => {
 		const properties = getPropertiesFormQuery();
@@ -32,7 +28,7 @@ export const AppliedFilters: FC<AppliedFiltersProps> = ({ sort }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [query]);
 
-	const filterCount = filterValues.length;
+	const filterCount = useMemo(() => filterValues.length, [filterValues]);
 
 	const onClickClearFilter = () => {
 		const { categoryUrl, sortBy } = query;
@@ -60,10 +56,7 @@ export const AppliedFilters: FC<AppliedFiltersProps> = ({ sort }) => {
 
 	return (
 		<Box display='grid' gridGap={[24, 24, 32]} mb='sp48'>
-			<MobileFilter>
-				<CommonFilter>Filter ({filterCount})</CommonFilter>
-				<FiltersCount>Showed {totalProduct} goods</FiltersCount>
-			</MobileFilter>
+			<MobileFilter filterCount={filterCount} totalProduct={totalProduct} />
 			<Box display='flex' justifyContent='space-between' alignItems='center'>
 				<Box display={['none', 'none', 'block']}>
 					<FiltersCount>Showed {totalProduct} goods</FiltersCount>

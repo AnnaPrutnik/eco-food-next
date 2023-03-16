@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, SearchInputBtn } from 'components';
-import { Search } from './search-input.styled';
+import { Box } from 'components';
+import { SearchIcon } from 'components/svg';
+import { Search, IconWrapper } from './search-input.styled';
 import { Field, FieldInputProps } from 'formik';
 
 export const SearchInput = () => {
@@ -19,7 +20,9 @@ export const SearchInput = () => {
 					/>
 				)}
 			</Field>
-			<SearchInputBtn />
+			<IconWrapper>
+				<SearchIcon />
+			</IconWrapper>
 		</Box>
 	);
 };

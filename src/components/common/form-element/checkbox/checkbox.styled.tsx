@@ -1,69 +1,35 @@
 import styled from 'styled-components';
+import * as Checkbox from '@radix-ui/react-checkbox';
+import * as RadixLabel from '@radix-ui/react-label';
 
-export const CheckboxList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.space.sp8};
-  max-height: 180px;
-  overflow-y: scroll;
+export const Root = styled(Checkbox.Root)`
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px 4px;
+	border: 1px solid ${({ theme }) => theme.colors.lightBackground};
+	box-shadow: 0px 4px 6px -5px rgba(56, 54, 52, 0.1);
+	transition: all ${({ theme }) => theme.transition.default};
 
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
+	&[data-state='unchecked'] {
+		background-color: ${({ theme }) => theme.colors.white};
+	}
 
-  &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.lightBackground};
-  }
-  &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.text};
-    border-radius: 1.5px;
-    cursor: pointer;
-  }
+	&[data-state='checked'] {
+		background-color: ${({ theme }) => theme.colors.primary};
+	}
 `;
 
-export const StyledLabel = styled.label`
-  display: flex;
-  font-size: ${({ theme }) => theme.fontSizes.f14};
-  line-height: ${({ theme }) => theme.lineHeights.heading};
-  align-items: center;
-  cursor: pointer;
-
-  & span::first-letter {
-    text-transform: capitalize;
-  }
+export const Indicator = styled(Checkbox.Indicator)`
+	color: ${({ theme }) => theme.colors.white};
 `;
 
-export const StyledCheckbox = styled.input`
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-`;
-
-interface StyledSpanProps {
-  isChecked: boolean;
-}
-
-export const StyledSpan = styled.span<StyledSpanProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  width: 20px;
-  background: ${({ theme, isChecked }) =>
-    isChecked ? theme.colors.primary : theme.colors.white};
-  border: 1px solid;
-  border-color: ${({ theme, isChecked }) =>
-    isChecked ? theme.colors.primary : theme.colors.lightBackground};
-  margin-right: ${({ theme }) => theme.space.sp12};
-  box-shadow: ${({ isChecked }) =>
-    isChecked
-      ? '0px 5px 10px -5px rgba(56, 54, 52, 0.1)'
-      : '0px 4px 6px -5px rgba(56, 54, 52, 0.1)'};
-  border-radius: 5px;
-  color: ${({ theme }) => theme.colors.white};
-  transition: ${({ theme }) => `all ${theme.transition}`};
+export const Label = styled(RadixLabel.Root)`
+	font-size: ${({ theme }) => theme.fontSizes.f14};
+	line-height: ${({ theme }) => theme.lineHeights.heading};
+	text-transform: capitalize;
+	cursor: pointer;
 `;

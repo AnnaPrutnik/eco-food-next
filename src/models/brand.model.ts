@@ -3,7 +3,7 @@ import { IDbCatalogItem } from 'types';
 
 const BrandSchema = new Schema<IDbCatalogItem>(
 	{
-		name: {
+		title: {
 			type: String,
 			required: true,
 		},

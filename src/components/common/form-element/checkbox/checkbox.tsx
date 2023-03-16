@@ -1,40 +1,35 @@
-import React, { useMemo } from 'react';
-import { StyledCheckbox, StyledSpan, StyledLabel } from './checkbox.styled';
-import { CheckIcon } from 'components';
+import React, { useState } from 'react';
+import { Root, Indicator, Label } from './checkbox.styled';
+import { Box } from 'components';
+import { CheckIcon } from 'components/svg';
 
 interface CheckboxProps {
 	value: string;
-	name: string;
 	onChange: (value: string) => void;
-	isChecked: boolean;
+	defaultChecked: boolean;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
 	value,
-	name,
 	onChange,
-	isChecked,
+	defaultChecked,
 }) => {
-	const normalizedValue = useMemo(() => {
-		return value.toLowerCase();
-	}, [value]);
-
-	const onChangeCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
-		onChange(e.target.value);
+	const onClick = () => {
+		onChange(value);
 	};
 
 	return (
-		<StyledLabel>
-			<StyledCheckbox
-				value={normalizedValue}
-				onChange={onChangeCheckBox}
-				type='checkbox'
-				// name={name}
-			/>
-			<StyledSpan isChecked={isChecked} aria-hidden='true'>
-				<CheckIcon />
-			</StyledSpan>
-			<span>{normalizedValue}</span>
-		</StyledLabel>
+		<Box display='flex' alignItems='center' gridGap='sp16'>
+			<Root
+				id={value}
+				onCheckedChange={onClick}
+				defaultChecked={defaultChecked}
+			>
+				<Indicator>
+					<CheckIcon width={12} height={10} />
+				</Indicator>
+			</Root>
+			<Label htmlFor={value}>{value}</Label>
+		</Box>
 	);
 };

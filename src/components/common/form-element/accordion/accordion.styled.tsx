@@ -6,14 +6,17 @@ import { slideDown, slideUp } from 'styles/animation';
 
 export const Item = styled(Accordion.Item)`
 	overflow: hidden;
-	transition: padding ${({ theme }) => theme.transition.default};
+
+	transition: all ${({ theme }) => theme.transition.default};
 
 	&[data-state='open'] {
-		padding: ${({ theme }) => theme.space.sp16} 0;
+		padding-top: ${({ theme }) => theme.space.sp16};
+		padding-bottom: ${({ theme }) => theme.space.sp32};
 	}
 
 	&[data-state='closed'] {
-		padding: 0;
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 
 	h3 {

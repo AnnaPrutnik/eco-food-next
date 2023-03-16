@@ -7,27 +7,11 @@ import {
 	CategoryTitle,
 	Filter,
 	ProductCatalog,
+	AppliedFilters,
 } from 'components';
 import { getAsString } from 'helpers';
-import { ICollectionItem, ISelectItem, IPriceProps } from 'types';
 
-interface CategoryScreenProps {
-	brands: ICollectionItem[];
-	form: ICollectionItem[];
-	country: ICollectionItem[];
-	availability: ICollectionItem[];
-	sort: ISelectItem[];
-	price: IPriceProps;
-}
-
-export const CategoryScreen: FC<CategoryScreenProps> = ({
-	brands,
-	form,
-	country,
-	availability,
-	sort,
-	price,
-}) => {
+export const CategoryScreen = () => {
 	const router = useRouter();
 	const { query } = router;
 
@@ -46,12 +30,18 @@ export const CategoryScreen: FC<CategoryScreenProps> = ({
 				gridGap={[
 					'sp16',
 					'sp16',
-					'32px 48px',
-					'32px 48px',
+					'32px 32px',
+					'32px 32px',
 					'32px 48px',
 					'32px 64px',
 				]}
-				gridTemplateColumns={['auto', 'auto', '270px auto']}
+				gridTemplateColumns={[
+					'auto',
+					'auto',
+					'230px auto',
+					'250px auto',
+					'270px auto',
+				]}
 			>
 				<Box display={['none', 'none', 'block']}></Box>
 				<Box display='flex' flexDirection='column' gridGap='sp16'>
@@ -59,9 +49,12 @@ export const CategoryScreen: FC<CategoryScreenProps> = ({
 					<CategoryTitle text={title} />
 				</Box>
 				<Box display={['none', 'none', 'block']}>
-					<Filter {...{ brands, form, country, availability, price }} />
+					<Filter />
 				</Box>
-				<ProductCatalog sort={sort} />
+				<Box>
+					<AppliedFilters />
+					<ProductCatalog />,
+				</Box>
 			</Box>
 		</Page>
 	);
