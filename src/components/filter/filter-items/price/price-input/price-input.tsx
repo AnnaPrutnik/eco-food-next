@@ -45,8 +45,12 @@ export const PriceInput: FC<InputProps> = ({
 
 	const onMobileInputValue = (e: React.FormEvent<HTMLInputElement>) => {
 		const value = e.currentTarget.value;
-		const newValue = value.slice(2).replace(/\D/g, '');
-		setPrice(Number(newValue));
+		const newValue = Number(value.slice(2));
+		if (isNaN(newValue)) {
+			return;
+		} else {
+			setPrice(newValue);
+		}
 	};
 
 	return (
