@@ -32,7 +32,7 @@ export const MobileFilter: FC<MobileFilterProps> = ({
 				<Dialog.Portal>
 					<Overlay />
 					<Content>
-						<Box mt='sp36'>
+						<Box mt='sp28'>
 							<ScrollArea maxHeight={filterComponentHeight}>
 								<Box pl='sp32' pr='sp32'>
 									<Filter />

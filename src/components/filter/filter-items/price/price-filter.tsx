@@ -87,7 +87,13 @@ export const PriceFilter: FC<PriceFilterProps> = ({ data }) => {
 				min={min}
 				max={max}
 			/>
-			<Box display='flex' alignItems='center' gridGap='sp16'>
+			<Box
+				display='flex'
+				alignItems='center'
+				gridGap='sp16'
+				position='relative'
+				marginBottom='1px'
+			>
 				<PriceInput
 					value={minPrice}
 					name='minPrice'

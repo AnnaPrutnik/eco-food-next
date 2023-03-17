@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react';
 import { Box } from 'components';
 import { useDebouncedCallback } from 'use-debounce';
-import { PriceLabel, Price, CurrencyLabel } from './price-input.styled';
+import { PriceLabel, Price, InputWrapper } from './price-input.styled';
 
 interface InputProps {
 	name: string;
@@ -30,28 +30,36 @@ export const PriceInput: FC<InputProps> = ({
 	}, [value]);
 
 	const onChangePriceInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const value = Number(e.target.value);
+		const value = Number(e.target.value.slice(2));
 		setPrice(value);
 		debounced(value);
+	};
+
+	const onInputValue = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		const keyCode = e.which || e.keyCode;
+		const keyValue = String.fromCharCode(keyCode);
+		if (!/^\d+$/.test(keyValue)) {
+			e.preventDefault();
+		}
 	};
 
 	return (
 		<Box display='flex' alignItems='center'>
 			<PriceLabel htmlFor={name}>{label}:</PriceLabel>
-			<Box width='68px' height='40px' position='relative'>
+			<InputWrapper>
 				<Price
 					border='dark'
 					bg='transparent'
-					type='number'
+					type='text'
 					autoComplete='off'
 					id={name}
 					name={name}
 					onChange={onChangePriceInput}
-					value={price}
+					onKeyPress={onInputValue}
+					value={`$ ${price}`}
+					aria-label={`${name} input`}
 				/>
-
-				<CurrencyLabel>$</CurrencyLabel>
-			</Box>
+			</InputWrapper>
 		</Box>
 	);
 };
