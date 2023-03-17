@@ -63,6 +63,8 @@ export const Slider: FC<SliderProps> = ({
 						value={minPrice}
 						onChange={onChangePriceValue}
 						onMouseUp={onSetPrice}
+						onTouchEnd={onSetPrice}
+						aria-label='min price range'
 					/>
 					<SliderThumb
 						name='maxPrice'
@@ -72,6 +74,8 @@ export const Slider: FC<SliderProps> = ({
 						value={maxPrice}
 						onChange={onChangePriceValue}
 						onMouseUp={onSetPrice}
+						onTouchEnd={onSetPrice}
+						aria-label='max price range'
 					/>
 				</Box>
 			</Box>

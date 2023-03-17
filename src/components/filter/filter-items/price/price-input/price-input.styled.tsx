@@ -1,22 +1,18 @@
 import styled from 'styled-components';
 import { inputBase } from 'styles/fields';
 
-export const Price = styled.input`
-	${inputBase};
-	padding-left: 25px;
-	-moz-appearance: textfield;
-	&::-webkit-outer-spin-button,
-	&::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
+export const InputWrapper = styled.div`
+	width: 68px;
+	height: 40px;
+	display: flex;
+	align-items: center;
 `;
 
-export const CurrencyLabel = styled.p`
-	position: absolute;
-	top: 19px;
-	transform: translateY(-50%);
-	left: 12px;
+export const Price = styled.input`
+	${inputBase};
+	padding: 0 12px;
+	line-height: 18px;
+	font-weight: 600;
 `;
 
 export const PriceLabel = styled.label`

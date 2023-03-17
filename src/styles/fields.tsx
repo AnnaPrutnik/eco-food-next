@@ -8,7 +8,6 @@ interface InputProps {
 }
 
 export const inputBase = css<InputProps>`
-	position: relative;
 	width: 100%;
 	height: 100%;
 	font-family: inherit;
@@ -22,14 +21,15 @@ export const inputBase = css<InputProps>`
 	background-color: ${({ bg, theme }) =>
 		bg === 'light' ? theme.colors.white : 'transparent'};
 	outline: none;
-	border: ${({ border, theme }) => {
+	border: 1px solid;
+	border-color: ${({ border, theme }) => {
 		switch (border) {
 			case 'dark':
-				return `1px solid ${theme.colors.darkBorder}`;
+				return `${theme.colors.darkBorder}`;
 			case 'light':
-				return `1px solid ${theme.colors.lightBorder}`;
+				return `${theme.colors.lightBorder}`;
 			default:
-				return '1px solid transparent';
+				return 'transparent';
 		}
 	}};
 	transition: ${({ theme }) => `all ${theme.transition.default}`};
