@@ -1,9 +1,9 @@
 import { FC, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { Box, Accordion } from 'components';
 import { PriceInput } from './price-input';
 import { Slider } from './price-slider';
 import { useQueryParams } from 'hooks';
+import { checkValueIsNumber } from 'helpers';
 
 interface PriceFilterProps {
 	data: {
@@ -13,11 +13,20 @@ interface PriceFilterProps {
 }
 
 export const PriceFilter: FC<PriceFilterProps> = ({ data }) => {
-	const [minPrice, setMinPrice] = useState(data.min);
-	const [maxPrice, setMaxPrice] = useState(data.max);
+	const {
+		updateQueryParams,
+		getArrayValueFromQuery,
+		setValueAsPropertyToQuery,
+	} = useQueryParams();
+
+	const query = getArrayValueFromQuery('price');
+	const [minPrice, setMinPrice] = useState(() =>
+		query ? checkValueIsNumber(query[0], data.min) : data.min
+	);
+	const [maxPrice, setMaxPrice] = useState(() =>
+		query ? checkValueIsNumber(query[1], data.max) : data.max
+	);
 	const [priceQuery, setPriceQuery] = useState(false);
-	const { query } = useRouter();
-	const { updateQueryParams, getArrayValueFromQuery } = useQueryParams();
 
 	const min = data.min;
 	const max = data.max;
@@ -32,38 +41,19 @@ export const PriceFilter: FC<PriceFilterProps> = ({ data }) => {
 
 	const setPriceInQuery = () => {
 		const priceValue = `${minPrice}_${maxPrice}`;
-		query.price = priceValue;
+		setValueAsPropertyToQuery('price', priceValue);
 		updateQueryParams();
 	};
 
 	useEffect(() => {
-		if (query.price) {
-			const value = getArrayValueFromQuery('price');
-			const minFromQuery = isNaN(Number(value[0]))
-				? minPrice
-				: Number(value[0]);
-			const maxFromQuery = isNaN(Number(value[1]))
-				? maxPrice
-				: Number(value[1]);
-
-			if (minFromQuery !== minPrice) {
-				setMinPrice(minFromQuery);
-			}
-
-			if (maxFromQuery !== maxPrice) {
-				setMaxPrice(maxFromQuery);
-			}
-
-			if (isNaN(Number(value[0])) || isNaN(Number(value[1]))) {
-				setPriceInQuery();
-			}
-		} else {
+		if (!query) {
 			if (minPrice !== min) {
 				setMinPrice(min);
 			}
 			if (maxPrice !== max) {
 				setMaxPrice(max);
 			}
+			return;
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [query]);

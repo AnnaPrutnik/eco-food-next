@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 import { Accordion, Checkbox } from 'components';
 import { useQueryParams } from 'hooks';
 
@@ -9,33 +9,22 @@ export const SaleFilter = () => {
 		updateQueryParams,
 		getStringValueFromQuery,
 	} = useQueryParams();
+	const query = getStringValueFromQuery('sale');
 
-	const [sale, setSale] = useState<'on-sale' | null>(() => {
-		const query = getStringValueFromQuery('sale');
-		return query ? 'on-sale' : null;
-	});
-
-	useEffect(() => {
-		if (sale) {
-			setValueAsPropertyToQuery('sale', sale);
-		} else {
-			deletePropertyFromQuery('sale');
-		}
-		updateQueryParams();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [sale]);
+	const sale = useMemo(() => (query ? 'on-sale' : null), [query]);
 
 	const onChangeSale = () => {
-		setSale(prev => (prev ? null : 'on-sale'));
+		if (sale) {
+			deletePropertyFromQuery('sale');
+		} else {
+			setValueAsPropertyToQuery('sale', 'on-sale');
+		}
+		updateQueryParams();
 	};
 
 	return (
 		<Accordion title='sale'>
-			<Checkbox
-				defaultChecked={!!sale}
-				onChange={onChangeSale}
-				value='On Sale'
-			/>
+			<Checkbox checked={!!sale} onChange={onChangeSale} value='On Sale' />
 		</Accordion>
 	);
 };

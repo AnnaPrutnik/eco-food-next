@@ -6,13 +6,13 @@ import { CheckIcon } from 'components/svg';
 interface CheckboxProps {
 	value: string;
 	onChange: (value: string) => void;
-	defaultChecked: boolean;
+	checked: boolean;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
 	value,
 	onChange,
-	defaultChecked,
+	checked,
 }) => {
 	const onClick = () => {
 		onChange(value);
@@ -20,11 +20,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
 	return (
 		<Box display='flex' alignItems='center' gridGap='sp16'>
-			<Root
-				id={value}
-				onCheckedChange={onClick}
-				defaultChecked={defaultChecked}
-			>
+			<Root id={value} onCheckedChange={onClick} checked={checked}>
 				<Indicator>
 					<CheckIcon width={12} height={10} />
 				</Indicator>
