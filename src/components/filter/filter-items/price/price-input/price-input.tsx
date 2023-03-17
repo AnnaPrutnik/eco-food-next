@@ -43,6 +43,12 @@ export const PriceInput: FC<InputProps> = ({
 		}
 	};
 
+	const onMobileInputValue = (e: React.FormEvent<HTMLInputElement>) => {
+		const value = e.currentTarget.value;
+		const newValue = value.slice(2).replace(/\D/g, '');
+		setPrice(Number(newValue));
+	};
+
 	return (
 		<Box display='flex' alignItems='center'>
 			<PriceLabel htmlFor={name}>{label}:</PriceLabel>
@@ -56,6 +62,7 @@ export const PriceInput: FC<InputProps> = ({
 					name={name}
 					onChange={onChangePriceInput}
 					onKeyPress={onInputValue}
+					onInput={onMobileInputValue}
 					value={`$ ${price}`}
 					aria-label={`${name} input`}
 				/>
