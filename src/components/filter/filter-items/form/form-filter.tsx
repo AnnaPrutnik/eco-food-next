@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import { Accordion, CheckboxGroup } from 'components';
+import { FC, useState } from 'react';
+import { Accordion } from 'components';
+import { OptionGroup } from '../options-group';
 import { ICollectionItem } from 'types';
 
 interface FormFilterProps {
@@ -9,7 +10,7 @@ interface FormFilterProps {
 export const FormFilter: FC<FormFilterProps> = ({ data: forms }) => {
 	return (
 		<Accordion title='form'>
-			<CheckboxGroup options={forms} name='form' />
+			<OptionGroup options={forms} name='form' />
 		</Accordion>
 	);
 };

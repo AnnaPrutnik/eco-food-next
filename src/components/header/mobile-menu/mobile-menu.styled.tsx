@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import styled from 'styled-components';
-import { rollIn, rollOut, showOerlay, hideOerlay } from 'styles/animation';
+import { rollIn, rollOut, showOverlay, hideOverlay } from 'styles/animation';
 
 export const Root = styled(Dialog.Root)``;
 
@@ -26,11 +26,11 @@ export const Overlay = styled(Dialog.Overlay)`
 	inset: 0;
 
 	&[data-state='open'] {
-		animation: ${showOerlay} 200ms ease;
+		animation: ${showOverlay} 200ms ease;
 	}
 
 	&[data-state='closed'] {
-		animation: ${hideOerlay} 300ms ease;
+		animation: ${hideOverlay} 300ms ease;
 	}
 `;
 

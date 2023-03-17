@@ -14,7 +14,9 @@ import { ICategory } from 'types';
 import { fetcher } from 'helpers';
 
 export const CategoriesMenu: React.FC = () => {
-	const { data, isLoading } = useSWR<ICategory[]>('/api/category', fetcher);
+	const { data, isLoading } = useSWR<ICategory[]>('/api/category', fetcher, {
+		refreshInterval: 100000,
+	});
 
 	return (
 		<Root>

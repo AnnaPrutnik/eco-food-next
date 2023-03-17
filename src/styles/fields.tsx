@@ -41,10 +41,6 @@ export const inputBase = css<InputProps>`
 	&:focus,
 	&:hover {
 		border-color: ${({ theme }) => theme.colors.primary};
-
-		& ~ button {
-			color: ${({ theme }) => theme.colors.primary};
-		}
 	}
 
 	&: focus {

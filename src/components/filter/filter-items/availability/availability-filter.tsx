@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Accordion, CheckboxGroup } from 'components';
+import { Accordion } from 'components';
+import { OptionGroup } from '../options-group';
 import { ICollectionItem } from 'types';
 
 interface AvailabilityFilterProps {
@@ -11,7 +12,7 @@ export const AvailabilityFilter: FC<AvailabilityFilterProps> = ({
 }) => {
 	return (
 		<Accordion title='availability'>
-			<CheckboxGroup options={availability} name='availability' />
+			<OptionGroup options={availability} name='availability' />
 		</Accordion>
 	);
 };

@@ -34,7 +34,7 @@ export const rollOut = keyframes`
   }
 `;
 
-export const hideOerlay = keyframes`
+export const hideOverlay = keyframes`
   from {
     opacity: 1;
   }
@@ -43,7 +43,7 @@ export const hideOerlay = keyframes`
   }
 `;
 
-export const showOerlay = keyframes`
+export const showOverlay = keyframes`
   from {
     opacity: 0;
   }
@@ -51,6 +51,27 @@ export const showOerlay = keyframes`
     opacity: 1;
   }
 `;
+
+export const showContent = keyframes`
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+`;
+
+export const hideContent = keyframes`
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }`;
 
 export const slideDown = keyframes`
   from {

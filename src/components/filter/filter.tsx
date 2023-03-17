@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import {
 	AvailabilityFilter,
 	BrandFilter,
@@ -10,25 +9,14 @@ import {
 
 import { Box } from 'components';
 import { Divider, Title } from './filter.styled';
-import { ICollectionItem } from 'types';
+import { useInitialDataContext } from 'context';
 
-interface FilterProps {
-	brands: ICollectionItem[];
-	form: ICollectionItem[];
-	country: ICollectionItem[];
-	availability: ICollectionItem[];
-	price: { min: number; max: number };
-}
+export const Filter = () => {
+	const { availability, brands, country, form, price } =
+		useInitialDataContext();
 
-export const Filter: FC<FilterProps> = ({
-	availability,
-	brands,
-	country,
-	form,
-	price,
-}) => {
 	return (
-		<Box width={['100%', '100%', '230px', '250px', '270px']}>
+		<Box width='100%'>
 			<form>
 				<Title>Filter</Title>
 				<PriceFilter data={price} />

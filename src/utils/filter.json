@@ -74,7 +74,7 @@
 	"country": [
 		{
 			"value": "UK",
-			"label": "United Kingdom"
+			"name": "United Kingdom"
 		},
 		{
 			"value": "TR ",

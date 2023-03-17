@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useFormikContext } from 'formik';
-import { SortFormValues } from './types';
+import { SortFormValues } from './sort-by.interface.';
 
 export const SortSubmit = () => {
 	const { values, submitForm, status } = useFormikContext<SortFormValues>();

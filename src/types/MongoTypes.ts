@@ -1,13 +1,14 @@
 import { Types } from 'mongoose';
 
 export interface IDbCatalogItem {
-	name: string;
+	title: string;
 }
 
 export interface IDbCategory {
 	title: string;
 	url: string;
 	description: string;
+	image: string;
 }
 
 export interface IDbSortItem {

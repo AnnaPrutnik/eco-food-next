@@ -1,9 +1,9 @@
 import React from 'react';
-import { SortFormValues } from './types';
+import { SortFormValues } from './sort-by.interface.';
 import { Formik, Form } from 'formik';
 import { useRouter } from 'next/router';
 import { useQueryParams } from 'hooks';
-import { SortBySelect } from 'components';
+import { SortBySelect } from './sort-by-select';
 import { SortSubmit } from './sort-by-submiting';
 import { ISelectItem } from 'types';
 import styled from 'styled-components';

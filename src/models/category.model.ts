@@ -17,6 +17,10 @@ const CategorySchema = new Schema<IDbCategory>(
 			type: String,
 			required: true,
 		},
+		image: {
+			type: String,
+			required: true,
+		},
 	},
 	{ versionKey: false, id: true }
 );
