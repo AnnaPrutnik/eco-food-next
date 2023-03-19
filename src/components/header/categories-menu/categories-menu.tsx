@@ -29,6 +29,11 @@ export const CategoriesMenu: React.FC = () => {
 					<Content>
 						{!isLoading && (
 							<ul>
+								<ContentItem>
+										<Link href="/categories" passHref legacyBehavior>
+											<ContentLink>All Categories</ContentLink>
+										</Link>
+									</ContentItem>
 								{data.map((c: ICategory) => (
 									<ContentItem key={c.url}>
 										<Link href={`/${c.url}`} passHref legacyBehavior>
