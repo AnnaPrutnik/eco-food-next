@@ -1,10 +1,13 @@
+import dbConnect from 'utils/db';
 import { Layout } from 'components';
 import { CategoriesScreen } from 'screen';
 import { ICategory } from 'types';
+import { categoryService } from 'services';
 
 export const getStaticProps = async () => {
-	const res = await fetch(`${process.env.HOST_URL}/api/category`);
-	const data = await res.json();
+	await dbConnect();
+
+	const data = await categoryService.getSerializedAll()
 
 	return {
 		props: { categories: data },
