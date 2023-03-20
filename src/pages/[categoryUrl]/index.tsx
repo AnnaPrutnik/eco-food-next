@@ -1,13 +1,10 @@
-import dbConnect from 'utils/db';
-import { useInitialDataContext } from 'context';
-
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import { Layout } from 'components';
 import { CategoryScreen } from 'screen';
-import { categoryService } from 'services';
+import { getCategories } from 'services';
 
 export const getServerSideProps: GetServerSideProps = async context => {
-	const categories = await categoryService.getSerializedAll();
+	const categories = await getCategories();
 	const { query } = context;
 	const { categoryUrl } = query;
 	const isCategoryExist = categories.find(item => item.url === categoryUrl);
