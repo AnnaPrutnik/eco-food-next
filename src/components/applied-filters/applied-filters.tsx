@@ -11,6 +11,9 @@ import { SortByForm } from './sort-by-form';
 import { FilterElement } from './filter-element';
 import { MobileFilter } from './mobile-filter';
 import { useInitialDataContext } from 'context';
+import { fetcher } from 'helpers';
+import useSWR from 'swr';
+import { IFilterValues } from 'types';
 
 export type Value = [string, string[]];
 type FilterState = Value[];
@@ -20,7 +23,10 @@ export const AppliedFilters = () => {
 	const [filterValues, setFilterValues] = useState<FilterState>([]);
 	const router = useRouter();
 	const { query } = router;
-	const { sort } = useInitialDataContext();
+	// const { sort } = useInitialDataContext();
+	const { data, isLoading } = useSWR<IFilterValues>('/api/filters', fetcher, {
+		refreshInterval: 100000,
+	});
 
 	useEffect(() => {
 		const properties = getPropertiesFormQuery();
@@ -52,8 +58,11 @@ export const AppliedFilters = () => {
 		}
 	};
 
+	if (!data) {
+		return <>Loading</>;
+	}
 	const totalProduct = 84;
-
+	const { sort } = data;
 	return (
 		<Box display='grid' gridGap={[24, 24, 32]} mb='sp48'>
 			<MobileFilter filterCount={filterCount} totalProduct={totalProduct} />

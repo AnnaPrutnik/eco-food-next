@@ -1,7 +1,7 @@
 import { useState, useEffect, FC, PropsWithChildren } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Header } from 'components';
+import { Header, ScrollArea } from 'components';
 
 interface LayoutProps {
 	title?: string;

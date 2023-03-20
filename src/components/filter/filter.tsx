@@ -6,15 +6,22 @@ import {
 	PriceFilter,
 	SaleFilter,
 } from './filter-items';
-
+import useSWR from 'swr';
 import { Box } from 'components';
+import { fetcher } from 'helpers';
 import { Divider, Title } from './filter.styled';
-import { useInitialDataContext } from 'context';
+import { IFilterValues } from 'types';
 
 export const Filter = () => {
-	const { availability, brands, country, form, price } =
-		useInitialDataContext();
+	const { data, isLoading } = useSWR<IFilterValues>('/api/filters', fetcher, {
+		refreshInterval: 100000,
+	});
 
+	if (!data) {
+		return <div>loading</div>;
+	}
+
+	const { availability, brands, country, form, price } = data;
 	return (
 		<Box width='100%'>
 			<form>
