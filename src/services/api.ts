@@ -1,13 +1,15 @@
-import axios from 'axios';
 import { ICategory } from 'types';
 
-// const ecoFoodInstance = axios.create({
-// 	baseURL: process.env.SERVER_URL,
-// });
+const BASE_URL = process.env.SERVER_URL;
 
-axios.defaults.baseURL = process.env.SERVER_URL;
+const customFetch = async (uri: string, options?: RequestInit) => {
+	const result = await fetch(`${BASE_URL}/${uri}`, { ...options }).then(res =>
+		res.json()
+	);
+	return result;
+};
 
 export const getCategories = async () => {
-	const { data: categories } = await axios.get<ICategory[]>(`/categories`);
-	return categories;
+	const categories = await customFetch('categories');
+	return categories as ICategory[];
 };
