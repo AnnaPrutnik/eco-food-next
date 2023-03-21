@@ -66,7 +66,7 @@ export const AppliedFilters = () => {
 	const totalProduct = 84;
 	const { sort } = data;
 	return (
-		<Box display='grid' gridGap={[24, 24, 32]} mb='sp48'>
+		<Box display='grid' gridGap={[24, 24, 32]} mb={['sp32', 'sp32', 'sp48']}>
 			<MobileFilter filterCount={filterCount} totalProduct={totalProduct} />
 			<Box display='flex' justifyContent='space-between' alignItems='center'>
 				<Box display={['none', 'none', 'block']}>

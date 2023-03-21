@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box } from 'components';
+import { ListItem, Rating } from './product-item.styled';
 
 interface IProduct {
 	id: number;
@@ -14,6 +15,7 @@ interface IProduct {
 	inStock: boolean;
 	measure: number;
 }
+
 const product: IProduct = {
 	id: 1,
 	url: 'banana',
@@ -29,5 +31,11 @@ const product: IProduct = {
 };
 
 export const ProductItem = () => {
-	return <Box>ListItem</Box>;
+	const productRating = 4.8;
+	const totalRating = 5;
+	return (
+		<ListItem>
+			<Rating></Rating>
+		</ListItem>
+	);
 };
