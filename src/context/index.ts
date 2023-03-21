@@ -1,1 +1,1 @@
-export * from './initialDataContext';
+export * from './GlobalLoadingContext';

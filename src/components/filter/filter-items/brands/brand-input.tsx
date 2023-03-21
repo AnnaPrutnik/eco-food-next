@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, StyledInput } from 'components';
 import { SearchIcon } from 'components/svg';
-import { InputProps } from 'types';
 import styled from 'styled-components';
 
 const IconWrapper = styled.div`
@@ -13,6 +12,11 @@ const IconWrapper = styled.div`
 	transform: translateY(-50%);
 `;
 
+interface InputProps {
+	name: string;
+	onChangeInput: (value: string) => void;
+}
+
 export const BrandFilterInput: React.FC<InputProps> = ({
 	name,
 	onChangeInput,
@@ -20,8 +24,9 @@ export const BrandFilterInput: React.FC<InputProps> = ({
 	const [filter, setFilter] = useState('');
 
 	const onChangeFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setFilter(e.target.value);
-		onChangeInput(e.target.value);
+		const value = e.target.value;
+		setFilter(value);
+		onChangeInput(value);
 	};
 
 	return (

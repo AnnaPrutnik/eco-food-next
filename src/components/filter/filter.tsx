@@ -17,7 +17,7 @@ export const Filter = () => {
 		refreshInterval: 100000,
 	});
 
-	if (!data) {
+	if (isLoading) {
 		return <div>loading</div>;
 	}
 

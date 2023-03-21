@@ -10,7 +10,6 @@ import {
 import { SortByForm } from './sort-by-form';
 import { FilterElement } from './filter-element';
 import { MobileFilter } from './mobile-filter';
-import { useInitialDataContext } from 'context';
 import { fetcher } from 'helpers';
 import useSWR from 'swr';
 import { IFilterValues } from 'types';
@@ -30,7 +29,10 @@ export const AppliedFilters = () => {
 
 	useEffect(() => {
 		const properties = getPropertiesFormQuery();
-		setFilterValues(properties);
+		if (properties) {
+			setFilterValues(properties);
+		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [query]);
 

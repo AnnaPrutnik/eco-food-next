@@ -3,7 +3,10 @@ import { Box } from 'components';
 import { Field, FieldInputProps } from 'formik';
 import { StyledInput } from 'components';
 import { SendBtn } from './send-btn';
-import { InputProps } from 'types';
+
+interface InputProps {
+	name: string;
+}
 
 export const SubscribeInput: FC<InputProps> = ({ name }) => {
 	return (

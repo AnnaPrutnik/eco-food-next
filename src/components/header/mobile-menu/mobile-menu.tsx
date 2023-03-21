@@ -45,7 +45,7 @@ export const MobileMenu: React.FC = () => {
 								<ExitIcon />
 							</Close>
 						</Box>
-						{!isLoading && (
+						{data && (
 							<List>
 								<Item>
 									<Link href='/categories' passHref legacyBehavior>

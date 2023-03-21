@@ -8,6 +8,7 @@ import {
 	FilterItem,
 	DeleteBtn,
 } from './filter-element.styled';
+import { QUERY } from 'utils/constans';
 
 interface FilterElementProps {
 	value: Value;
@@ -24,16 +25,19 @@ export const FilterElement: React.FC<FilterElementProps> = ({ value }) => {
 	const onCLickDeleteFilterValue = (e: React.MouseEvent<HTMLButtonElement>) => {
 		const title = e.currentTarget.dataset.title;
 		const value = e.currentTarget.dataset.value;
-		if (title === 'price') {
-			deletePropertyFromQuery('price');
-			updateQueryParams();
-			return;
+		if (title && value) {
+			if (title === QUERY.price) {
+				deletePropertyFromQuery(title);
+				updateQueryParams();
+				return;
+			}
+			const queryValue = getArrayValueFromQuery(title);
+			if (queryValue) {
+				const currentValue = queryValue.filter(item => item !== value);
+				setArrayAsPropertyToQuery(title, currentValue);
+				updateQueryParams();
+			}
 		}
-		const currentValue = getArrayValueFromQuery(title).filter(
-			item => item !== value
-		);
-		setArrayAsPropertyToQuery(title, currentValue);
-		updateQueryParams();
 	};
 
 	return (

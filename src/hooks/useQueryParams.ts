@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { getAsString, transformValuesFromString } from 'helpers';
+import { QUERY } from 'utils/constans';
 
 export const useQueryParams = () => {
 	const router = useRouter();
@@ -41,23 +42,31 @@ export const useQueryParams = () => {
 
 	const getPropertiesFormQuery = () => {
 		const { categoryUrl, sortBy, ...restQueries } = query;
-		const queries = Object.entries(restQueries).map(property => {
-			const transform = transformValuesFromString(property[1]);
-			if (property[0] === 'price') {
-				return [property[0], [transform.join('-')]] as [string, string[]];
-			} else {
-				return [property[0], transform] as [string, string[]];
-			}
-		});
-		return queries;
+		if (restQueries) {
+			const queries = Object.entries(restQueries).map(property => {
+				const key = property[0];
+				const value = property[1];
+				if (value === undefined) {
+					return [key, []] as [string, string[]];
+				}
+				const transform = transformValuesFromString(value);
+				if (!transform) {
+					return [key, []] as [string, string[]];
+				}
+
+				if (key === QUERY.price) {
+					return [key, [transform.join('-')]] as [string, string[]];
+				}
+				return [key, transform] as [string, string[]];
+			});
+			return queries;
+		}
+		return null;
 	};
 
 	const getStringValueFromQuery = (property: string): null | string => {
-		if (!query[property]) {
-			return null;
-		}
-
-		return getAsString(query[property]);
+		const value = query[property];
+		return value ? getAsString(value) : null;
 	};
 
 	const getArrayValueFromQuery = (property: string): null | string[] => {
