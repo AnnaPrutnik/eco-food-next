@@ -2,9 +2,9 @@ import { Model } from 'mongoose';
 import { serializeObject } from 'helpers';
 
 export class AbstractService<T> {
-	model: Model<T>;
+	model;
 
-	constructor(model) {
+	constructor(model: Model<T>) {
 		this.model = model;
 	}
 

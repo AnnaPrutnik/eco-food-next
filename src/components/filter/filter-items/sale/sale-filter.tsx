@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Accordion, Checkbox } from 'components';
 import { useQueryParams } from 'hooks';
+import { QUERY } from 'utils/constans';
 
 export const SaleFilter = () => {
 	const {
@@ -9,15 +10,15 @@ export const SaleFilter = () => {
 		updateQueryParams,
 		getStringValueFromQuery,
 	} = useQueryParams();
-	const query = getStringValueFromQuery('sale');
+	const query = getStringValueFromQuery(QUERY.sale);
 
 	const sale = useMemo(() => (query ? 'on-sale' : null), [query]);
 
 	const onChangeSale = () => {
 		if (sale) {
-			deletePropertyFromQuery('sale');
+			deletePropertyFromQuery(QUERY.sale);
 		} else {
-			setValueAsPropertyToQuery('sale', 'on-sale');
+			setValueAsPropertyToQuery(QUERY.sale, 'on-sale');
 		}
 		updateQueryParams();
 	};

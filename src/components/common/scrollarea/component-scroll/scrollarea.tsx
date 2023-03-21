@@ -2,7 +2,7 @@ import { FC, PropsWithChildren, useState, useRef, useEffect } from 'react';
 import { Root, Scrollbar, Viewport, Thumb } from './scrollarea.styled';
 
 interface ScrollAreaProps {
-	maxHeight?: number;
+	maxHeight: number;
 }
 export const ScrollArea: FC<PropsWithChildren<ScrollAreaProps>> = ({
 	children,

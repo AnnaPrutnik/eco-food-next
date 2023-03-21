@@ -9,19 +9,21 @@ import {
 	ProductCatalog,
 	AppliedFilters,
 } from 'components';
-import { getAsString } from 'helpers';
+import { QUERY } from 'utils/constans';
+
+import { useQueryParams } from 'hooks';
 
 export const CategoryScreen = () => {
-	const router = useRouter();
-	const { query } = router;
+	const { getStringValueFromQuery } = useQueryParams();
+	const query = getStringValueFromQuery(QUERY.categoryUrl);
 
 	const title = useMemo(() => {
-		const categoryUrl = getAsString(query.categoryUrl);
-		if (categoryUrl) {
-			const title = categoryUrl.split('-').join(' ').toLowerCase();
+		if (query) {
+			const title = query.split('-').join(' ').toLowerCase();
 			return title.charAt(0).toUpperCase() + title.slice(1);
 		}
-	}, [query.categoryUrl]);
+		return 'Category';
+	}, [query]);
 
 	return (
 		<Page>

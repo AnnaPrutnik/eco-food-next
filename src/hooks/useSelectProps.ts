@@ -6,8 +6,8 @@ export const useSelectProps = (name: string, options: ISelectItem[]) => {
 	const [field, meta, helpers] = useField(name);
 
 	const onChangeSelect = useCallback(
-		(value: ISelectItem) => {
-			helpers.setValue(value.value);
+		(value: string) => {
+			helpers.setValue(value);
 		},
 		[helpers]
 	);

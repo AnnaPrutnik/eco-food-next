@@ -48,60 +48,6 @@ export const inputBase = css<InputProps>`
 	}
 `;
 
-export const selectBase = css`
-	.custom-select {
-		&__indicator-separator {
-			display: none;
-		}
-		&__control {
-			border: 1px solid;
-			border-color: ${({ theme }) => theme.colors.lightBorder};
-			border-radius: ${({ theme }) => theme.radii.r10};
-			box-shadow: none;
-			font-size: ${({ theme }) => theme.fontSizes.f14} !important;
-			line-height: ${({ theme }) => theme.lineHeights.heading} !important;
-			transition: ${({ theme }) => `all ${theme.transition.default}`};
-			&:hover {
-				border-color: ${({ theme }) => theme.colors.primary} !important;
-				& .custom-select__indicator {
-					color: ${({ theme }) => theme.colors.primary} !important;
-				}
-			}
-			&--menu-is-open {
-				border-color: ${({ theme }) => theme.colors.primary} !important;
-				box-shadow: ${({ theme }) =>
-					`0px 4px 6px -5px ${theme.colors.primary}`};
-				& .custom-select__indicator {
-					transform: rotate(180deg);
-					color: ${({ theme }) => theme.colors.primary} !important;
-				}
-			}
-		}
-		&__input-container {
-			color: ${({ theme }) => theme.colors.text} !important;
-		}
-		&__indicator {
-			cursor: pointer;
-			color: ${({ theme }) => theme.colors.text} !important;
-		}
-		&__menu {
-			border-radius: ${({ theme }) => theme.radii.r10};
-		}
-		&__option {
-			cursor: pointer;
-			font-size: ${({ theme }) => theme.fontSizes.f14} !important;
-			line-height: ${({ theme }) => theme.lineHeights.heading} !important;
-			&:hover {
-				background-color: ${({ theme }) => theme.colors.darkBackground};
-			}
-			&--is-selected,
-			&--is-selected:hover {
-				background-color: ${({ theme }) => theme.colors.primary};
-			}
-		}
-	}
-`;
-
 export const baseLabel = css<SpaceProps>`
 	${space}
 	display: block;

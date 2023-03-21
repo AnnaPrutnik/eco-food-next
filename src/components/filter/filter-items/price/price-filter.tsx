@@ -4,6 +4,7 @@ import { PriceInput } from './price-input';
 import { Slider } from './price-slider';
 import { useQueryParams } from 'hooks';
 import { checkValueIsNumber } from 'helpers';
+import { QUERY } from 'utils/constans';
 
 interface PriceFilterProps {
 	data: {
@@ -19,7 +20,7 @@ export const PriceFilter: FC<PriceFilterProps> = ({ data }) => {
 		setValueAsPropertyToQuery,
 	} = useQueryParams();
 
-	const query = getArrayValueFromQuery('price');
+	const query = getArrayValueFromQuery(QUERY.price);
 	const [minPrice, setMinPrice] = useState(() =>
 		query ? checkValueIsNumber(query[0], data.min) : data.min
 	);
@@ -41,7 +42,7 @@ export const PriceFilter: FC<PriceFilterProps> = ({ data }) => {
 
 	const setPriceInQuery = () => {
 		const priceValue = `${minPrice}_${maxPrice}`;
-		setValueAsPropertyToQuery('price', priceValue);
+		setValueAsPropertyToQuery(QUERY.price, priceValue);
 		updateQueryParams();
 	};
 

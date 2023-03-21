@@ -1,24 +1,24 @@
-import dbConnect from 'utils/db';
+import { InferGetStaticPropsType } from 'next';
 import { Layout } from 'components';
 import { CategoriesScreen } from 'screen';
-import { ICategory } from 'types';
-import { categoryService } from 'services';
+import { getCategories } from 'services';
 
 export const getStaticProps = async () => {
-	await dbConnect();
+	//get categories from server
+	const categories = await getCategories();
 
-	const data = await categoryService.getSerializedAll()
+	//get data from MongoDB
+	// await dbConnect();
+	// const data = await categoryService.getSerializedAll()
 
 	return {
-		props: { categories: data },
+		props: { categories },
 	};
 };
 
-type categoriesProps = {
-	categories: ICategory[];
-};
-
-const Categories: React.FC<categoriesProps> = ({ categories }) => {
+const Categories: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
+	categories,
+}) => {
 	return (
 		<Layout>
 			<CategoriesScreen categories={categories} />
