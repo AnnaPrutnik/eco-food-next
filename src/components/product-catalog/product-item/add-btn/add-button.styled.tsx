@@ -25,6 +25,11 @@ export const Btn = styled.button`
 		background-color: ${({ theme }) => theme.colors.primary};
 	}
 
+	${({ theme }) => theme.media.mdMin} {
+		bottom: 24px;
+		right: 24px;
+	}
+
 	${({ theme }) => theme.media.xmMin} {
 		${btnBaseTablet}
 		${tabletSettingsWithIcons}

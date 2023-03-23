@@ -12,10 +12,17 @@ export const ScrollArea: FC<PropsWithChildren<ScrollAreaProps>> = ({
 	const root = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
+		let currentHeight: number;
+		if (maxHeight < 1) {
+			currentHeight = Math.round(0.75 * window.innerHeight);
+		} else {
+			currentHeight = maxHeight;
+		}
+
 		if (root.current) {
 			const clientRect = root.current.getBoundingClientRect();
-			if (clientRect.height > maxHeight) {
-				setHeight(maxHeight);
+			if (clientRect.height > currentHeight) {
+				setHeight(currentHeight);
 			} else {
 				setHeight(null);
 			}

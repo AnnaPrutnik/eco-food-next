@@ -22,8 +22,7 @@ export const AppliedFilters = () => {
 	const [filterValues, setFilterValues] = useState<FilterState>([]);
 	const router = useRouter();
 	const { query } = router;
-	// const { sort } = useInitialDataContext();
-	const { data, isLoading } = useSWR<IFilterValues>('/api/filters', fetcher, {
+	const { data } = useSWR<IFilterValues>('/api/filter', fetcher, {
 		refreshInterval: 100000,
 	});
 
@@ -60,11 +59,8 @@ export const AppliedFilters = () => {
 		}
 	};
 
-	if (!data) {
-		return <>Loading</>;
-	}
 	const totalProduct = 84;
-	const { sort } = data;
+
 	return (
 		<Box display='grid' gridGap={[24, 24, 32]} mb={['sp32', 'sp32', 'sp48']}>
 			<MobileFilter filterCount={filterCount} totalProduct={totalProduct} />
@@ -72,7 +68,7 @@ export const AppliedFilters = () => {
 				<Box display={['none', 'none', 'block']}>
 					<FiltersCount>Showed {totalProduct} goods</FiltersCount>
 				</Box>
-				<SortByForm options={sort} />
+				<SortByForm options={data.sort} />
 			</Box>
 			{filterValues.length > 0 && (
 				<FilterActive>

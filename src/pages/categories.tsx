@@ -1,4 +1,4 @@
-import { InferGetStaticPropsType } from 'next';
+import { InferGetStaticPropsType, NextPage } from 'next';
 import { Layout } from 'components';
 import { CategoriesScreen } from 'screen';
 import { getCategories } from 'services';
@@ -13,10 +13,11 @@ export const getStaticProps = async () => {
 
 	return {
 		props: { categories },
+		revalidate: 60,
 	};
 };
 
-const Categories: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
+const Categories: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 	categories,
 }) => {
 	return (

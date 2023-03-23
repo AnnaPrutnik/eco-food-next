@@ -17,21 +17,8 @@ import {
 import { AddBtn } from './add-btn';
 import { SaleTips } from './sale-tip';
 import { Star } from 'components/svg';
-
-interface IProduct {
-	id: number;
-	url: string;
-	title: string;
-	description: string;
-	image: string;
-	price: number;
-	oldPrice: number | null;
-	size: number;
-	deliveryText: string;
-	inStock: boolean;
-	measure: string;
-	rating: number;
-}
+import { shimmer, toBase64 } from 'helpers';
+import { IProduct } from 'types';
 
 interface ProductItemProps {
 	product: IProduct;
@@ -54,6 +41,10 @@ export const ProductItem: FC<ProductItemProps> = ({ product }) => {
 						alt={`photo from pixel.com for ${product.title}`}
 						fill
 						sizes='contain'
+						placeholder='blur'
+						blurDataURL={`data:image/svg+xml;base64,${toBase64(
+							shimmer(116, 116)
+						)}`}
 					/>
 				</ImageBox>
 				{product.oldPrice && <SaleTips />}

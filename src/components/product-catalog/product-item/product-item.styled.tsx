@@ -73,6 +73,7 @@ export const ImageBox = styled.div`
 	left: 16px;
 	box-shadow: 5px 5px 5px rgba(56, 54, 52, 0.16);
 	transition: ${({ theme }) => theme.transition.default};
+	background-color: ${({ theme }) => theme.colors.darkBackground};
 
 	${({ theme }) => theme.media.mdMin} {
 		width: 84px;
