@@ -18,4 +18,5 @@ export * from './viewed';
 export * from './wallet';
 export * from './feedbacks';
 export * from './letter';
+export * from './stars';
 export * from './star';

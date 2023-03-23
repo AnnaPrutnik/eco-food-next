@@ -12,6 +12,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		context.res.writeHead(307, { Location: '/404' });
 		context.res.end();
 	}
+
 	return {
 		props: {},
 	};

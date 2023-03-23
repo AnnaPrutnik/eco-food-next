@@ -27,6 +27,8 @@ export const theme = {
 		rubik: `${rubik.style.fontFamily}, sans-serif`,
 	},
 	fontSizes: {
+		f8: '8px',
+		f10: '10px',
 		f12: '12px',
 		f14: '14px',
 		f16: '16px',

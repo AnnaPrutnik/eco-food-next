@@ -55,7 +55,7 @@ export const CategoryScreen = () => {
 				</Box>
 				<Box>
 					<AppliedFilters />
-					<ProductCatalog />,
+					<ProductCatalog />
 				</Box>
 			</Box>
 		</Page>

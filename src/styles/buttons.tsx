@@ -6,43 +6,35 @@ export const btnBaseMobile = css`
 	border-color: transparent;
 	border-radius: ${({ theme }) => theme.radii.r10};
 	background: transparent;
-	color: ${({ theme }) => theme.colors.text};
 	padding: 0;
 	margin: 0;
 	display: inline-flex;
 	align-items: center;
-	gap: 12px;
+	justify-content: center;
+
 	font-family: ${({ theme }) => theme.fonts.lato};
 	font-size: ${({ theme }) => theme.fontSizes.f16};
 	line-height: ${({ theme }) => theme.lineHeights.buttons};
 	letter-spacing: ${({ theme }) => theme.letterSpacings.heading};
 	font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-	transition: ${({ theme }) => theme.transition.default};
 	cursor: pointer;
+	transition: ${({ theme }) => theme.transition.default};
 
 	&:hover,
-	&:focus {
+	&:active {
 		color: ${({ theme }) => theme.colors.primary};
-	}
-
-	& svg {
-		transition: ${({ theme }) => theme.transition.default};
 	}
 `;
 
 export const btnBaseTablet = css`
 	height: 44px;
 	padding: 0 ${({ theme }) => theme.space.sp16};
+	gap: 12px;
 `;
 
 export const mobileSettingWithIcons = css`
 	span {
 		display: none;
-	}
-
-	svg {
-		width: 24px;
-		height: 24px;
 	}
 `;
 
