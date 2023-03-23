@@ -11,15 +11,6 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
 	title = 'Eco food',
 	children,
 }) => {
-	const [isLoading, setIsLoading] = useState(true);
-	const router = useRouter();
-
-	useEffect(() => {
-		if (router.isReady && isLoading) {
-			setIsLoading(false);
-		}
-	}, [router.isReady, isLoading]);
-
 	return (
 		<>
 			<Head>
@@ -28,7 +19,7 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Header />
-			<main>{isLoading ? <>isLoading</> : <>{children}</>}</main>
+			<main>{children}</main>
 		</>
 	);
 };

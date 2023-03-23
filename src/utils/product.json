@@ -1,0 +1,58 @@
+[
+	{
+		"id": 1,
+		"url": "seedless-prune",
+		"title": "Seedless prune",
+		"description": "Tasty for monkeys",
+		"image": "https://images.pexels.com/photos/12945019/pexels-photo-12945019.jpeg",
+		"price": 2.0,
+		"oldPrice": 3.0,
+		"size": 500,
+		"deliveryText": "delivery 1-2 days",
+		"inStock": true,
+		"measure": "g",
+		"rating": 5
+	},
+	{
+		"id": 2,
+		"url": "raisins-red-grapes",
+		"title": "Raisins from red grapes Extra series",
+		"description": "Tasty for monkeys",
+		"image": "https://images.pexels.com/photos/2291592/pexels-photo-2291592.jpeg",
+		"price": 4.0,
+		"oldPrice": null,
+		"size": 500,
+		"deliveryText": "delivery 1-2 days",
+		"inStock": true,
+		"measure": "g",
+		"rating": 5
+	},
+	{
+		"id": 3,
+		"url": "seedless-red-dried-plums",
+		"title": "Seedless red dried plums",
+		"description": "Tasty for monkeys",
+		"image": "https://images.pexels.com/photos/12625117/pexels-photo-12625117.jpeg",
+		"price": 9.8,
+		"oldPrice": 10.8,
+		"size": 500,
+		"deliveryText": "delivery 1-2 days",
+		"inStock": true,
+		"measure": "g",
+		"rating": 4.9
+	},
+	{
+		"id": 4,
+		"url": "chocolate-apricots",
+		"title": "Chocolate apricots",
+		"description": "Tasty for monkeys",
+		"image": "https://images.pexels.com/photos/4499238/pexels-photo-4499238.jpeg",
+		"price": 2.6,
+		"oldPrice": null,
+		"size": 500,
+		"deliveryText": "delivery 1-2 days",
+		"inStock": true,
+		"measure": "g",
+		"rating": 4.8
+	}
+]

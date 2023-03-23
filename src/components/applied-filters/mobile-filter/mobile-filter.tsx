@@ -20,8 +20,6 @@ export const MobileFilter: FC<MobileFilterProps> = ({
 	filterCount,
 	totalProduct,
 }) => {
-	const filterComponentHeight = Math.round(0.75 * window.innerHeight);
-
 	return (
 		<Box display={['block', 'block', 'none']}>
 			<Dialog.Root>
@@ -33,7 +31,7 @@ export const MobileFilter: FC<MobileFilterProps> = ({
 					<Overlay />
 					<Content>
 						<Box mt='sp28'>
-							<ScrollArea maxHeight={filterComponentHeight}>
+							<ScrollArea maxHeight={0.75}>
 								<Box pl='sp32' pr='sp32'>
 									<Filter />
 								</Box>

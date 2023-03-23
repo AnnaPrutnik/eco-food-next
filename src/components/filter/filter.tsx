@@ -13,13 +13,9 @@ import { Divider, Title } from './filter.styled';
 import { IFilterValues } from 'types';
 
 export const Filter = () => {
-	const { data, isLoading } = useSWR<IFilterValues>('/api/filters', fetcher, {
+	const { data } = useSWR<IFilterValues>('/api/filter', fetcher, {
 		refreshInterval: 100000,
 	});
-
-	if (isLoading) {
-		return <div>loading</div>;
-	}
 
 	const { availability, brands, country, form, price } = data;
 	return (

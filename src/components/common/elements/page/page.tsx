@@ -7,7 +7,7 @@ export const Page: FC<PropsWithChildren<unknown>> = ({ children }) => {
 			width={['375px', '375px', '748px', '1004px', '1180px', '1210px']}
 			padding={[
 				'16px',
-				'24px 20px',
+				'16px',
 				'40px 20px',
 				'48px 24px',
 				`64px 20px`,

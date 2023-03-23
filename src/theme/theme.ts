@@ -27,6 +27,8 @@ export const theme = {
 		rubik: `${rubik.style.fontFamily}, sans-serif`,
 	},
 	fontSizes: {
+		f8: '8px',
+		f10: '10px',
 		f12: '12px',
 		f14: '14px',
 		f16: '16px',
@@ -69,7 +71,7 @@ export const theme = {
 		lightestBorder: 'rgba(56, 54, 52, 0.1)',
 		backdrop: 'rgba(56, 54, 52, 0.15)',
 	},
-	radii: { r10: '10px', r20: '20px', r24: '24px', rounded: '50%' },
+	radii: { r10: '10px', r16: '16px', r20: '20px', r24: '24px', rounded: '50%' },
 
 	transition: { default: '300ms cubic-bezier(0.87, 0, 0.13, 1)' },
 	breakpoints: ['375px', '768px', '1024px', '1200px', '1440px'],
