@@ -58,7 +58,7 @@ export const MobileMenu: React.FC = () => {
 									<Item key={c.url}>
 										<Link href={`/${c.url}`} passHref legacyBehavior>
 											<CategoryLink onClick={() => setOpen(!isOpen)}>
-												{c.title}
+												{c.name}
 											</CategoryLink>
 										</Link>
 									</Item>
