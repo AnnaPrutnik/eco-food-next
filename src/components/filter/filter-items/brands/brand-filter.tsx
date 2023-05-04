@@ -15,7 +15,7 @@ export const BrandFilter: FC<BrandFilterProps> = ({ data: defaultBrands }) => {
 	const onClickBrandSearch = (value: string) => {
 		const normalizeValue = value.toLowerCase();
 		const newBrands = defaultBrands.filter(brand =>
-			brand.title.toLowerCase().includes(normalizeValue)
+			brand.name.toLowerCase().includes(normalizeValue)
 		);
 		setBrands(newBrands);
 	};

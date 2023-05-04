@@ -39,7 +39,7 @@ export const OptionGroup: FC<CheckboxGroupProps> = ({ options, name }) => {
 		<ScrollArea maxHeight={200}>
 			<OptionList role='group'>
 				{options.map(item => {
-					const title = item.title.toLowerCase();
+					const title = item.name.toLowerCase();
 					const isChecked = values.includes(title);
 					return (
 						<li key={title}>

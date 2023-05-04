@@ -3,7 +3,7 @@ import { IDbCatalogItem } from 'types';
 
 const CountrySchema = new Schema<IDbCatalogItem>(
 	{
-		title: {
+		name: {
 			type: String,
 			required: true,
 		},
