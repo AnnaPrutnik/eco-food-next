@@ -3,7 +3,7 @@ import { IDbCatalogItem } from 'types';
 
 const FormSchema = new Schema<IDbCatalogItem>(
 	{
-		title: {
+		name: {
 			type: String,
 			required: true,
 		},

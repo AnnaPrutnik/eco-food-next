@@ -13,7 +13,7 @@ export const CategoriesScreen: React.FC<categoriesProps> = ({ categories }) => {
 			<CardList>
 				{categories.map(c => (
 					<Card key={c.url} bgImg={c.image}>
-						<Title>{c.title}</Title>
+						<Title>{c.name}</Title>
 						<Link href={`/${c.url}`} passHref legacyBehavior>
 							<Button>View products</Button>
 						</Link>

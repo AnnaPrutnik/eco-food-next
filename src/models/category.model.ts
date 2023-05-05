@@ -3,7 +3,7 @@ import { models, model, Schema, Model } from 'mongoose';
 
 const CategorySchema = new Schema<IDbCategory>(
 	{
-		title: {
+		name: {
 			type: String,
 			required: true,
 			unique: true,
