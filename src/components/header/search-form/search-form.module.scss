@@ -1,0 +1,25 @@
+@import '../../../styles/variables';
+
+.label {
+  position: relative;
+  display: inline-block;
+  height: 44px;
+  width: 240px;
+}
+
+.input {
+  height: 100%;
+  width: 100%;
+  padding: 0 40px 0 16px;
+  border-radius: $small-radius;
+  background-color: $white;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+}

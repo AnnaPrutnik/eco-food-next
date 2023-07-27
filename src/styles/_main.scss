@@ -11,5 +11,31 @@ body {
 button {
   cursor: pointer;
 }
+
+input {
+  font-family: $lato;
+  font-size: 16px;
+  color: $text-color;
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $gilroy;
+  line-height: $heading-line-height;
+  color: $heading-color;
+  text-transform: lowercase;
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
 .container {
 }
