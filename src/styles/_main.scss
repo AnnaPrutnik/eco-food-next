@@ -1,0 +1,15 @@
+body {
+  color: $text-color;
+  background: $main-bg;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  font-family: $lato;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+}
+.container {
+}
