@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+.header {
+  height: 64px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: $big) {
+  .header {
+    height: 88px;
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: $large) {
+  .header {
+    padding: 0 48px;
+  }
+}
