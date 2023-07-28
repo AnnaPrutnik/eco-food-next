@@ -1,13 +1,14 @@
 'use client';
 
 import s from './buttons.module.scss';
-import { redirect, usePathname } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 export const Buttons = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const onClickHome = () => {
-    redirect('/');
+    router.push('/');
   };
 
   const onClickReport = () => {

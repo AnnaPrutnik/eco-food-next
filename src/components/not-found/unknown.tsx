@@ -1,9 +1,9 @@
-import s from './404.module.scss';
+import s from './unknown.module.scss';
 import Image from 'next/image';
 import notFoundPicture from '../../../public/404.png';
 import { Buttons } from './buttons';
 
-export const NotFound = () => {
+export const Unknown = () => {
   return (
     <section className={s.notFound}>
       <h2 className={s.title}>Oops, this page couldn’t be found</h2>
