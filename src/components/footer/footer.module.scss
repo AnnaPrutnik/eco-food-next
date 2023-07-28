@@ -1,0 +1,150 @@
+@import '../../styles/variables';
+
+.footer {
+  padding: 64px 48px;
+  font-size: 15px;
+  line-height: $text-line-height;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas: 'subscription' 'nav' 'about';
+  gap: 48px;
+
+  @media (min-width: $big) {
+    padding: 75px 64px 80px 64px;
+    font-size: 14px;
+    grid-template-columns: auto 1fr 270px;
+    grid-template-areas: 'about nav subscription';
+    column-gap: 64px;
+  }
+
+  @media (min-width: $large) {
+    padding: 75px 135px 80px 80px;
+    column-gap: 80px;
+  }
+
+  @media (min-width: $huge) {
+    padding: 75px 135px 80px 135px;
+    column-gap: 137px;
+  }
+}
+
+.subscription {
+  grid-area: subscription;
+
+  & > .links {
+    display: none;
+  }
+
+  @media (min-width: $big) {
+    padding-top: 14px;
+    padding-bottom: 8px;
+
+    & > .links {
+      display: flex;
+    }
+  }
+}
+
+.nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: $medium) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  @media (min-width: $big) {
+    padding-top: 14px;
+    padding-bottom: 8px;
+  }
+
+  @media (min-width: $huge) {
+    justify-content: space-between;
+  }
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  opacity: 0.07;
+  background-color: $black;
+
+  @media (min-width: $medium) {
+    display: none;
+  }
+}
+
+.list {
+  display: flex;
+  gap: 32px;
+
+  @media (min-width: $medium) {
+    display: grid;
+    row-gap: 12px;
+  }
+}
+
+.subtitle {
+  font-family: $lato;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+
+  @media (min-width: $big) {
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+}
+
+.about {
+  grid-area: about;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  font-size: 13px;
+
+  @media (min-width: $big) {
+    gap: 0;
+    justify-content: space-between;
+    font-size: 14px;
+    align-items: flex-start;
+
+    & > .links {
+      display: none;
+    }
+  }
+}
+
+.name {
+  opacity: 0.8;
+
+  @media (min-width: $big) {
+    max-width: 124px;
+  }
+}
+
+.copyrights {
+  opacity: 0.5;
+}
+
+.link {
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  text-decoration: underline;
+  opacity: 0.7;
+
+  @media (min-width: $big) {
+    margin-top: 22px;
+  }
+}

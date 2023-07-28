@@ -5,10 +5,13 @@ body {
   padding: 0;
   margin: 0;
   font-family: $lato;
+  font-size: 14px;
+  line-height: $body-line-height;
   min-height: 100vh;
 }
 
-button {
+button,
+a {
   cursor: pointer;
 }
 
@@ -38,4 +41,12 @@ h6 {
 }
 
 .container {
+}
+
+.logo {
+  width: 83px;
+
+  @media (min-width: $large) {
+    width: 93px;
+  }
 }
