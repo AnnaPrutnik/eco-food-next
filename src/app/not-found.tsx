@@ -1,9 +1,9 @@
-export default function NotFound() {
-  return (
-    <div>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <p>View</p>
-    </div>
-  );
+import { NotFound } from '@/components';
+
+export const metadata = {
+  title: 'Not Found',
+};
+
+export default function NotFoundPage() {
+  return <NotFound />;
 }
