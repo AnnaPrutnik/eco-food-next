@@ -41,6 +41,29 @@ h6 {
 }
 
 .container {
+  width: 375px;
+  padding: 16px;
+  margin: 0 auto;
+
+  @media (min-width: $medium) {
+    width: 748px;
+    padding: 40px 0;
+  }
+
+  @media (min-width: $big) {
+    width: 1004px;
+    padding: 48px 0;
+  }
+
+  @media (min-width: $large) {
+    width: 1180px;
+    padding: 64px 0;
+  }
+
+  @media (min-width: $huge) {
+    width: 1400px;
+    padding: 115px 0;
+  }
 }
 
 .logo {

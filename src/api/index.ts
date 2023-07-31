@@ -1,15 +1,16 @@
 const baseUrl = process.env.SERVER_URL;
 import { ICategory } from '@/types/';
 
-const fetcher = async (url: string, method: string) => {
+const fetcher = async (url: string, method: string = 'GET') => {
   //revalidate one time per day
+
   const res = await fetch(`${baseUrl}${url}`, {
     method: method,
     next: { revalidate: 86400 },
   });
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data');
+    return null;
   }
 
   const { data } = await res.json();
@@ -17,5 +18,9 @@ const fetcher = async (url: string, method: string) => {
 };
 
 export const getCategories = (): Promise<ICategory[]> => {
-  return fetcher('/categories', 'GET');
+  return fetcher('/categories');
+};
+
+export const getCategoryByUrl = (url: string): Promise<ICategory> => {
+  return fetcher(`/categories/${url}`);
 };

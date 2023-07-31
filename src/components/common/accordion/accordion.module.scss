@@ -1,0 +1,49 @@
+@import '../../../styles/animations';
+
+.item {
+  overflow: hodden;
+
+  &[data-state='open'] {
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+
+  &[data-state='closed'] {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.header {
+  display: flex;
+}
+
+.trigger {
+  all: unset;
+  width: 100%;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: inherit;
+  background-color: transparent;
+  text-transform: capitalize;
+
+  & > div {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all $transitions;
+  }
+
+  &[data-state='open'] > div {
+    transform: rotate(90deg);
+  }
+
+  &[data-state='closed'] > div {
+    transform: rotate(-90deg);
+  }
+}
