@@ -19,7 +19,7 @@ export interface IDelivery {
 export interface IFilterData {
   price: {
     min: number;
-    max: Number;
+    max: number;
   };
   brands: IBrand[];
   countrys: ICountry[];
