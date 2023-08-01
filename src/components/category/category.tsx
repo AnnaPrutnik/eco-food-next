@@ -2,9 +2,12 @@ import s from './category.module.scss';
 import { Breadcrumbs } from '@/components/common/breadcrumbs';
 import { Filter } from './filter';
 import { normalizeTitle, transformSlugToTitle } from '@/helpers';
+import { getProductsByCategory } from '@/api';
 
-export const Category = ({ categoryUrl }: { categoryUrl: string }) => {
+export const Category = async ({ categoryUrl }: { categoryUrl: string }) => {
   const title = normalizeTitle(transformSlugToTitle(categoryUrl));
+
+  const { filter, products } = await getProductsByCategory(categoryUrl);
 
   return (
     <div className={`container ${s.category}`}>
@@ -14,7 +17,7 @@ export const Category = ({ categoryUrl }: { categoryUrl: string }) => {
         <h1 className={s.title}>{title}</h1>
       </div>
       <div className={s.filter}>
-        <Filter />
+        <Filter filterData={filter} />
       </div>
 
       <div className={s.catalogue}>Catalogue</div>

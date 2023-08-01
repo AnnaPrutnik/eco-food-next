@@ -1,7 +1,9 @@
 @import '../../../styles/animations';
+@import '../../../styles/variables';
 
 .item {
-  overflow: hodden;
+  overflow: hidden;
+  transition: all $transitions;
 
   &[data-state='open'] {
     padding-top: 16px;
@@ -30,6 +32,11 @@
   background-color: transparent;
   text-transform: capitalize;
 
+  font-family: $lato;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: $heading-line-height;
+
   & > div {
     width: 20px;
     height: 20px;
@@ -45,5 +52,23 @@
 
   &[data-state='closed'] > div {
     transform: rotate(-90deg);
+  }
+}
+
+.content {
+  overflow: hidden;
+
+  &[data-state='open'] {
+    animation: slideDown $transitions;
+  }
+
+  &[data-state='closed'] {
+    animation: slideUp $transitions;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 }

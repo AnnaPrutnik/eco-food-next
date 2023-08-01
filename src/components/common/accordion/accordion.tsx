@@ -24,14 +24,14 @@ export const Accordion = ({
       <RadixAccordion.Item value={title} className={s.item}>
         <RadixAccordion.Header className={s.header}>
           <RadixAccordion.Trigger className={s.trigger}>
-            <h4>{title}</h4>
+            <span>{title}</span>
 
             <div aria-hidden>
               <ArrowIcon />
             </div>
           </RadixAccordion.Trigger>
         </RadixAccordion.Header>
-        <RadixAccordion.Content>
+        <RadixAccordion.Content className={s.content}>
           <div>{children}</div>
         </RadixAccordion.Content>
       </RadixAccordion.Item>

@@ -1,8 +1,15 @@
 import s from './filter.module.scss';
 import { Price } from './price';
 import { Accordion } from '@/components/common/accordion';
+import { IFilterData } from '@/types';
 
-export const Filter = () => {
+interface FilterProps {
+  filterData: IFilterData;
+}
+
+export const Filter = async ({ filterData }: FilterProps) => {
+  const { price } = filterData;
+
   return (
     <>
       <button className={s.mobileBtn}>Filter</button>
@@ -11,7 +18,7 @@ export const Filter = () => {
         <ul className={s.list}>
           <li className={s.item}>
             <Accordion title="price" defaultOpen={true}>
-              inside content
+              <Price min={price.min} max={price.max} />
             </Accordion>
           </li>
         </ul>
