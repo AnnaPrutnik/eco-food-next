@@ -1,0 +1,74 @@
+@import '../../../styles/animations';
+@import '../../../styles/variables';
+
+.item {
+  overflow: hidden;
+  transition: all $transitions;
+
+  &[data-state='open'] {
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+
+  &[data-state='closed'] {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.header {
+  display: flex;
+}
+
+.trigger {
+  all: unset;
+  width: 100%;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: inherit;
+  background-color: transparent;
+  text-transform: capitalize;
+
+  font-family: $lato;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: $heading-line-height;
+
+  & > div {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all $transitions;
+  }
+
+  &[data-state='open'] > div {
+    transform: rotate(90deg);
+  }
+
+  &[data-state='closed'] > div {
+    transform: rotate(-90deg);
+  }
+}
+
+.content {
+  overflow: hidden;
+
+  &[data-state='open'] {
+    animation: slideDown $transitions;
+  }
+
+  &[data-state='closed'] {
+    animation: slideUp $transitions;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
