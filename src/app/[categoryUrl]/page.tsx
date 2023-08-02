@@ -11,10 +11,6 @@ export async function generateMetadata({
   params: { categoryUrl: string };
 }) {
   const slug = params.categoryUrl;
-  // const category = await getCategoryByUrl(slug);
-  // if (!category) {
-  //   notFound();
-  // }
 
   return {
     title: normalizeTitle(transformSlugToTitle(slug)),
@@ -32,5 +28,9 @@ export async function generateStaticParams() {
 export default async function CategoryPage({
   params: { categoryUrl },
 }: ParamsType) {
+  const isCategoryExist = await getCategoryByUrl(categoryUrl);
+  if (!isCategoryExist) {
+    notFound();
+  }
   return <Category categoryUrl={categoryUrl} />;
 }

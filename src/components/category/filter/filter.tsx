@@ -1,6 +1,6 @@
 import s from './filter.module.scss';
 import { Price } from './price';
-import { Accordion } from '@/components/common/accordion';
+import { Brand } from './brand';
 import { IFilterData } from '@/types';
 
 interface FilterProps {
@@ -17,10 +17,9 @@ export const Filter = async ({ filterData }: FilterProps) => {
         <h3 className={s.title}>Filter</h3>
         <ul className={s.list}>
           <li className={s.item}>
-            <Accordion title="price" defaultOpen={true}>
-              <Price min={price.min} max={price.max} />
-            </Accordion>
+            <Price min={price.min} max={price.max} />
           </li>
+          <li className={s.item}>{/* <Brand /> */}</li>
         </ul>
       </div>
     </>

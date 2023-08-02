@@ -1,0 +1,50 @@
+@import '../../../../styles/variables';
+
+.root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  --scrollbar-size: 10px;
+}
+
+.viewport {
+  height: 100%;
+  width: 100%;
+}
+
+.scrollbar {
+  display: flex;
+  user-select: none;
+  touch-action: none;
+  padding: 2px;
+  background-color: $light-bg;
+  transition: background-color 160ms ease-out;
+
+  &:hover {
+    background: $dark-bg;
+  }
+  &[data-orientation='vertical'] {
+    width: 4px;
+  }
+}
+
+.thumb {
+    flex: 1;
+	position: relative;
+
+	&::before {
+		content: '';
+		width: 4px;
+		height: 100%;
+		min-height: 44px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: $text-color;
+		border-radius: 1.5px;
+	}
+
+}
+
+/
