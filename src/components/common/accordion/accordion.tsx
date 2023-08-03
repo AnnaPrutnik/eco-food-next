@@ -32,7 +32,7 @@ export const Accordion = ({
           </RadixAccordion.Trigger>
         </RadixAccordion.Header>
         <RadixAccordion.Content className={s.content}>
-          <div>{children}</div>
+          <div className={s.inner}>{children}</div>
         </RadixAccordion.Content>
       </RadixAccordion.Item>
     </RadixAccordion.Root>

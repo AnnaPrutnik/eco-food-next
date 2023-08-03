@@ -1,18 +1,31 @@
 'use client';
 
+import { useState } from 'react';
 import { Accordion } from '@/components/common/accordion';
 import { BrandInput } from './brand-input';
-import { BrandList } from './brand-list';
+import { OptionGroup } from '@/components/common/option-group';
+import { IBrand } from '@/types';
+import { QUERY } from '@/constants';
 
-export const Brand = () => {
-  const onSearchBrands = (value: string) => {
-    console.log(value);
+interface IBrandProps {
+  data: IBrand[];
+}
+
+export const Brand = ({ data: defaultBrands }: IBrandProps) => {
+  const [brands, setBrands] = useState(defaultBrands);
+
+  const onClickBrandSearch = (value: string) => {
+    const normalizeValue = value.toLowerCase();
+    const newBrands = defaultBrands.filter((brand) =>
+      brand.name.toLowerCase().includes(normalizeValue)
+    );
+    setBrands(newBrands);
   };
 
   return (
-    <Accordion title="Brand" defaultOpen={true}>
-      <BrandInput onChangeInput={onSearchBrands} />
-      <BrandList />
+    <Accordion title="brand" defaultOpen={true}>
+      <BrandInput onChangeInput={onClickBrandSearch} />
+      <OptionGroup name={QUERY.brand} options={brands} />
     </Accordion>
   );
 };
