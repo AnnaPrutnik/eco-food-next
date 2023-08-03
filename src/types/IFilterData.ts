@@ -1,4 +1,4 @@
-interface IFilterItem {
+export interface IFilterItem {
   _id: string;
   name: string;
 }
@@ -22,7 +22,7 @@ export interface IFilterData {
     max: number;
   };
   brands: IBrand[];
-  countrys: ICountry[];
+  countries: ICountry[];
   form: IForm[];
   availability: IAvailability[];
   delivery: IDelivery[];

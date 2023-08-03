@@ -1,7 +1,14 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { useState, useEffect, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { PriceInput } from './price-input';
+import { PriceSlider } from './price-slider';
+import { Accordion } from '@/components/common/accordion';
+import { QUERY } from '@/constants';
+import { useCustomParams } from '@/hooks';
+import { checkValueIsNumber } from '@/helpers';
+import s from './price.module.scss';
 
 interface PriceProps {
   min: number;
@@ -10,40 +17,92 @@ interface PriceProps {
 
 export const Price = ({ min, max }: PriceProps) => {
   const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
+  const { setNewSearchParams } = useCustomParams();
+  const defaultPrice: number[] = useMemo(() => [min, max], [min, max]);
 
-  const createNewSearchParams = (name: string, value: number) => {
-    const param = { [name]: value.toString() };
-    const newParam = new URLSearchParams(param);
-    return newParam.toString();
-  };
+  const priceParam = useMemo(() => {
+    const param = searchParams.get(QUERY.price);
+    if (param) {
+      return param
+        .split('_')
+        .splice(0, 2)
+        .map((item, index) => checkValueIsNumber(item, defaultPrice[index]));
+    }
+    return null;
+  }, [defaultPrice, searchParams]);
 
-  const minPrice = searchParams.get('price_min');
-  const maxPrice = searchParams.get('price_max');
+  const [price, setPrice] = useState<number[]>(() =>
+    priceParam ? priceParam : defaultPrice
+  );
+  const [isPriceQuery, setIsPriceQuery] = useState(true);
 
   useEffect(() => {
-    let newSearchParams = '';
-    if (!minPrice) {
-      const minPriceParam = createNewSearchParams('price_min', min);
-      newSearchParams += minPriceParam;
+    if (isPriceQuery) {
+      setPriceQuery();
+      setIsPriceQuery(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPriceQuery]);
 
-    if (!maxPrice) {
-      const maxPriceParam = createNewSearchParams('price_max', max);
-      const divider = newSearchParams === '' ? '' : '&';
-      newSearchParams = newSearchParams + divider + maxPriceParam;
-    }
-
-    if (newSearchParams === '') {
+  useEffect(() => {
+    if (!priceParam) {
+      if (price[0] !== min) {
+        setPrice((prev) => [min, prev[1]]);
+      }
+      if (price[1] !== max) {
+        setPrice((prev) => [prev[0], max]);
+      }
       return;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [priceParam]);
 
-    const divider = searchParams.toString() === '' ? '' : '&';
-    newSearchParams = searchParams.toString() + divider + newSearchParams;
+  const setPriceQuery = () => {
+    const priceValue = price.join('_');
+    setNewSearchParams(QUERY.price, priceValue);
+  };
 
-    router.push(pathname + '?' + newSearchParams);
-  }, [searchParams]);
+  const onSetPriceOnQuery = () => {
+    setIsPriceQuery(true);
+  };
 
-  return <div>price</div>;
+  const onChangePrice = (values: number[]) => {
+    setPrice(values);
+    onSetPriceOnQuery();
+  };
+
+  const onChangeInputPrice = (value: number, type: 'min' | 'max') => {
+    const newValue = type === 'max' ? [price[0], value] : [value, price[1]];
+    setPrice(newValue);
+    onSetPriceOnQuery();
+  };
+
+  return (
+    <Accordion title="price" defaultOpen={true}>
+      <PriceSlider
+        max={max}
+        min={min}
+        price={price}
+        onChangePrice={onChangePrice}
+      />
+      <div className={s.inputs}>
+        <PriceInput
+          label="from"
+          name="min"
+          value={price[0]}
+          onChangeInput={onChangeInputPrice}
+          min={min}
+          max={price[1]}
+        />
+        <PriceInput
+          label="to"
+          name="max"
+          value={price[1]}
+          onChangeInput={onChangeInputPrice}
+          min={price[0]}
+          max={max}
+        />
+      </div>
+    </Accordion>
+  );
 };
