@@ -6,18 +6,17 @@ import { PriceInput } from './price-input';
 import { PriceSlider } from './price-slider';
 import { Accordion } from '@/components/common/accordion';
 import { QUERY } from '@/constants';
-import { useCustomParams } from '@/hooks';
 import { checkValueIsNumber } from '@/helpers';
 import s from './price.module.scss';
 
 interface PriceProps {
   min: number;
   max: number;
+  onUpdateParams: (values: string[], type: string) => void;
 }
 
-export const Price = ({ min, max }: PriceProps) => {
+export const Price = ({ min, max, onUpdateParams }: PriceProps) => {
   const searchParams = useSearchParams();
-  const { setNewSearchParams } = useCustomParams();
   const defaultPrice: number[] = useMemo(() => [min, max], [min, max]);
 
   const priceParam = useMemo(() => {
@@ -58,8 +57,8 @@ export const Price = ({ min, max }: PriceProps) => {
   }, [priceParam]);
 
   const setPriceQuery = () => {
-    const priceValue = price.join('_');
-    setNewSearchParams(QUERY.price, priceValue);
+    const priceValue = price.map((item) => item.toString());
+    onUpdateParams(priceValue, QUERY.price);
   };
 
   const onSetPriceOnQuery = () => {

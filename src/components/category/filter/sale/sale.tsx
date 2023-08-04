@@ -7,19 +7,18 @@ import { QUERY } from '@/constants';
 import { useMemo } from 'react';
 
 const VALUE = 'on-sale';
+interface SaleProps {
+  onUpdateParams: (value: string[], type: string) => void;
+}
 
-export const Sale = () => {
-  const { removePropertyFromParams, setNewSearchParams } = useCustomParams();
-
+export const Sale = ({ onUpdateParams }: SaleProps) => {
   const searchParams = useSearchParams();
   const query = searchParams.get(QUERY.sale);
   const sale = useMemo(() => (query ? VALUE : null), [query]);
+
   const onChangeSale = () => {
-    if (sale) {
-      removePropertyFromParams(QUERY.sale);
-    } else {
-      setNewSearchParams(QUERY.sale, VALUE);
-    }
+    const values = sale ? [] : [VALUE];
+    onUpdateParams(values, QUERY.sale);
   };
   return (
     <Accordion title="sale">
