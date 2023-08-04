@@ -16,10 +16,7 @@ export const Category = async ({ categoryUrl }: { categoryUrl: string }) => {
         <Breadcrumbs />
         <h1 className={s.title}>{title}</h1>
       </div>
-      <div className={s.filter}>
-        <Filter filterData={filter} />
-      </div>
-
+      <Filter filterData={filter} />
       <div className={s.catalogue}>Catalogue</div>
     </div>
   );

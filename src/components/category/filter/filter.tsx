@@ -1,5 +1,5 @@
 'use client';
-import s from './filter.module.scss';
+import { useState } from 'react';
 import { Price } from './price';
 import { Brand } from './brand';
 import { Form } from './form';
@@ -9,13 +9,16 @@ import { Country } from './country';
 import { Delivery } from './delivery';
 import { IFilterData } from '@/types';
 import { useCustomParams } from '@/hooks';
+import { ExitIcon } from '@/components';
+import s from './filter.module.scss';
+
 interface FilterProps {
   filterData: IFilterData;
 }
 
 export const Filter = ({ filterData }: FilterProps) => {
   const { price, brands, form, availability, countries, delivery } = filterData;
-
+  const [isOpen, setIsOpen] = useState(false);
   const { setNewSearchParams, removePropertyFromParams } = useCustomParams();
 
   const onUpdateParams = (values: string[], type: string) => {
@@ -26,10 +29,22 @@ export const Filter = ({ filterData }: FilterProps) => {
     }
   };
 
+  const onClickMobileExitBtn = () => {
+    setIsOpen(false);
+  };
+
+  const onClickFilterBtn = () => {
+    setIsOpen(true);
+  };
   return (
     <>
-      <button className={s.mobileBtn}>Filter</button>
-      <div className={s.menu}>
+      <button className={s.mobileBtn} onClick={onClickFilterBtn}>
+        Filter
+      </button>
+      <div className={`${s.menu} ${isOpen ? s.openMenu : s.closeMenu}`}>
+        <button className={s.close} onClick={onClickMobileExitBtn}>
+          <ExitIcon />
+        </button>
         <h3 className={s.title}>Filter</h3>
         <ul className={s.list}>
           <li className={s.item}>

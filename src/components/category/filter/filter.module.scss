@@ -16,16 +16,64 @@
 }
 
 .menu {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: $light-bg;
+  z-index: 10;
+  transition: transform $transitions;
 
   @media (min-width: $medium) {
-    display: block;
+    position: static;
+    min-height: auto;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+.openMenu {
+  transform: translateX(0%);
+}
+
+.closeMenu {
+  transform: translateX(-100%);
+
+  @media (min-width: $medium) {
+    transform: translateX(0%);
+  }
+}
+
+.close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $rounded-radius;
+
+  &:hover {
+    background-color: $dark-border;
+  }
+
+  @media (min-width: $medium) {
+    display: none;
   }
 }
 
 .title {
   font-size: 24px;
   font-weight: 700;
+}
+
+.list {
+  max-width: 270px;
+  margin: 0 auto;
 }
 
 .item {
