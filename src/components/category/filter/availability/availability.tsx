@@ -5,12 +5,17 @@ import { QUERY } from '@/constants';
 
 interface AvailabilityProps {
   data: IAvailability[];
+  onUpdateParams: (value: string[], type: string) => void;
 }
 
-export const Availability = ({ data }: AvailabilityProps) => {
+export const Availability = ({ data, onUpdateParams }: AvailabilityProps) => {
   return (
     <Accordion title="availability">
-      <OptionGroup options={data} name={QUERY.availability} />
+      <OptionGroup
+        options={data}
+        name={QUERY.availability}
+        onChange={onUpdateParams}
+      />
     </Accordion>
   );
 };

@@ -9,29 +9,26 @@ import s from './option-group.module.scss';
 interface OptionGroupProps {
   options: IFilterItem[];
   name: string;
+  onChange: (value: string[], type: string) => void;
 }
 
-export const OptionGroup = ({ options, name }: OptionGroupProps) => {
-  const { getValuesFromParams, setNewSearchParams, removePropertyFromParams } =
-    useCustomParams();
-
-  const values = getValuesFromParams(name);
+export const OptionGroup = ({ options, name, onChange }: OptionGroupProps) => {
+  const { getValuesFromParams } = useCustomParams();
 
   const normalizedValue = (value: string) => {
     return value.split(' ').join('-');
   };
+
+  const values = getValuesFromParams(name);
+
   const onChangeValues = (value: string) => {
     const property = normalizedValue(value);
-    const isValueChecked = values.includes(property);
-    const newValues = isValueChecked
-      ? values.filter((item) => item !== value)
-      : [...values, property];
+    const isValueIncludes = values.includes(property);
 
-    if (newValues.length > 0) {
-      setNewSearchParams(name, newValues.join('_'));
-    } else {
-      removePropertyFromParams(name);
-    }
+    const newValues = isValueIncludes
+      ? values.filter((item) => item !== property)
+      : [...values, property];
+    onChange(newValues, name);
   };
 
   return (
@@ -39,7 +36,9 @@ export const OptionGroup = ({ options, name }: OptionGroupProps) => {
       <ul className={s.list} role="group">
         {options.map((item) => {
           const title = item.name.toLowerCase();
-          const isChecked = values.includes(normalizedValue(title));
+          const titleForCompare = normalizedValue(title);
+          const isChecked = values.includes(titleForCompare);
+
           return (
             <li key={item._id}>
               <Checkbox

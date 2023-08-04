@@ -9,9 +9,10 @@ import { QUERY } from '@/constants';
 
 interface IBrandProps {
   data: IBrand[];
+  onUpdateParams: (value: string[], type: string) => void;
 }
 
-export const Brand = ({ data: defaultBrands }: IBrandProps) => {
+export const Brand = ({ data: defaultBrands, onUpdateParams }: IBrandProps) => {
   const [brands, setBrands] = useState(defaultBrands);
 
   const onClickBrandSearch = (value: string) => {
@@ -25,7 +26,11 @@ export const Brand = ({ data: defaultBrands }: IBrandProps) => {
   return (
     <Accordion title="brand" defaultOpen={true}>
       <BrandInput onChangeInput={onClickBrandSearch} />
-      <OptionGroup name={QUERY.brand} options={brands} />
+      <OptionGroup
+        name={QUERY.brand}
+        options={brands}
+        onChange={onUpdateParams}
+      />
     </Accordion>
   );
 };
